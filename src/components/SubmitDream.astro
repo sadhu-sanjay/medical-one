@@ -17,7 +17,7 @@ interface Props {
   }
 </style>
 
-<div class="p-8 m-4 bg-white rounded-full">
+<div class="p-8 m-4 bg-white rounded-full z-10">
   <h1>
     <span class="font-bold text-gradient text-5xl sm:text-7xl">
       my..dreams</span
@@ -27,15 +27,15 @@ interface Props {
 <form
   id="form"
   class="card w-full sm:w-96 shadow-xl bg-base-100 my-auto flex flex-col items-center gap-6
-  p-8"
+  p-8 z-0"
   onsubmit="onDreamSubmit(event)"
 >
   <textarea
     id="text-area"
     class="textarea textarea-bordered text-gray-800
-   transition-opacity duration-500 "
+   transition-opacity duration-1000 "
     placeholder="Enter your dream"></textarea>
-  <button id="submit-button" class="btn rounded-full transition-opacity duration-500" type="submit"
+  <button id="submit-button" class="btn rounded-full transition-opacity duration-1000" type="submit"
     >Submit</button
   >
 </form>
