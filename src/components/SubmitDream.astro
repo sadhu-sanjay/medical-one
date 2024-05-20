@@ -5,7 +5,6 @@ interface Props {
 }
 ---
 
-
 <style>
   .text-gradient {
     color: #dc143c;
@@ -16,7 +15,6 @@ interface Props {
     /* background-color: white; */
     border-radius: 50%;
   }
-
 </style>
 
 <div class="p-8 m-4 bg-white rounded-full">
@@ -28,39 +26,44 @@ interface Props {
 </div>
 <form
   id="form"
-  class="
-  card w-full sm:w-96 shadow-xl bg-base-100 my-auto flex flex-col items-center gap-6
-  p-8  "
+  class="card w-full sm:w-96 shadow-xl bg-base-100 my-auto flex flex-col items-center gap-6
+  p-8"
   onsubmit="onDreamSubmit(event)"
 >
   <textarea
     id="text-area"
-    class="textarea textarea-bordered text-gray-800"
+    class="textarea textarea-bordered text-gray-800
+   transition-opacity duration-1000 "
     placeholder="Enter your dream"></textarea>
-  <button id="submitButton" class="btn rounded-full" type="submit">Submit</button>
+  <button id="submit-button" class="btn rounded-full transition-opacity duration-1000" type="submit"
+    >Submit</button
+  >
 </form>
 
-<script is:inline >
+<script is:inline>
   function onDreamSubmit(event) {
-    console.log("Event", event)
+    console.log("Event", event);
 
     event.preventDefault(); // Prevent the default form submission behavior
 
-    const dreamText = document.getElementById('textdiv')
+    const dreamText = document.getElementById("textdiv");
     if (dreamText) {
-      const value = dreamText.value
+      const value = dreamText.value;
       console.log("Hi Sanjay", value); // Log the textarea value to the console
     }
-    
-    const formEl = document.getElementById('form')
-    formEl.classList.add('animate-slideUp')
-    // const textArea = document.getElementById('text-area')
-    // textArea.style.opacity = 0
-    // const submitButton = document.getElementById('submitButton')
-    // submitButton.style.opacity = 0
+
+    const formEl = document.getElementById("form");
+    const textArea = document.getElementById("text-area");
+    const submitButton = document.getElementById("submit-button");
+    textArea.style.opacity = 0
+    submitButton.style.opacity = 0
+
+    formEl.classList.add("animate-slideUp");
+
     setTimeout(() => {
-      formEl.classList.remove('animate-slideUp')
+      formEl.classList.remove("animate-slideUp");
+      textArea.style.opacity = 1
+      submitButton.style.opacity = 1
     }, 1500);
   }
-
 </script>

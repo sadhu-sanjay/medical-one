@@ -6,14 +6,15 @@ export default {
       keyframes: {
         slideUp: {
           "0%": { transform: "translateY(0px)"},
-          "50%": { borderRadius: "20%", height: "200px" },
+          "50%": { borderRadius: "10%", height: "200px" },
           "100%": {
-            transform: "translateY(-50dvh)",
+            transform: "translateY(-45dvh)",
             borderRadius: "50%",
             width: "100px",
             height: "100px",
           },
         },
+		
       },
       animation: {
         slideUp: "slideUp 1.5s ease-in-out",
