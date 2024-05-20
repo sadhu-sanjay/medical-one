@@ -5,7 +5,7 @@ export default {
     extend: {
       keyframes: {
         slideUp: {
-          "0%": { transform: "translateY(0px)", borderRadius: "0%" },
+          "0%": { transform: "translateY(0px)"},
           "50%": { borderRadius: "20%", height: "200px" },
           "100%": {
             transform: "translateY(-50dvh)",
@@ -16,7 +16,7 @@ export default {
         },
       },
       animation: {
-        slideUp: "slideUp 1s ease-out",
+        slideUp: "slideUp 1.5s ease-in-out",
       },
     },
   },
