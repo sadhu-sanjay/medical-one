@@ -14,6 +14,7 @@ interface Props {
     background-size: 400%;
     background-position: 0%; */
     /* background-color: white; */
+    border-radius: 50%;
   }
 
 </style>
@@ -29,14 +30,14 @@ interface Props {
   id="form"
   class="
   card w-full sm:w-96 shadow-xl bg-base-100 my-auto flex flex-col items-center gap-6
-  p-8 transition-all "
+  p-8  "
   onsubmit="onDreamSubmit(event)"
 >
   <textarea
-    id="textdiv"
+    id="text-area"
     class="textarea textarea-bordered text-gray-800"
     placeholder="Enter your dream"></textarea>
-  <button class="btn rounded-full" type="submit">Submit</button>
+  <button id="submitButton" class="btn rounded-full" type="submit">Submit</button>
 </form>
 
 <script is:inline >
@@ -53,6 +54,10 @@ interface Props {
     
     const formEl = document.getElementById('form')
     formEl.classList.add('animate-slideUp')
+    // const textArea = document.getElementById('text-area')
+    // textArea.style.opacity = 0
+    // const submitButton = document.getElementById('submitButton')
+    // submitButton.style.opacity = 0
     setTimeout(() => {
       formEl.classList.remove('animate-slideUp')
     }, 1000);
