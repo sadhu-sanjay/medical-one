@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "mydreams-demo",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
