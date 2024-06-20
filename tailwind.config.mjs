@@ -26,12 +26,12 @@ export default {
         slideUp: "slideUp 1.5s ease-in-out",
       },
       colors: {
-        primary: `var(rgb(--color-primary))`,
-        secondary: `var(rgb(--color-secondary))`,
-        
-        background: `var(rgb(--color-background))`,
-        surface: `var(rgb(--color-surface))`,
-        text: `var(rgb(--color-text))`,
+        "primary": "var(--primary-color)",
+        "primary-background": "var(--primary-background-color)",
+        "secondary": "var(--secondary-color)",
+        "accent": "var(--accent-color)",
+        "background": "var(--background-color)",
+        "suface": "var(--surface-color)",
       },
     },
   },
