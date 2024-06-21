@@ -1,31 +1,38 @@
 ---
 import Card from "../components/Card.astro";
+import Page1 from "../components/Page1.astro";
 ---
-
-<div class="relative bg-primary-background w-full h-full">
-  <div
-    class="absolute
-    flex flex-col items-center gap-8
-    top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-  >
-    <Card />
-    <div
-      class="border border-primary border-1
-      text-primary
-      tracking-tighter
-      rounded-lg px-5 py-2.5 font-bold flex items-center"
-    >
-      <p class="font-bold text-4xl">•</p>
-      <h1 class="ml-2">Complexity is increasing</h1>
-    </div>
-    <h1
-      class="text-primary font-extrabold text-6xl
-      tracking-tighter
-      leading-tight
-      text-center"
-    >
-      Health and care workers usually make mistakes as a result of a system or
-      process failures, not because of their own errors.
-    </h1>
-  </div>
+<div class=" overflow-auto w-full h-auto">
+  <Page1 />
+  <Card />
 </div>
+
+<!-- Create a div whose visibility changes to 100% when it enters the viewport -->
+
+<style is:global>
+  .show {
+    opacity: 1;
+    background-color: red;
+  }
+  .doth {
+    opacity: 0;
+    transition: all 1s;
+    background-color: red;
+  }
+</style>
+
+<script>
+  // const intersectionObserver = new IntersectionObserver((entries) => {
+  //   entries.forEach((entry) => {
+  //     if (entry.isIntersecting) {
+  //       entry.target.classList.add("show");
+  //     } else {
+  //       entry.target.classList.remove("show");
+  //     }
+  //   });
+  // });
+
+  // const doth = document.querySelector(".doth");
+  // console.log(doth);
+  // intersectionObserver.observe(doth!);
+</script>

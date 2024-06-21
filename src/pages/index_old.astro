@@ -6,7 +6,7 @@ import Mainpage from "./Mainpage.astro";
 
 <Layout title="Welcome to Astro.">
   <main class="flex flex-col items-center justify-start w-full h-full px-12">
-    <!-- <svg
+    <svg
       class="astro-a"
       width="495"
       height="623"
@@ -33,50 +33,16 @@ import Mainpage from "./Mainpage.astro";
           <stop offset="1" stop-opacity="0.2"></stop>
         </linearGradient>
       </defs>
-    </svg> -->
+    </svg>
     <!-- <SubmitDream title="Hello" body="Sanjay" /> -->
     <Mainpage />
   </main>
 </Layout>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      } else {
-        entry.target.classList.remove("show");
-      }
-    });
-  });
-
-  const goals = document.querySelectorAll(".dont-show");
-  goals.forEach((goal) => {
-    console.log("found");
-    observer.observe(goal);
-  });
-</script>
-
 <style>
-
-  .dont-show {
-    opacity: 0;
-    transform: translateX(-101%);
-  }
-  .show {
-    opacity: 1;
-    background-color: red;
-    transition: all 2s;
-    transform: translateX(0);
-  }
-
-  .full-page {
-    height: 100vh;
-    width: full;
-  }
   main {
     margin: auto;
-    padding: 1rem;
+    padding: 2rem;
     width: 800px;
     color: white;
     font-size: 20px;
@@ -101,7 +67,7 @@ import Mainpage from "./Mainpage.astro";
     text-align: center;
     margin-bottom: 1em;
   }
-
+  
   .instructions {
     margin-bottom: 2rem;
     border: 1px solid rgba(var(--accent-light), 25%);
