@@ -1,16 +1,19 @@
 ---
 import Card from "../components/Card.astro";
-import Page1 from "../components/Page1.astro";
+import Section1 from "../section/Section1.astro";
+import Section2 from "../section/Section2.astro";
 ---
-<div class=" overflow-auto w-full h-auto">
-  <Page1 />
-  <Card />
+
+<div id="base" class="overflow-auto w-full h-auto">
+  <Section1 />
+  <Section2 />
 </div>
+
 
 <!-- Create a div whose visibility changes to 100% when it enters the viewport -->
 
 <style is:global>
-  .show {
+  /* .show {
     opacity: 1;
     background-color: red;
   }
@@ -18,21 +21,25 @@ import Page1 from "../components/Page1.astro";
     opacity: 0;
     transition: all 1s;
     background-color: red;
-  }
+  } */
 </style>
 
 <script>
-  // const intersectionObserver = new IntersectionObserver((entries) => {
-  //   entries.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       entry.target.classList.add("show");
-  //     } else {
-  //       entry.target.classList.remove("show");
-  //     }
-  //   });
-  // });
+  const intersectionObserver = new IntersectionObserver((entries) => {
 
-  // const doth = document.querySelector(".doth");
-  // console.log(doth);
-  // intersectionObserver.observe(doth!);
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");
+      }
+    });
+  });
+
+  const doth = document.querySelector(".doth");
+  console.log(doth);
+  intersectionObserver.observe(doth!);
+
+
+  
 </script>
