@@ -2,8 +2,78 @@
 import Card from "../components/Card.astro";
 ---
 
-<section id="section2" class="doth w-full h-screen ">
-
-  <Card />
-
+<section id="section2" >
+  <Card text="Many Regulatory policies to comply with" 
+  class="absolute left-0 top-0 noshow showfromright" />
+  <Card text="New clinical evidence to understand and implement." 
+  class="absolute right-0 top-0 noshow showfromleft" />
+  <Card text="New clinical evidence to understand and implement." 
+  class="absolute right-0 bottom-0 noshow showfromleft" />
+  <Card text="New clinical evidence to understand and implement." 
+  class="absolute left-0 botttom-0 noshow showfromright" />
 </section>
+
+<style is:global>
+  /* Animate in from right side  */
+  .showfromleft {
+    opacity: 1;
+    animation: slideout 3s forwards;
+    animation-play-state: paused; 
+  }
+
+  @keyframes slideout {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%) translateY(30%)
+    }
+  }
+
+  .showfromright {
+    opacity: 1;
+    animation: slideIn 3s forwards;
+    animation-play-state: paused; 
+  }
+
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(50%) translateY(40%);
+    }
+  }
+
+  .showfromright.show {
+    animation-play-state: running;
+  }
+  .showfromleft.show {
+    animation-play-state: running;
+  }
+
+</style>
+
+<script>
+
+  const intersectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("Hi Sanjay", entry);
+          // set the animation to state to running
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+  );
+  
+  const elements = document.querySelectorAll(".noshow");
+  elements.forEach((element) => {
+    intersectionObserver.observe(element);
+  });
+
+</script>

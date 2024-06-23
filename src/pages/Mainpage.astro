@@ -13,33 +13,15 @@ import Section2 from "../section/Section2.astro";
 <!-- Create a div whose visibility changes to 100% when it enters the viewport -->
 
 <style is:global>
-  /* .show {
-    opacity: 1;
-    background-color: red;
-  }
-  .doth {
+  .noshow {
     opacity: 0;
-    transition: all 1s;
-    background-color: red;
-  } */
+  }
+  .show {
+    opacity: 1;
+  }
 </style>
 
 <script>
-  const intersectionObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      } else {
-        entry.target.classList.remove("show");
-      }
-    });
-  });
-
-  const doth = document.querySelector(".doth");
-  console.log(doth);
-  intersectionObserver.observe(doth!);
-
 
   
 </script>
