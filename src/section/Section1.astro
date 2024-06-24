@@ -1,25 +1,36 @@
-<div class="relative bg-primary-background w-full h-[100dvh] overflow-scroll">
-  <div
-    class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2 
-    -translate-x-1/2 -translate-y-1/2"
-  >
+---
+import Card from "../components/Card.astro";
+---
+
+<div class="bg-blue-600 h-auto">
+  <div class="relative bg-primary-background w-full h-[100dvh]">
     <div
-      class="border border-primary border-1
+      class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
+    -translate-x-1/2 -translate-y-1/2"
+    >
+      <div
+        class="border border-primary border-1
         text-primary
         tracking-tighter
         rounded-lg px-6 py-2 font-bold flex items-center"
-    >
-      <p class="font-bold text-4xl">•</p>
-      <h1 class="ml-2">Complexity is increasing</h1>
-    </div>
-    <h1
-      class="text-primary font-extrabold text-6xl
+      >
+        <p class="font-bold text-4xl">•</p>
+        <h1 class="ml-2">Complexity is increasing</h1>
+      </div>
+      <h1
+        class="text-primary font-extrabold text-6xl
         tracking-tighter
         leading-tight
         text-center"
-    >
-      Health and care workers usually make mistakes as a result of a system or
-      process failures, not because of their own errors.
-    </h1>
+      >
+        Health and care workers usually make mistakes as a result of a system or
+        process failures, not because of their own errors.
+      </h1>
+    </div>
   </div>
+
+  <Card
+    text="Many Regulatory policies to comply with"
+    class="rectangle top-left in-view"
+  />
 </div>

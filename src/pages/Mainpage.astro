@@ -4,11 +4,10 @@ import Section1 from "../section/Section1.astro";
 import Section2 from "../section/Section2.astro";
 ---
 
-<div id="base" class="overflow-auto w-full h-auto">
+<div id="base" class="overflow-scroll w-full h-auto relative">
   <Section1 />
-  <Section2 />
+  <!-- <Section2 /> -->
 </div>
-
 
 <!-- Create a div whose visibility changes to 100% when it enters the viewport -->
 
@@ -19,9 +18,9 @@ import Section2 from "../section/Section2.astro";
   .show {
     opacity: 1;
   }
+
 </style>
 
 <script>
 
-  
 </script>
