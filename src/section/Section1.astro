@@ -2,8 +2,8 @@
 import Card from "../components/Card.astro";
 ---
 
-<div class="bg-blue-600 h-auto">
-  <div class="relative bg-primary-background w-full h-[100dvh]">
+<div id="section1" class="relative bg-blue-600 h-[200dvh]">
+  <div class="sticky top-0 bg-primary-background w-full h-[100dvh]">
     <div
       class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
     -translate-x-1/2 -translate-y-1/2"
@@ -31,6 +31,48 @@ import Card from "../components/Card.astro";
 
   <Card
     text="Many Regulatory policies to comply with"
-    class="rectangle top-left in-view"
+    class="relative top-0 left-8"
   />
+
+  <h1>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, velit
+    molestias, commodi in numquam corporis enim quisquam distinctio expedita
+    esse aut ut delectus iusto excepturi recusandae, quidem quis facere et!
+  </h1>
+  <h1>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, velit
+    molestias, commodi in numquam corporis enim quisquam distinctio expedita
+    esse aut ut delectus iusto excepturi recusandae, quidem quis facere et!
+  </h1>
+  <h1>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam suscipit
+    dolores labore, corrupti eos ipsa perspiciatis vitae modi, fugit sit iure
+    nam eligendi quo a quis illum nemo! Odit, aut!
+  </h1>
 </div>
+
+<script>
+  // once you have scrolled past towards the bottom of 
+
+</script>
+
+<style is:global>
+  .rectangle {
+    position: relative;
+    width: 20%;
+    height: 20%;
+    background-color: var(--surface-color);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  .top-left {
+    top: 10;
+    left: 20;
+    transform: translateX(-100%);
+  }
+
+  .in-view {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+</style>
