@@ -34,53 +34,65 @@ import Card from "../components/Card.astro";
     text="Many Regulatory policies to comply with"
     class="relative top-0 left-8" -->
 
-    <div
-      class="absolute w-40 h-20 top-32 left-40
-    bg-blue-900 box "
-    >
-    </div>
+    <div class="bg-blue-900 top-box"></div>
+    <div class="bg-blue-900 bottom-box"></div>
+    <div class="bg-blue-900 left-box"></div>
+    <div class="bg-blue-900 right-box"></div>
   </div>
 </div>
 
 <script is:inline>
   // on scroll add in-view class to rectangle
-  window.addEventListener("scroll", () => {
-    const rectangle = document.querySelector(".box");
+  document.addEventListener('scroll', () => {
+  const percentageScrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  const boxes = document.querySelectorAll('.top-box, .bottom-box, .left-box, .right-box');
 
-    const rectTop = rectangle.getBoundingClientRect().top;
-    const rectBottom = rectangle.getBoundingClientRect().bottom;
-
-    const percentageScrolled =
-      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-      100;
-    console.log(percentageScrolled);
-
-    if (percentageScrolled > 50) {
-      // rectangle.classList.add('top-left')
-    } else {
-      // rectangle.classList.remove("top-left");
-    }
-  });
+  if (percentageScrolled > 50) {
+    boxes.forEach(box => box.classList.add('centered'));
+  } else {
+    boxes.forEach(box => box.classList.remove('centered'));
+  }
+});
 </script>
 
 <style is:global>
-  .rectangle {
-    width: 20%;
+  /* Initial positions */
+  .top-box,
+  .bottom-box,
+  .left-box,
+  .right-box {
     position: absolute;
-    height: 10%;
-    background-color: var(--surface-color);
-    opacity: 0;
+    width: 100px; /* Example size */
+    height: 100px; /* Example size */
+    background-color: red; /* Example color */
     transition: all 0.5s ease-in-out;
   }
-  .top-left {
-    top: 10;
-    left: 20;
-    opacity: 1;
-    transform: translateX(100%);
+
+  .top-box {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .bottom-box {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .left-box {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .right-box {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
-  .in-view {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
+  /* Final position */
+  .centered {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
 </style>
