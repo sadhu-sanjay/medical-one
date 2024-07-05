@@ -2,53 +2,63 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="section1" class="relative overflow-auto">
-  <div class="sticky top-0 bg-primary-background w-full h-[100dvh]">
-    <div
-      class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
-    -translate-x-1/2 -translate-y-1/2"
-    >
+<div class="relative w-full h-screen">
+  <div id="scrollContainer" class="h-[110dvh] w-full overflow-auto">
+    <div class="sticky top-0 bg-primary-background w-full h-[100dvh]">
       <div
-        class="border border-primary border-1
+        class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
+    -translate-x-1/2 -translate-y-1/2"
+      >
+        <div
+          class="border border-primary border-1
         text-primary
         tracking-tighter
         rounded-lg px-6 py-2 font-bold flex items-center"
-      >
-        <p class="font-bold text-4xl">•</p>
-        <h1 class="ml-2">Complexity is increasing</h1>
-      </div>
-      <h1
-        class="text-primary font-extrabold text-6xl
+        >
+          <p class="font-bold text-4xl">•</p>
+          <h1 class="ml-2">Complexity is increasing</h1>
+        </div>
+        <h1
+          class="text-primary font-extrabold text-6xl
         tracking-tighter
         leading-tight
         text-center"
-      >
-        Health and care workers usually make mistakes as a result of a system or
-        process failures, not because of their own errors.
-      </h1>
+        >
+          Health and care workers usually make mistakes as a result of a system
+          or process failures, not because of their own errors.
+        </h1>
+      </div>
+    </div>
+
+    <!-- <Card
+    text="Many Regulatory policies to comply with"
+    class="relative top-0 left-8" -->
+
+    <div
+      class="absolute w-40 h-20 top-32 left-40
+    bg-blue-900 box "
+    >
     </div>
   </div>
-
-  <!-- <Card
-    text="Many Regulatory policies to comply with"
-    class="relative top-0 left-8"
-  /> -->
-
-  <!-- <div class="rectangle top-left">Sanjay Goswami</div> -->
 </div>
 
 <script is:inline>
   // on scroll add in-view class to rectangle
   window.addEventListener("scroll", () => {
-    const rectangle = document.querySelector(".rectangle");
+    const rectangle = document.querySelector(".box");
+
     const rectTop = rectangle.getBoundingClientRect().top;
     const rectBottom = rectangle.getBoundingClientRect().bottom;
-    console.log("Inner Heigh", window.innerHeight, rectTop);
-    
-    if (rectTop < window.innerHeight && rectBottom > 0) {
-      rectangle.classList.add("in-view");
+
+    const percentageScrolled =
+      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+      100;
+    console.log(percentageScrolled);
+
+    if (percentageScrolled > 50) {
+      // rectangle.classList.add('top-left')
     } else {
-      rectangle.classList.remove("in-view");
+      // rectangle.classList.remove("top-left");
     }
   });
 </script>
@@ -56,6 +66,7 @@ import Card from "../components/Card.astro";
 <style is:global>
   .rectangle {
     width: 20%;
+    position: absolute;
     height: 10%;
     background-color: var(--surface-color);
     opacity: 0;
