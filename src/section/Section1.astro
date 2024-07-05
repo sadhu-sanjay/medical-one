@@ -75,7 +75,10 @@ import Card from "../components/Card.astro";
   .top-left {
     top: 10%;
     left: 10%;
-    transform: translateX(-50%);
+  }
+  .top-right {
+    top: 10%;
+    right: 10%;
   }
   .bottom-left {
     bottom: 10%;
@@ -87,16 +90,29 @@ import Card from "../components/Card.astro";
     bottom: 10%;
     transform: translateY(-50%);
   }
-  .top-right {
-    right: 10%;
-    top: 10%;
-    transform: translateY(-50%);
-  }
 
-  /* Final position */
-  .centered {
+  .top-left.centered {
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
   }
+
+  .top-right.centered {
+    top: 50% !important;
+    right: 50% !important;
+    transform: translate(50%, -50%) !important;
+  }
+
+  .bottom-left.centered {
+    bottom: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, 50%) !important;
+  }
+
+  .bottom-right.centered {
+    bottom: 50% !important;
+    right: 50% !important;
+    transform: translate(50%, 50%) !important;
+  }
+
 </style>
