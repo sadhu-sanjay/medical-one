@@ -2,12 +2,13 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="scrollContainer" class="h-[210dvh] w-full">
+<div id="scrollContainer" class="h-[300dvh] w-full">
   <div
     id="section1"
     class="sticky top-0 bg-primary-background w-full h-[100dvh]"
   >
     <div
+      id="hero-box"
       class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
     -translate-x-1/2 -translate-y-1/2"
     >
@@ -31,32 +32,45 @@ import Card from "../components/Card.astro";
       </h1>
     </div>
 
-    <div class="bg-blue-900 top-left">Box 1</div>
+    <!-- <div class="bg-blue-900 top-left">Box 1</div>
     <div class="bg-blue-900 top-right">Box 2</div>
     <div class="bg-blue-900 bottom-right">Box 4</div>
-    <div class="bg-blue-900 bottom-left">Box 3</div>
+    <div class="bg-blue-900 bottom-left">Box 3</div> -->
+    <Card text="Many Regulatory policies to comply with" class="top-left" />
+    <Card text="Many Regulatory policies to comply with" class="top-right" />
+    <Card text="Many Regulatory policies to comply with" class="bottom-right" />
+    <Card text="Many Regulatory policies to comply with" class="bottom-left" />
   </div>
-
-  <!-- <Card
-    text="Many Regulatory policies to comply with"
-    class="relative top-0 left-8" -->
 </div>
 
 <script is:inline>
   document.addEventListener("scroll", () => {
-    console.log("scrolling");
     const percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
+
     const boxes = document.querySelectorAll(
       ".top-left, .top-right, .bottom-right, .bottom-left"
     );
+    const heroBox = document.getElementById("hero-box");
 
-    if (percentageScrolled > 50) {
-      boxes.forEach((box) => box.classList.add("centered"));
-    } else {
-      boxes.forEach((box) => box.classList.remove("centered"));
-    }
+    console.log(percentageScrolled);
+    boxes.forEach((box) => {
+
+      heroBox.style.opacity = 1 - percentageScrolled / 100;
+      if (percentageScrolled === 0) {
+        box.classList.remove("state-one", "state-two", "state-three");
+      } else if (percentageScrolled > 0 && percentageScrolled < 50) {
+        box.classList.add("state-one");
+        box.classList.remove("state-two", "state-three");
+      } else if (percentageScrolled > 50 && percentageScrolled < 75) {
+        box.classList.add("state-two");
+        box.classList.remove("state-one", "state-three");
+      } else if (percentageScrolled > 75) {
+        box.classList.add("state-three");
+        box.classList.remove("state-one", "state-two");
+      }
+    });
   });
 </script>
 
@@ -70,32 +84,39 @@ import Card from "../components/Card.astro";
     width: 100px; /* Example size */
     height: 100px; /* Example size */
     background-color: red; /* Example color */
-    transition: all 0.5s ease-in-out;
+    transition: all 0.8s ease-in-out;
   }
 
-  .top-left {
-    top: 10%;
-    left: 10%;
-  }
-  .top-right {
-    top: 10%;
-    right: 10%;
-  }
   .bottom-left {
     bottom: 10%;
     left: 10%;
-    transform: translateX(-50%);
   }
   .bottom-right {
     right: 10%;
     bottom: 10%;
-    transform: translateY(-50%);
   }
 
-  .top-left.centered {
+  .top-left {
+    top: -25%;
+    left: -25%;
+    transform: scale(2);
+  }
+  .top-left.state-one {
+    top: 15% !important;
+    left: 5% !important;
+    transform: scale(1) !important;
+  }
+  .top-left.state-two {
+    top: 30% !important;
+    left: 20% !important;
+    transform: scale(0.7) !important;
+    opacity: 0.5;
+  }
+  .top-left.state-three {
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    transform: scale(0.5) translate(-100%, -100%) !important;
+    opacity: 0.1;
   }
 
   .top-right.centered {
@@ -103,16 +124,31 @@ import Card from "../components/Card.astro";
     right: 50% !important;
     transform: translate(50%, -50%) !important;
   }
+  .top-right.semi-centered {
+    top: 25% !important;
+    right: 25% !important;
+    transform: translate(-25%, -25%) !important;
+  }
 
   .bottom-left.centered {
     bottom: 50% !important;
     left: 50% !important;
     transform: translate(-50%, 50%) !important;
   }
+  .bottom-left.semi-centered {
+    bottom: 25% !important;
+    left: 25% !important;
+    transform: translate(25%, 25%) !important;
+  }
 
   .bottom-right.centered {
     bottom: 50% !important;
     right: 50% !important;
     transform: translate(50%, 50%) !important;
+  }
+  .bottom-right.semi-centered {
+    bottom: 25% !important;
+    right: 25% !important;
+    transform: translate(-25%, 25%) !important;
   }
 </style>
