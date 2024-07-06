@@ -2,7 +2,7 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="scrollContainer" class="h-[300dvh] w-full">
+<div id="scrollContainer" class="h-[200dvh] w-full">
   <div
     id="section1"
     class="sticky top-0 bg-primary-background w-full h-[100dvh]"
@@ -37,15 +37,15 @@ import Card from "../components/Card.astro";
     <div class="bg-blue-900 bottom-right">Box 4</div>
     <div class="bg-blue-900 bottom-left">Box 3</div> -->
     <Card text="Many Regulatory policies to comply with" class="top-left" />
-    <!-- <Card text="Many Regulatory policies to comply with" class="top-right" /> -->
-    <!-- <Card text="Many Regulatory policies to comply with" class="bottom-right" />
-    <Card text="Many Regulatory policies to comply with" class="bottom-left" /> -->
+    <Card text="Many Regulatory policies to comply with" class="top-right" />
+    <Card text="Many Regulatory policies to comply with" class="bottom-right" />
+    <Card text="Many Regulatory policies to comply with" class="bottom-left" />
   </div>
 </div>
 
 <script is:inline>
   document.addEventListener("scroll", () => {
-    const percentageScrolled =
+    let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
 
@@ -56,12 +56,24 @@ import Card from "../components/Card.astro";
 
     console.log(percentageScrolled);
 
-  heroBox.style.opacity = 1 - percentageScrolled / 100;
-
+    heroBox.style.opacity = 1 - percentageScrolled / 100;
     boxes.forEach((box) => {
-      box.style.left = `${percentageScrolled/100 * document.body.clientWidth}%`
-      box.style.transform = percentageScrolled `scale(${1 - percentageScrolled / 100})`;
-      // box.style.opacity = 1 - percentageScrolled / 100;
+      const value = `${Math.min(percentageScrolled, 50)}%`;
+      if (box.classList.contains("top-left")) {
+        box.style.left = value;
+        box.style.top = value;
+      } else if (box.classList.contains("top-right")) {
+        box.style.right = value;
+        box.style.top = value;
+      } else if (box.classList.contains("bottom-right")) {
+        box.style.right = value;
+        box.style.bottom = value;
+      } else if (box.classList.contains("bottom-left")) {
+        box.style.left = value;
+        box.style.bottom = value;
+      }
+      box.style.scale = Math.max(1 - percentageScrolled / 100, 0.5);
+      box.style.opacity = 1 - percentageScrolled / 100;
     });
   });
 </script>
@@ -74,30 +86,27 @@ import Card from "../components/Card.astro";
   .top-right {
     position: absolute;
     width: 100px;
-    height: 100px; 
-    background-color: red; 
-    transition: all 0.8s ease-in-out;
+    height: 100px;
+    background-color: red;
+    transition: all 1s ease-in-out;
   }
 
   .top-left {
-    top: 25%;
-    left: 25%;
-    transform: scale(2);
+    transform: translate(-100%, -100%) scale(1.4);
   }
   .top-right {
-    top: -25%;
-    right: -25%;
-    transform: scale(2);
+    top: 0;
+    right: 0;
+    transform: translate(100%, -100%) scale(1.4);
   }
   .bottom-left {
-    bottom: 10%;
-    left: 10%;
+    bottom: 0;
+    left: 0;
+    transform: translate(-100%, 100%) scale(1.4);
   }
   .bottom-right {
-    right: 10%;
-    bottom: 10%;
+    right: 0%;
+    bottom: 0%;
+    transform: translate(100%, 100%) scale(1.4);
   }
-
-
-
 </style>
