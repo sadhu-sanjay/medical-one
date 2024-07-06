@@ -37,9 +37,9 @@ import Card from "../components/Card.astro";
     <div class="bg-blue-900 bottom-right">Box 4</div>
     <div class="bg-blue-900 bottom-left">Box 3</div> -->
     <Card text="Many Regulatory policies to comply with" class="top-left" />
-    <Card text="Many Regulatory policies to comply with" class="top-right" />
-    <Card text="Many Regulatory policies to comply with" class="bottom-right" />
-    <Card text="Many Regulatory policies to comply with" class="bottom-left" />
+    <!-- <Card text="Many Regulatory policies to comply with" class="top-right" /> -->
+    <!-- <Card text="Many Regulatory policies to comply with" class="bottom-right" />
+    <Card text="Many Regulatory policies to comply with" class="bottom-left" /> -->
   </div>
 </div>
 
@@ -55,21 +55,13 @@ import Card from "../components/Card.astro";
     const heroBox = document.getElementById("hero-box");
 
     console.log(percentageScrolled);
-    boxes.forEach((box) => {
 
-      heroBox.style.opacity = 1 - percentageScrolled / 100;
-      if (percentageScrolled === 0) {
-        box.classList.remove("state-one", "state-two", "state-three");
-      } else if (percentageScrolled > 0 && percentageScrolled < 50) {
-        box.classList.add("state-one");
-        box.classList.remove("state-two", "state-three");
-      } else if (percentageScrolled > 50 && percentageScrolled < 75) {
-        box.classList.add("state-two");
-        box.classList.remove("state-one", "state-three");
-      } else if (percentageScrolled > 75) {
-        box.classList.add("state-three");
-        box.classList.remove("state-one", "state-two");
-      }
+  heroBox.style.opacity = 1 - percentageScrolled / 100;
+
+    boxes.forEach((box) => {
+      box.style.left = `${percentageScrolled/100 * document.body.clientWidth}%`
+      box.style.transform = percentageScrolled `scale(${1 - percentageScrolled / 100})`;
+      // box.style.opacity = 1 - percentageScrolled / 100;
     });
   });
 </script>
@@ -81,12 +73,22 @@ import Card from "../components/Card.astro";
   .bottom-right,
   .top-right {
     position: absolute;
-    width: 100px; /* Example size */
-    height: 100px; /* Example size */
-    background-color: red; /* Example color */
+    width: 100px;
+    height: 100px; 
+    background-color: red; 
     transition: all 0.8s ease-in-out;
   }
 
+  .top-left {
+    top: 25%;
+    left: 25%;
+    transform: scale(2);
+  }
+  .top-right {
+    top: -25%;
+    right: -25%;
+    transform: scale(2);
+  }
   .bottom-left {
     bottom: 10%;
     left: 10%;
@@ -96,59 +98,6 @@ import Card from "../components/Card.astro";
     bottom: 10%;
   }
 
-  .top-left {
-    top: -25%;
-    left: -25%;
-    transform: scale(2);
-  }
-  .top-left.state-one {
-    top: 15% !important;
-    left: 5% !important;
-    transform: scale(1) !important;
-  }
-  .top-left.state-two {
-    top: 30% !important;
-    left: 20% !important;
-    transform: scale(0.7) !important;
-    opacity: 0.5;
-  }
-  .top-left.state-three {
-    top: 50% !important;
-    left: 50% !important;
-    transform: scale(0.5) translate(-100%, -100%) !important;
-    opacity: 0.1;
-  }
 
-  .top-right.centered {
-    top: 50% !important;
-    right: 50% !important;
-    transform: translate(50%, -50%) !important;
-  }
-  .top-right.semi-centered {
-    top: 25% !important;
-    right: 25% !important;
-    transform: translate(-25%, -25%) !important;
-  }
 
-  .bottom-left.centered {
-    bottom: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, 50%) !important;
-  }
-  .bottom-left.semi-centered {
-    bottom: 25% !important;
-    left: 25% !important;
-    transform: translate(25%, 25%) !important;
-  }
-
-  .bottom-right.centered {
-    bottom: 50% !important;
-    right: 50% !important;
-    transform: translate(50%, 50%) !important;
-  }
-  .bottom-right.semi-centered {
-    bottom: 25% !important;
-    right: 25% !important;
-    transform: translate(-25%, 25%) !important;
-  }
 </style>
