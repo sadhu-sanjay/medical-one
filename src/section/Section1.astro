@@ -2,48 +2,49 @@
 import Card from "../components/Card.astro";
 ---
 
-<div class="relative w-full h-screen">
-  <div id="scrollContainer" class="h-[110dvh] w-full overflow-auto">
-    <div class="sticky top-0 bg-primary-background w-full h-[100dvh]">
-      <div
-        class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
+<div id="scrollContainer" class="h-[210dvh] w-full">
+  <div
+    id="section1"
+    class="sticky top-0 bg-primary-background w-full h-[100dvh]"
+  >
+    <div
+      class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
     -translate-x-1/2 -translate-y-1/2"
-      >
-        <div
-          class="border border-primary border-1
+    >
+      <div
+        class="border border-primary border-1
         text-primary
         tracking-tighter
         rounded-lg px-6 py-2 font-bold flex items-center"
-        >
-          <p class="font-bold text-4xl">•</p>
-          <h1 class="ml-2">Complexity is increasing</h1>
-        </div>
-        <h1
-          class="text-primary font-extrabold text-6xl
+      >
+        <p class="font-bold text-4xl">•</p>
+        <h1 class="ml-2">Complexity is increasing</h1>
+      </div>
+      <h1
+        class="text-primary font-extrabold text-6xl
         tracking-tighter
         leading-tight
         text-center"
-        >
-          Health and care workers usually make mistakes as a result of a system
-          or process failures, not because of their own errors.
-        </h1>
-      </div>
+      >
+        Health and care workers usually make mistakes as a result of a system or
+        process failures, not because of their own errors.
+      </h1>
     </div>
-
-    <!-- <Card
-    text="Many Regulatory policies to comply with"
-    class="relative top-0 left-8" -->
 
     <div class="bg-blue-900 top-left">Box 1</div>
     <div class="bg-blue-900 top-right">Box 2</div>
     <div class="bg-blue-900 bottom-right">Box 4</div>
     <div class="bg-blue-900 bottom-left">Box 3</div>
   </div>
+
+  <!-- <Card
+    text="Many Regulatory policies to comply with"
+    class="relative top-0 left-8" -->
 </div>
 
 <script is:inline>
-  // on scroll add in-view class to rectangle
   document.addEventListener("scroll", () => {
+    console.log("scrolling");
     const percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
@@ -114,5 +115,4 @@ import Card from "../components/Card.astro";
     right: 50% !important;
     transform: translate(50%, 50%) !important;
   }
-
 </style>

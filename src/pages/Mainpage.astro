@@ -4,23 +4,8 @@ import Section1 from "../section/Section1.astro";
 import Section2 from "../section/Section2.astro";
 ---
 
-<div id="base" class="bg-blue-400 w-full h-auto relative">
+<!-- Chnage color of scroll indicator -->
+<div id="base" class="bg-blue-400 w-full h-auto relative ">
   <Section1 />
   <!-- <Section2 /> -->
 </div>
-
-<!-- Create a div whose visibility changes to 100% when it enters the viewport -->
-
-<style is:global>
-  .noshow {
-    opacity: 0;
-  }
-  .show {
-    opacity: 1;
-  }
-
-</style>
-
-<script>
-
-</script>
