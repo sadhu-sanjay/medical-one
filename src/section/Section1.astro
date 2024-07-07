@@ -32,14 +32,64 @@ import Card from "../components/Card.astro";
       </h1>
     </div>
 
-    <!-- <div class="bg-blue-900 top-left">Box 1</div>
-    <div class="bg-blue-900 top-right">Box 2</div>
-    <div class="bg-blue-900 bottom-right">Box 4</div>
-    <div class="bg-blue-900 bottom-left">Box 3</div> -->
-    <Card text="Many Regulatory policies to comply with" class="top-left" />
-    <Card text="Many Regulatory policies to comply with" class="top-right" />
-    <Card text="Many Regulatory policies to comply with" class="bottom-right" />
-    <Card text="Many Regulatory policies to comply with" class="bottom-left" />
+    <!-- <div class="bg-blue-900 box1">Box 1</div>
+    <div class="bg-blue-900 box2">Box 2</div>
+    <div class="bg-blue-900 box4">Box 4</div>
+    <div class="bg-blue-900 box3">Box 3</div> -->
+    <Card text="Many Regulatory policies to comply with" class="box1" />
+    <Card text="Many Regulatory policies to comply with" class="box2" />
+    <Card text="Many Regulatory policies to comply with" class="box4" />
+    <Card text="Many Regulatory policies to comply with" class="box3" />
+
+    <!-- secondary card -->
+    <Card text="Many Regulatory policies to comply with" class="box5" />
+    <Card text="Many Regulatory policies to comply with" class="box6" />
+    <Card text="Many Regulatory policies to comply with" class="box7" />
+  </div>
+</div>
+<div id="section2" class="bg-secondary-background w-full h-[300dvh]">
+  <div
+    id="section2"
+    class="sticky top-0 bg-primary-background w-full h-[100dvh]"
+  >
+    <div
+      id="hero-box"
+      class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
+    -translate-x-1/2 -translate-y-1/2"
+    >
+      <div
+        class="border border-primary border-1
+        text-primary
+        tracking-tighter
+        rounded-lg px-6 py-2 font-bold flex items-center"
+      >
+        <p class="font-bold text-4xl">•</p>
+        <h1 class="ml-2">Complexity is increasing</h1>
+      </div>
+      <h1
+        class="text-primary font-extrabold text-6xl
+        tracking-tighter
+        leading-tight
+        text-center"
+      >
+        Health and care workers usually make mistakes as a result of a system or
+        process failures, not because of their own errors.
+      </h1>
+    </div>
+
+    <!-- <div class="bg-blue-900 box1">Box 1</div>
+    <div class="bg-blue-900 box2">Box 2</div>
+    <div class="bg-blue-900 box4">Box 4</div>
+    <div class="bg-blue-900 box3">Box 3</div> -->
+    <Card text="Many Regulatory policies to comply with" class="box1" />
+    <Card text="Many Regulatory policies to comply with" class="box2" />
+    <Card text="Many Regulatory policies to comply with" class="box4" />
+    <Card text="Many Regulatory policies to comply with" class="box3" />
+
+    <!-- secondary card -->
+    <Card text="Many Regulatory policies to comply with" class="box5" />
+    <Card text="Many Regulatory policies to comply with" class="box6" />
+    <Card text="Many Regulatory policies to comply with" class="box7" />
   </div>
 </div>
 
@@ -50,7 +100,7 @@ import Card from "../components/Card.astro";
       100;
 
     const boxes = document.querySelectorAll(
-      ".top-left, .top-right, .bottom-right, .bottom-left"
+      ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
     );
     const heroBox = document.getElementById("hero-box");
 
@@ -59,19 +109,29 @@ import Card from "../components/Card.astro";
     heroBox.style.opacity = 1 - percentageScrolled / 100;
     boxes.forEach((box) => {
       const value = `${Math.min(percentageScrolled, 50)}%`;
-      if (box.classList.contains("top-left")) {
-        box.style.left = value
-        box.style.top = value
-      } else if (box.classList.contains("top-right")) {
+      if (box.classList.contains("box1")) {
+        box.style.left = value;
+        box.style.top = value;
+      } else if (box.classList.contains("box2")) {
         box.style.right = value;
         box.style.top = value;
-      } else if (box.classList.contains("bottom-right")) {
+      } else if (box.classList.contains("box4")) {
         box.style.right = value;
         box.style.bottom = value;
-      } else if (box.classList.contains("bottom-left")) {
+      } else if (box.classList.contains("box3")) {
+        box.style.left = value;
+        box.style.bottom = value;
+      } else if (box.classList.contains("box5")) {
+        box.style.left = value;
+        box.style.top = value;
+      } else if (box.classList.contains("box6")) {
+        box.style.right = value;
+        box.style.top = value;
+      } else if (box.classList.contains("box7")) {
         box.style.left = value;
         box.style.bottom = value;
       }
+
       box.style.scale = Math.max(1 - percentageScrolled / 100, 0.5);
       box.style.opacity = 1 - percentageScrolled / 100;
     });
@@ -80,10 +140,13 @@ import Card from "../components/Card.astro";
 
 <style is:global>
   /* Initial positions */
-  .top-left,
-  .bottom-left,
-  .bottom-right,
-  .top-right {
+  .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5,
+  .box6,
+  .box7 {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -91,22 +154,37 @@ import Card from "../components/Card.astro";
     transition: all 1s ease-in-out;
   }
 
-  .top-left {
+  .box1 {
     transform: translate(-100%, -100%) scale(1.4);
   }
-  .top-right {
+  .box2 {
     top: 0;
     right: 0;
     transform: translate(100%, -100%) scale(1.4);
   }
-  .bottom-left {
+  .box3 {
     bottom: 0;
     left: 0;
     transform: translate(-100%, 100%) scale(1.4);
   }
-  .bottom-right {
+  .box4 {
     right: 0%;
     bottom: 0%;
     transform: translate(100%, 100%) scale(1.4);
+  }
+  .box5 {
+    left: 0;
+    top: 0;
+    transform: translate(-300%, -600%) scale(1.4);
+  }
+  .box6 {
+    top: 0;
+    right: 0;
+    transform: translate(300%, -600%) scale(1.4);
+  }
+  .box7 {
+    left: 0%;
+    bottom: 0%;
+    transform: translate(-300%, 600%) scale(1.4);
   }
 </style>
