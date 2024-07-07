@@ -2,7 +2,7 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="scrollContainer" class="h-[200dvh] w-full">
+<div id="scrollContainer" class="h-[300dvh] w-full">
   <div
     id="section1"
     class="sticky top-0 bg-primary-background w-full h-[100dvh]"
@@ -44,7 +44,7 @@ import Card from "../components/Card.astro";
 </div>
 
 <script is:inline>
-  document.addEventListener("scroll", () => {
+  window.addEventListener("scroll", () => {
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
@@ -60,8 +60,8 @@ import Card from "../components/Card.astro";
     boxes.forEach((box) => {
       const value = `${Math.min(percentageScrolled, 50)}%`;
       if (box.classList.contains("top-left")) {
-        box.style.left = value;
-        box.style.top = value;
+        box.style.left = value
+        box.style.top = value
       } else if (box.classList.contains("top-right")) {
         box.style.right = value;
         box.style.top = value;
