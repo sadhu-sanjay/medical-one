@@ -3,11 +3,13 @@ import Card from "../components/Card.astro";
 ---
 
 <section id="section1" class="bg-primary-background w-full h-[400dvh]">
-  <section id="subsection1" class="bg-primary-background w-full h-screen">
+  <section
+    id="subsection1"
+    class="bg-red-900 w-full h-screen "
+  >
     <div
       id="hero-box"
-      class="h-screen absolute flex flex-col items-center gap-8 top-1/2 left-1/2
-    -translate-x-1/2 -translate-y-1/2"
+      class="h-full bg-blue-500 w-1/2 mx-auto flex flex-col items-center justify-center gap-8 "
     >
       <div
         class="border border-primary border-1
@@ -29,17 +31,16 @@ import Card from "../components/Card.astro";
       </h1>
     </div>
   </section>
-  <section id="subsection2">
+  <!-- <section id="subsection2">
     <Card text="Many Regulatory policies to comply with" class="box1" />
     <Card text="Many Regulatory policies to comply with" class="box2" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
-  </section>
+  </section> -->
 </section>
 
 <script is:inline>
   document.addEventListener("scroll", () => {
-
     const heroBox = document.getElementById("hero-box");
     const boxes = document.querySelectorAll(
       ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
@@ -48,7 +49,6 @@ import Card from "../components/Card.astro";
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
 
-
     console.log(percentageScrolled);
     let scale = 1 - percentageScrolled / 100;
 
@@ -56,7 +56,7 @@ import Card from "../components/Card.astro";
       return;
     } else if (percentageScrolled > 23 && percentageScrolled < 46) {
       percentageScrolled = 40;
-    } 
+    }
 
     boxes.forEach((box) => {
       const value = `${Math.min(percentageScrolled, 50)}%`;
