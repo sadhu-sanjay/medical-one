@@ -2,14 +2,11 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="scrollContainer" class="h-[300dvh] w-full">
-  <div
-    id="section1"
-    class="sticky top-0 bg-primary-background w-full h-[100dvh]"
-  >
+<section id="section1" class="bg-primary-background w-full h-[400dvh]">
+  <section id="subsection1" class="bg-primary-background w-full h-screen">
     <div
       id="hero-box"
-      class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
+      class="h-screen absolute flex flex-col items-center gap-8 top-1/2 left-1/2
     -translate-x-1/2 -translate-y-1/2"
     >
       <div
@@ -31,82 +28,36 @@ import Card from "../components/Card.astro";
         process failures, not because of their own errors.
       </h1>
     </div>
-
-    <!-- <div class="bg-blue-900 box1">Box 1</div>
-    <div class="bg-blue-900 box2">Box 2</div>
-    <div class="bg-blue-900 box4">Box 4</div>
-    <div class="bg-blue-900 box3">Box 3</div> -->
+  </section>
+  <section id="subsection2">
     <Card text="Many Regulatory policies to comply with" class="box1" />
     <Card text="Many Regulatory policies to comply with" class="box2" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
-
-    <!-- secondary card -->
-    <Card text="Many Regulatory policies to comply with" class="box5" />
-    <Card text="Many Regulatory policies to comply with" class="box6" />
-    <Card text="Many Regulatory policies to comply with" class="box7" />
-  </div>
-</div>
-<div id="section2" class="bg-secondary-background w-full h-[300dvh]">
-  <div
-    id="section2"
-    class="sticky top-0 bg-primary-background w-full h-[100dvh]"
-  >
-    <div
-      id="hero-box"
-      class="absolute flex flex-col items-center gap-8 top-1/2 left-1/2
-    -translate-x-1/2 -translate-y-1/2"
-    >
-      <div
-        class="border border-primary border-1
-        text-primary
-        tracking-tighter
-        rounded-lg px-6 py-2 font-bold flex items-center"
-      >
-        <p class="font-bold text-4xl">•</p>
-        <h1 class="ml-2">Complexity is increasing</h1>
-      </div>
-      <h1
-        class="text-primary font-extrabold text-6xl
-        tracking-tighter
-        leading-tight
-        text-center"
-      >
-        Health and care workers usually make mistakes as a result of a system or
-        process failures, not because of their own errors.
-      </h1>
-    </div>
-
-    <!-- <div class="bg-blue-900 box1">Box 1</div>
-    <div class="bg-blue-900 box2">Box 2</div>
-    <div class="bg-blue-900 box4">Box 4</div>
-    <div class="bg-blue-900 box3">Box 3</div> -->
-    <Card text="Many Regulatory policies to comply with" class="box1" />
-    <Card text="Many Regulatory policies to comply with" class="box2" />
-    <Card text="Many Regulatory policies to comply with" class="box4" />
-    <Card text="Many Regulatory policies to comply with" class="box3" />
-
-    <!-- secondary card -->
-    <Card text="Many Regulatory policies to comply with" class="box5" />
-    <Card text="Many Regulatory policies to comply with" class="box6" />
-    <Card text="Many Regulatory policies to comply with" class="box7" />
-  </div>
-</div>
+  </section>
+</section>
 
 <script is:inline>
-  window.addEventListener("scroll", () => {
+  document.addEventListener("scroll", () => {
+
+    const heroBox = document.getElementById("hero-box");
+    const boxes = document.querySelectorAll(
+      ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
+    );
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
 
-    const boxes = document.querySelectorAll(
-      ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
-    );
-    const heroBox = document.getElementById("hero-box");
 
     console.log(percentageScrolled);
+    let scale = 1 - percentageScrolled / 100;
 
-    heroBox.style.opacity = 1 - percentageScrolled / 100;
+    if (percentageScrolled > 0 && percentageScrolled < 23) {
+      return;
+    } else if (percentageScrolled > 23 && percentageScrolled < 46) {
+      percentageScrolled = 40;
+    } 
+
     boxes.forEach((box) => {
       const value = `${Math.min(percentageScrolled, 50)}%`;
       if (box.classList.contains("box1")) {
@@ -132,9 +83,10 @@ import Card from "../components/Card.astro";
         box.style.bottom = value;
       }
 
-      box.style.scale = Math.max(1 - percentageScrolled / 100, 0.5);
-      box.style.opacity = 1 - percentageScrolled / 100;
+      box.style.scale = Math.max(scale, 0.5);
+      // box.style.opacity = 1 - percentageScrolled / 100;
     });
+    // heroBox.style.opacity = 1 - percentageScrolled / 100;
   });
 </script>
 
@@ -147,7 +99,7 @@ import Card from "../components/Card.astro";
   .box5,
   .box6,
   .box7 {
-    position: absolute;
+    position: fixed;
     width: 100px;
     height: 100px;
     background-color: red;
@@ -155,36 +107,39 @@ import Card from "../components/Card.astro";
   }
 
   .box1 {
-    transform: translate(-100%, -100%) scale(1.4);
+    top: 0;
+    left: 0;
+    transform: translate(-160%, -270%) scale(1.5);
   }
+
   .box2 {
     top: 0;
     right: 0;
-    transform: translate(100%, -100%) scale(1.4);
+    transform: translate(160%, -230%) scale(1.5);
   }
   .box3 {
     bottom: 0;
     left: 0;
-    transform: translate(-100%, 100%) scale(1.4);
+    transform: translate(-130%, 140%) scale(1.5);
   }
   .box4 {
     right: 0%;
     bottom: 0%;
-    transform: translate(100%, 100%) scale(1.4);
+    transform: translate(150%, 200%) scale(1.5);
   }
   .box5 {
     left: 0;
     top: 0;
-    transform: translate(-300%, -600%) scale(1.4);
+    transform: translate(-300%, -600%) scale(1.5);
   }
   .box6 {
     top: 0;
     right: 0;
-    transform: translate(300%, -600%) scale(1.4);
+    transform: translate(300%, -600%) scale(1.5);
   }
   .box7 {
     left: 0%;
     bottom: 0%;
-    transform: translate(-300%, 600%) scale(1.4);
+    transform: translate(-300%, 600%) scale(1.5);
   }
 </style>
