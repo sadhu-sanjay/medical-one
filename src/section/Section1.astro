@@ -2,14 +2,14 @@
 import Card from "../components/Card.astro";
 ---
 
-<section id="section1" class="bg-primary-background w-full h-[400dvh]">
-  <section
-    id="subsection1"
-    class="bg-red-900 w-full h-screen "
-  >
+<div
+  id="section1"
+  class="bg-primary-background w-full "
+>
+  <section id="subsection1" class="w-full h-screen">
     <div
       id="hero-box"
-      class="h-full bg-blue-500 w-1/2 mx-auto flex flex-col items-center justify-center gap-8 "
+      class="h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
     >
       <div
         class="border border-primary border-1
@@ -31,13 +31,30 @@ import Card from "../components/Card.astro";
       </h1>
     </div>
   </section>
-  <!-- <section id="subsection2">
-    <Card text="Many Regulatory policies to comply with" class="box1" />
+  <section id="subsection2">
+    <div class="w-full h-screen bg-primary-background">
+      <h1 class="text-primary text-6xl font-extrabold text-center">
+        Health and care workers usually make mistakes as a result of a system or
+        process failures, not because of their own errors.
+      </h1>
+      <!-- <Card text="Many Regulatory policies to comply with" class="box1" />
     <Card text="Many Regulatory policies to comply with" class="box2" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
-  </section> -->
-</section>
+    <Card text="Many Regulatory policies to comply with" class="box5" />
+    <Card text="Many Regulatory policies to comply with" class="box6" />
+    <Card text="Many Regulatory policies to comply with" class="box7" /> -->
+    </div>
+  </section>
+  <section id="subsection3">
+    <div class="w-full h-screen bg-primary-background">
+      <h1 class="text-primary text-6xl font-extrabold text-center">
+        Health and care workers usually make mistakes as a result of a system or
+        process failures, not because of their own errors.
+      </h1>
+    </div>
+  </section>
+</div>
 
 <script is:inline>
   document.addEventListener("scroll", () => {
@@ -48,14 +65,17 @@ import Card from "../components/Card.astro";
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
-
-    console.log(percentageScrolled);
     let scale = 1 - percentageScrolled / 100;
 
-    if (percentageScrolled > 0 && percentageScrolled < 23) {
+    console.log(percentageScrolled);
+    console.log("--", scale);
+
+    if (percentageScrolled > 0 && percentageScrolled < 19) {
       return;
-    } else if (percentageScrolled > 23 && percentageScrolled < 46) {
+    } else if (percentageScrolled > 19 && percentageScrolled <= 28) {
       percentageScrolled = 40;
+    } else if (percentageScrolled > 28 && percentageScrolled < 63) {
+      percentageScrolled = 70;
     }
 
     boxes.forEach((box) => {
@@ -91,6 +111,15 @@ import Card from "../components/Card.astro";
 </script>
 
 <style is:global>
+  section {
+    scroll-snap-align: start;
+  }
+  #section1 {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height
+  }
+
   /* Initial positions */
   .box1,
   .box2,
@@ -109,7 +138,7 @@ import Card from "../components/Card.astro";
   .box1 {
     top: 0;
     left: 0;
-    transform: translate(-160%, -270%) scale(1.5);
+    transform: translate(-140%, -200%) scale(1.5);
   }
 
   .box2 {
@@ -130,7 +159,7 @@ import Card from "../components/Card.astro";
   .box5 {
     left: 0;
     top: 0;
-    transform: translate(-300%, -600%) scale(1.5);
+    transform: translate(-380%, -600%) scale(1.5);
   }
   .box6 {
     top: 0;
