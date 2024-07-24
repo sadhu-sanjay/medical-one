@@ -2,8 +2,8 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="section1" class="bg-primary-background w-full">
-  <section id="subsection1" class="w-full h-screen">
+<div id="section1" class="relative bg-primary-background h-[400dvh] w-full">
+  <section id="subsection1" class="w-full h-screen sticky top-0">
     <div
       id="hero-box"
       class="h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
@@ -29,76 +29,65 @@ import Card from "../components/Card.astro";
     </div>
   </section>
   <section id="subsection2">
-    <div class="w-full h-screen bg-primary-background">
-      <h1 class="text-primary text-6xl font-extrabold text-center">
-        Health and care workers usually make mistakes as a result of a system or
-        process failures, not because of their own errors.
-      </h1>
-      <Card text="Many Regulatory policies to comply with" class="box1" />
-    <!-- <Card text="Many Regulatory policies to comply with" class="box2" />
-    <Card text="Many Regulatory policies to comply with" class="box4" />
+    <Card text="Many Regulatory policies to comply with" class="box1" />
+    <!-- <Card text="Many Regulatory policies to comply with" class="box2" /> -->
+    <!-- <Card text="Many Regulatory policies to comply with" class="box4" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
     <Card text="Many Regulatory policies to comply with" class="box5" />
     <Card text="Many Regulatory policies to comply with" class="box6" />
     <Card text="Many Regulatory policies to comply with" class="box7" /> -->
-    </div>
-  </section>
-  <section id="subsection3">
-    <div class="w-full h-screen bg-primary-background">
-      <h1 class="text-primary text-6xl font-extrabold text-center">
-        Hi how you doing
-      </h1>
-    </div>
   </section>
 </div>
 
 <script is:inline>
-  const section1 = document.getElementById("section1");
-  section1.addEventListener("scroll", () => {
+  document.addEventListener("scroll", () => {
     const heroBox = document.getElementById("hero-box");
     const boxes = document.querySelectorAll(
       ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
     );
-    const percentageScrolled = section1.scrollTop / section1.scrollHeight * 100
+    let percentageScrolled =
+      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+      100; 
+    const scrollValue = `${Math.min(percentageScrolled, 50)}%`;
+    let scale = 1.0
 
-    console.log(percentageScrolled);
-
-    // if (percentageScrolled > 0 && percentageScrolled < 19) {
-    //   return;
-    // } else if (percentageScrolled > 19 && percentageScrolled <= 28) {
-    //   percentageScrolled = 40;
-    // } else if (percentageScrolled > 28 && percentageScrolled < 63) {
-    //   percentageScrolled = 70;
-    // }
+    if (percentageScrolled == 0) {
+      percentageScrolled = 0;
+    }if (percentageScrolled > 0 && percentageScrolled < 33) {
+      percentageScrolled = 10
+    } else if (percentageScrolled => 33 && percentageScrolled <= 70) {
+      percentageScrolled = 30
+    } else if (percentageScrolled > 70 && percentageScrolled < 100) {
+      percentageScrolled = 100
+    }
 
     boxes.forEach((box) => {
-      // const value = `${Math.min(percentageScrolled, 100)}%`;
-      const value = `${percentageScrolled}%`;
+      console.log("percentage scrolled", percentageScrolled)
       if (box.classList.contains("box1")) {
-        box.style.left = value;
-        box.style.top = value;
+        console.log("hid scrollValue", scrollValue)
+        box.style.top = scrollValue;
+        box.style.left = scrollValue;
       } else if (box.classList.contains("box2")) {
-        box.style.right = value;
-        box.style.top = value;
+        box.style.right = scrollValue;
+        box.style.top = scrollValue;
       } else if (box.classList.contains("box4")) {
-        box.style.right = value;
-        box.style.bottom = value;
+        box.style.right = scrollValue;
+        box.style.bottom = scrollValue;
       } else if (box.classList.contains("box3")) {
-        box.style.left = value;
-        box.style.bottom = value;
+        box.style.left = scrollValue;
+        box.style.bottom = scrollValue;
       } else if (box.classList.contains("box5")) {
-        box.style.left = value;
-        box.style.top = value;
+        box.style.left = scrollValue;
+        box.style.top = scrollValue;
       } else if (box.classList.contains("box6")) {
-        box.style.right = value;
-        box.style.top = value;
+        box.style.right = scrollValue;
+        box.style.top = scrollValue;
       } else if (box.classList.contains("box7")) {
-        box.style.left = value;
-        box.style.bottom = value;
+        box.style.left = scrollValue;
+        box.style.bottom = scrollValue;
       }
 
-      const scale = 1.5 - percentageScrolled / 100;
-      box.style.scale = Math.max(scale, 0.5);
+      box.style.scale = scale
       // box.style.opacity = 1 - percentageScrolled / 100;
     });
     // heroBox.style.opacity = 1 - percentageScrolled / 100;
@@ -106,15 +95,6 @@ import Card from "../components/Card.astro";
 </script>
 
 <style is:global>
-  section {
-    scroll-snap-align: start;
-  }
-  #section1 {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-  }
-
   /* Initial positions */
   .box1,
   .box2,
@@ -123,7 +103,7 @@ import Card from "../components/Card.astro";
   .box5,
   .box6,
   .box7 {
-    position: absolute;
+    position: fixed;
     height: 100px;
     background-color: red;
     transition: all 1s ease-in-out;
@@ -132,10 +112,9 @@ import Card from "../components/Card.astro";
   .box1 {
     top: 0;
     left: 0;
-    /* transform: scale(1.5); */
-    transform: translate(-140%, -200%) scale(1.5);
+    /* transform: translate(-100%, -100%);  */
   }
-.box2 {
+  .box2 {
     top: 0;
     right: 0;
     transform: translate(160%, -230%) scale(1.5);
