@@ -50,21 +50,26 @@ import Card from "../components/Card.astro";
       100; 
     let scrollValue = `${Math.min(percentageScrolled, 50)}%`;
     let opacity = 1
+    let scale
 
     
     if (percentageScrolled === 0) {
       console.log("scrollValue", scrollValue)
       scrollValue = `0%`
       opacity = 1
+      scale = 1.5
     }else if (percentageScrolled > 0 && percentageScrolled <= 33) {
       scrollValue = '25%'
       opacity = 1
+      scale = 1
     } else if (percentageScrolled > 33 && percentageScrolled <= 70) {
       scrollValue = '40%'
       opacity = 0.35
+      scale = 0.75
     } else if (percentageScrolled > 70 && percentageScrolled <= 100) {
       scrollValue = '45%'
       opacity = 0
+      scale = 0.50
     }
 
     boxes.forEach((box) => {
@@ -93,10 +98,9 @@ import Card from "../components/Card.astro";
         box.style.bottom = scrollValue;
       }
 
-      // box.style.scale = scale
+      box.style.scale = scale
       box.style.opacity = opacity
     });
-    // heroBox.style.opacity = 1 - percentageScrolled / 100;
   });
 </script>
 
@@ -118,7 +122,7 @@ import Card from "../components/Card.astro";
   .box1 {
     top: 0;
     left: 0;
-    transform: translate(-100%, -100%); 
+    transform: translate(-100%, -100%) scale(1.2); ; 
   }
   .box2 {
     top: 0;
