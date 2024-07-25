@@ -33,18 +33,19 @@ import Card from "../components/Card.astro";
     <Card text="Many Regulatory policies to comply with" class="box2" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
-    <Card text="Many Regulatory policies to comply with" class="box5" />
+    <!-- <Card text="Many Regulatory policies to comply with" class="box5" /> -->
     <Card text="Many Regulatory policies to comply with" class="box6" />
     <Card text="Many Regulatory policies to comply with" class="box7" />
   </section>
 </div>
 
 <script is:inline>
+  const boxes = document.querySelectorAll(
+    ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
+  );
+
   document.addEventListener("scroll", () => {
     const heroBox = document.getElementById("hero-box");
-    const boxes = document.querySelectorAll(
-      ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
-    );
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
@@ -74,35 +75,52 @@ import Card from "../components/Card.astro";
     boxes.forEach((box) => {
       console.log("percentage scrolled", percentageScrolled);
       if (box.classList.contains("box1")) {
-        console.log("HI", scrollValue);
         box.style.top = scrollValue;
         box.style.left = scrollValue;
+        box.style.scale = scale;
+        box.style.opacity = opacity;
       } else if (box.classList.contains("box2")) {
         box.style.right = scrollValue;
         box.style.top = scrollValue;
+        box.style.scale = scale;
+        box.style.opacity = opacity;
       } else if (box.classList.contains("box4")) {
         box.style.right = scrollValue;
         box.style.bottom = scrollValue;
+        box.style.scale = scale;
+        box.style.opacity = opacity;
       } else if (box.classList.contains("box3")) {
         box.style.left = scrollValue;
         box.style.bottom = scrollValue;
+        box.style.scale = scale;
+        box.style.opacity = opacity;
       } else if (box.classList.contains("box5")) {
+        if (percentageScrolled <= 33) {
+          box.style.opacity = 0;
+        }else {
+          box.style.opacity = 1;
+        }
+
         box.style.left = scrollValue;
         box.style.top = scrollValue;
+        box.style.scale = scale;
       } else if (box.classList.contains("box6")) {
-        // if (percentageScrolled > 33) {
-          box.style.right = scrollValue;
-          box.style.top = scrollValue;
-        // }
+        if (percentageScrolled <= 33 || percentageScrolled > 70) {
+          box.style.opacity = 0;
+        }else {
+          box.style.opacity = 1;
+        }
+
+        box.style.scale = scale;
+        box.style.right = scrollValue;
+        box.style.top = scrollValue;
+
       } else if (box.classList.contains("box7")) {
         box.style.left = scrollValue;
         box.style.bottom = scrollValue;
+        box.style.scale = scale;
+        box.style.opacity = opacity;
       }
-
-        if (box.classList.contains("box1") || box.classList.contains("box2") || box.classList.contains("box3") || box.classList.contains("box4")) {
-          box.style.scale = scale;
-          box.style.opacity = opacity;
-        }
 
     });
   });
@@ -151,7 +169,8 @@ import Card from "../components/Card.astro";
   .box6 {
     top: 0;
     right: 0;
-    transform: translate(300%, -600%) scale(1.5);
+    transform: translate(155%, -300%) scale(1.5);
+    opacity: 0;
   }
   .box7 {
     left: 0%;
