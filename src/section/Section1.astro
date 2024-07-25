@@ -6,7 +6,7 @@ import Card from "../components/Card.astro";
   <section id="subsection1" class="w-full h-screen sticky top-0">
     <div
       id="hero-box"
-      class="h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+      class=" h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
     >
       <div
         class="border border-primary border-1
@@ -33,7 +33,7 @@ import Card from "../components/Card.astro";
     <Card text="Many Regulatory policies to comply with" class="box2" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
-    <!-- <Card text="Many Regulatory policies to comply with" class="box5" /> -->
+    <Card text="Box5 is box 5 Many Regulartor Plicies " class="box5" />
     <Card text="Many Regulatory policies to comply with" class="box6" />
     <Card text="Many Regulatory policies to comply with" class="box7" />
   </section>
@@ -43,9 +43,9 @@ import Card from "../components/Card.astro";
   const boxes = document.querySelectorAll(
     ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
   );
+  const heroBox = document.getElementById("hero-box");
 
   document.addEventListener("scroll", () => {
-    const heroBox = document.getElementById("hero-box");
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
@@ -55,22 +55,26 @@ import Card from "../components/Card.astro";
 
     if (percentageScrolled === 0) {
       console.log("scrollValue", scrollValue);
+      heroBox.style.opacity = 1 
       scrollValue = `0%`;
       opacity = 1;
       scale = 1.5;
     } else if (percentageScrolled > 0 && percentageScrolled <= 33) {
+      heroBox.style.opacity = 1 
       scrollValue = "25%";
       opacity = 1;
       scale = 1;
     } else if (percentageScrolled > 33 && percentageScrolled <= 70) {
+      heroBox.style.opacity = 0.05; 
       scrollValue = "40%";
-      opacity = 0.35;
-      scale = 0.75;
+      opacity = 0.05;
+      scale = 0.65;
     } else if (percentageScrolled > 70 && percentageScrolled <= 100) {
       scrollValue = "45%";
       opacity = 0;
       scale = 0.5;
     }
+
 
     boxes.forEach((box) => {
       console.log("percentage scrolled", percentageScrolled);
@@ -95,33 +99,36 @@ import Card from "../components/Card.astro";
         box.style.scale = scale;
         box.style.opacity = opacity;
       } else if (box.classList.contains("box5")) {
-        if (percentageScrolled <= 33) {
+        if (percentageScrolled <= 33 || percentageScrolled > 70) {
           box.style.opacity = 0;
-        }else {
+        } else {
           box.style.opacity = 1;
         }
 
-        box.style.left = scrollValue;
+        box.style.right = scrollValue;
         box.style.top = scrollValue;
         box.style.scale = scale;
       } else if (box.classList.contains("box6")) {
         if (percentageScrolled <= 33 || percentageScrolled > 70) {
           box.style.opacity = 0;
-        }else {
+        } else {
           box.style.opacity = 1;
         }
 
         box.style.scale = scale;
-        box.style.right = scrollValue;
-        box.style.top = scrollValue;
-
-      } else if (box.classList.contains("box7")) {
         box.style.left = scrollValue;
+        box.style.top = scrollValue;
+      } else if (box.classList.contains("box7")) {
+        if (percentageScrolled <= 33 || percentageScrolled > 70) {
+          box.style.opacity = 0;
+        } else {
+          box.style.opacity = 1;
+        }
+
+        box.style.right = scrollValue;
         box.style.bottom = scrollValue;
         box.style.scale = scale;
-        box.style.opacity = opacity;
       }
-
     });
   });
 </script>
@@ -140,41 +147,43 @@ import Card from "../components/Card.astro";
     background-color: red;
     transition: all 1s ease-in-out;
   }
+  #hero-box {
+    transition: all 1s ease-in-out;
+  }
 
   .box1 {
     top: 0;
     left: 0;
-    transform: translate(-80%, -100%) scale(1.2);
+    transform: translate(-80%, -100%) scale(1.1);
   }
   .box2 {
     top: 0;
     right: 0;
-    transform: translate(70%, -150%) scale(1.2);
+    transform: translate(70%, -150%) scale(1.1);
   }
   .box3 {
     bottom: 0;
     left: 0;
-    transform: translate(-70%, 120%) scale(1.2);
+    transform: translate(-70%, 120%) scale(1.1);
   }
   .box4 {
     right: 0%;
     bottom: 0%;
-    transform: translate(20%, 100%) scale(1.2);
+    transform: translate(20%, 100%) scale(1.1);
   }
   .box5 {
-    left: 0;
+    right: 0;
     top: 0;
-    transform: translate(-150%, -200%) scale(1.2);
+    transform: translate(100%, -300%) scale(1.4);
   }
   .box6 {
+    left: 0;
     top: 0;
-    right: 0;
-    transform: translate(155%, -300%) scale(1.5);
-    opacity: 0;
+    transform: translate(-120%, 0%) scale(1.4);
   }
   .box7 {
-    left: 0%;
+    right: 0%;
     bottom: 0%;
-    transform: translate(-300%, 600%) scale(1.5);
+    transform: translate(100%, 100%) scale(1.4);
   }
 </style>
