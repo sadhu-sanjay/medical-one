@@ -2,43 +2,29 @@
 import Card from "../components/Card.astro";
 ---
 
-<section id="section2" >
-  <Card
-    text="Many Regulatory policies to comply with"
-    class="rectangle top-left in-view"
-  />
-  <!-- <Card
-    text="New clinical evidence to understand and implement."
-    class="absolute right-0 top-0 noshow showfromleft"
-  />
-  <Card
-    text="New clinical evidence to understand and implement."
-    class="absolute right-0 bottom-0 noshow showfromleft"
-  />
-  <Card
-    text="New clinical evidence to understand and implement."
-    class="absolute left-0 botttom-0 noshow showfromright"
-  /> -->
+<section id="section2" class="bg-primary-background  h-[200dvh] w-full " >
+  <div id="subsection3" class="w-full h-screen sticky top-0">
+    <div
+      id="hero-box"
+      class=" h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+    >
+      <div
+        class="border border-primary border-1
+        text-primary
+        tracking-tighter
+        rounded-lg px-6 py-2 font-bold flex items-center"
+      >
+        <p class="font-bold text-4xl">•</p>
+        <h1 class="ml-2">The compunding effects</h1>
+      </div>
+      <h1
+        class="text-primary font-extrabold text-6xl
+        tracking-tighter
+        leading-tight
+        text-center"
+      >
+      Patients safety progress has stalled over the past 30 years.
+      </h1>
+    </div>
 </section>
 
-
-
-<script>
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-
-      if (entry.isIntersecting) {
-        console.log("Hi Sanjay", entry);
-        // set the animation to state to running
-        // entry.target.classList.add("in-view");
-      } else {
-        // entry.target.classList.remove("in-view");
-      }
-    });
-  });
-
-  const element = document.getElementById("section2")
-  if (element) {
-    intersectionObserver.observe(element);
-  }
-</script>

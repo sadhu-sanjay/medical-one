@@ -2,7 +2,7 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="section1" class="relative bg-primary-background h-[400dvh] w-full">
+<div id="section1" class="relative bg-primary-background/10 h-[400dvh] w-full">
   <section id="subsection1" class="w-full h-screen sticky top-0">
     <div
       id="hero-box"
@@ -49,8 +49,8 @@ import Card from "../components/Card.astro";
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
-    let scrollValue = `${Math.min(percentageScrolled, 50)}%`;
-    let opacity = 1;
+    let scrollValue;
+    let opacity;
     let scale;
 
     if (percentageScrolled === 0) {
@@ -105,8 +105,8 @@ import Card from "../components/Card.astro";
           box.style.opacity = 1;
         }
 
-        box.style.right = scrollValue;
-        box.style.top = scrollValue;
+        box.style.right = scrollValue 
+        box.style.top = scrollValue 
         box.style.scale = scale;
       } else if (box.classList.contains("box6")) {
         if (percentageScrolled <= 33 || percentageScrolled > 70) {
@@ -148,7 +148,7 @@ import Card from "../components/Card.astro";
     transition: all 1s ease-in-out;
   }
   #hero-box {
-    transition: all 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
   }
 
   .box1 {
@@ -174,7 +174,7 @@ import Card from "../components/Card.astro";
   .box5 {
     right: 0;
     top: 0;
-    transform: translate(100%, -300%) scale(1.4);
+    transform: translate(140%, -250%) scale(1.4);
   }
   .box6 {
     left: 0;
@@ -184,6 +184,6 @@ import Card from "../components/Card.astro";
   .box7 {
     right: 0%;
     bottom: 0%;
-    transform: translate(100%, 100%) scale(1.4);
+    transform: translate(100%, 00%) scale(1.4);
   }
 </style>
