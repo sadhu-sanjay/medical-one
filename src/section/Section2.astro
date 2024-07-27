@@ -2,15 +2,24 @@
 import Card from "../components/Card.astro";
 ---
 
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const percentage = (scrolled / scrollable) * 100;
+    console.log("2 Page % scrolled", percentage);
+  });
+</script>
+
 <section id="section2" class="bg-primary-background  h-[200dvh] w-full " >
   <div id="subsection3" class="w-full h-screen sticky top-0">
     <div
       id="hero-box"
-      class=" h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+      class="text-white border-white border-1
+      h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
     >
       <div
-        class="border border-primary border-1
-        text-primary
+        class="border border-white border-1
         tracking-tighter
         rounded-lg px-6 py-2 font-bold flex items-center"
       >
@@ -18,7 +27,7 @@ import Card from "../components/Card.astro";
         <h1 class="ml-2">The compunding effects</h1>
       </div>
       <h1
-        class="text-primary font-extrabold text-6xl
+        class="font-extrabold text-6xl
         tracking-tighter
         leading-tight
         text-center"
