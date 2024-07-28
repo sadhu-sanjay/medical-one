@@ -3,13 +3,23 @@ import Card from "../components/Card.astro";
 ---
 
 <script>
-  window.addEventListener("scroll", () => {
+  document.addEventListener("scroll", () => {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = window.scrollY;
     const percentage = (scrolled / scrollable) * 100;
     console.log("2 Page % scrolled", percentage);
   });
+
+  // Once you scroll past 50%
+  function remove() {
+    const primaryCircle = document.getElementById("primary-circle");
+    
+    // morph it into a circle
+    primaryCircle!.style.borderRadius = "50%";
+  }
+
 </script>
+
 
 <section id="section2" class="bg-primary-background  h-[200dvh] w-full " >
   <div id="subsection3" class="w-full h-screen sticky top-0">
