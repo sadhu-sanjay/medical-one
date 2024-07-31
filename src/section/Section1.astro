@@ -2,8 +2,12 @@
 import Card from "../components/Card.astro";
 ---
 
-<div id="section1" class="relative bg-primary-background/10 h-[400dvh] w-full overflow-scroll">
-  <section id="subsection1" class="w-full h-screen sticky top-0">
+<!-- Q: what is your name? -->
+
+<section id="section1" class=" relative bg-primary-background/10 h-full w-full overflow-scroll">
+  
+  <h1 class="text-red-800 font-bold  text-9xl overflow-clip ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci iure, placeat eos nobis aut necessitatibus blanditiis dolore ad impedit molestias velit soluta assumenda aliquid quasi eligendi pariatur voluptas quas ea!</h1>
+  <!-- <section id="subsection1" class="w-full h-[1400dvh] sticky top-0">
     <div
       id="hero-box"
       class=" h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
@@ -27,8 +31,8 @@ import Card from "../components/Card.astro";
         process failures, not because of their own errors.
       </h1>
     </div>
-  </section>
-  <section id="subsection2">
+  </section> -->
+  <!-- <section id="subsection2">
     <Card text="Many Regulatory policies to comply with" class="box1" />
     <Card text="Many Regulatory policies to comply with" class="box2" />
     <Card text="Many Regulatory policies to comply with" class="box3" />
@@ -36,25 +40,29 @@ import Card from "../components/Card.astro";
     <Card text="Box5 is box 5 Many Regulartor Plicies " class="box5" />
     <Card text="Many Regulatory policies to comply with" class="box6" />
     <Card text="Many Regulatory policies to comply with" class="box7" />
-  </section>
-</div>
+  </section> -->
+</section>
 
 <script is:inline>
   const boxes = document.querySelectorAll(
     ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
   );
   const heroBox = document.getElementById("hero-box");
+  const section1 = document.getElementById("section1");
 
-  document.addEventListener("scroll", () => {
+  console.log("Check", section1)
+
+  section1.addEventListener("scroll", () => {
+
     let percentageScrolled =
       (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
       100;
+    return console.log("Section1 scrolling", percentageScrolled);
     let scrollValue;
     let opacity;
     let scale;
 
     if (percentageScrolled === 0) {
-      console.log("scrollValue", scrollValue);
       heroBox.style.opacity = 1 
       scrollValue = `0%`;
       opacity = 1;
@@ -75,9 +83,7 @@ import Card from "../components/Card.astro";
       scale = 0.5;
     }
 
-
     boxes.forEach((box) => {
-      console.log("percentage scrolled", percentageScrolled);
       if (box.classList.contains("box1")) {
         box.style.top = scrollValue;
         box.style.left = scrollValue;

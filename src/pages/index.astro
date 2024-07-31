@@ -2,10 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import SubmitDream from "../components/SubmitDream.astro";
 import Mainpage from "./Mainpage.astro";
+import Section2 from "../section/Section2.astro";
+import Section1 from "../section/Section1.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main class="flex flex-col items-center justify-start w-full h-full ">
+<Layout title="Portfolia Sanjay Goswami">
+  <main class="flex flex-col items-center justify-start w-full h-full">
     <svg
       class="astro-a"
       width="495"
@@ -34,31 +36,15 @@ import Mainpage from "./Mainpage.astro";
         </linearGradient>
       </defs>
     </svg>
-    <!-- <SubmitDream title="Hello" body="Sanjay" /> -->
+
     <Mainpage />
+    
   </main>
 </Layout>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      } else {
-        entry.target.classList.remove("show");
-      }
-    });
-  });
 
-  const goals = document.querySelectorAll(".dont-show");
-  goals.forEach((goal) => {
-    console.log("found");
-    observer.observe(goal);
-  });
-</script>
 
 <style>
-
   .dont-show {
     opacity: 0;
     transform: translateX(-101%);
@@ -79,8 +65,8 @@ import Mainpage from "./Mainpage.astro";
     color: white;
     font-size: 20px;
     line-height: 1.6;
-    height: 100dvh;
-    width: 100dvw;
+    height: 100%;
+    width: 100%;
   }
   .astro-a {
     position: absolute;

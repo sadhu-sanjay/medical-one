@@ -2,48 +2,72 @@
 import Card from "../components/Card.astro";
 ---
 
+<section
+  id="section2"
+  style="width: 800px; height: 2000px; overflow: scroll; position: relative;"
+>
+  <h1 class="text-red-800 font-bold text-9xl">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci iure,
+    placeat eos nobis aut necessitatibus blanditiis dolore ad impedit molestias
+    velit soluta assumenda aliquid quasi eligendi pariatur voluptas quas ea!
+  </h1>
+</section>
+
+<!-- <section
+  id="section3"
+  class="bg-primary-background/10 h-auto w-full overflow-scroll"
+>
+  <div class="w-full bg-blue-800 h-[1600px] bg-primary-background/10">
+    Sanjay Goswami
+  </div>
+</section> -->
+
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const base = document.getElementById("section2");
+    console.log("Base", base);
+    base!.addEventListener("scroll", () => {
+      console.log("Index Scrolling");
+    });
+  });
+</script> -->
+
 <script>
-  document.addEventListener("scroll", () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
-    const percentage = (scrolled / scrollable) * 100;
-    console.log("2 Page % scrolled", percentage);
+  const section2 = document.getElementById("section2");
+  const section3 = document.getElementById("section3");
+  document.addEventListener("DOMContentLoaded", () => {
+    section3?.addEventListener("scroll", () => {
+      console.log("3 Page % scrolled");
+    });
+
+    section2?.addEventListener("scroll", () => {
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const percentage = (scrolled / scrollable) * 100;
+      console.log("2 Page % scrolled", percentage);
+      // if (percentage > 99) {
+      //   remove()
+      // }else {
+      //   const primaryCircle = document.getElementById("section2");
+      //   primaryCircle!.style.borderRadius = "0%";
+      //   primaryCircle!.style.transition = "all 0.2s";
+      //   primaryCircle!.style.transitionTimingFunction = "ease-in-out";
+      //   primaryCircle!.style.height = "100vh";
+      //   primaryCircle!.style.width = "100vw";
+      // }
+    });
   });
 
   // Once you scroll past 50%
   function remove() {
-    const primaryCircle = document.getElementById("primary-circle");
-    
+    const primaryCircle = document.getElementById("section2");
+
     // morph it into a circle
     primaryCircle!.style.borderRadius = "50%";
+    primaryCircle!.style.transition = "all 0.2s";
+    primaryCircle!.style.transitionTimingFunction = "ease-in-out";
+    primaryCircle!.style.height = "75vh";
+    primaryCircle!.style.width = "75vh";
   }
-
 </script>
-
-
-<section id="section2" class="bg-primary-background  h-[200dvh] w-full " >
-  <div id="subsection3" class="w-full h-screen sticky top-0">
-    <div
-      id="hero-box"
-      class="text-white border-white border-1
-      h-full w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
-    >
-      <div
-        class="border border-white border-1
-        tracking-tighter
-        rounded-lg px-6 py-2 font-bold flex items-center"
-      >
-        <p class="font-bold text-4xl">•</p>
-        <h1 class="ml-2">The compunding effects</h1>
-      </div>
-      <h1
-        class="font-extrabold text-6xl
-        tracking-tighter
-        leading-tight
-        text-center"
-      >
-      Patients safety progress has stalled over the past 30 years.
-      </h1>
-    </div>
-</section>
-
