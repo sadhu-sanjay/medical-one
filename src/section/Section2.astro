@@ -4,59 +4,34 @@ import Card from "../components/Card.astro";
 
 <section
   id="section2"
-  style="width: 800px; height: 2000px; overflow: scroll; position: relative;"
+  style="width: 800px; height: auto; overflow: scroll; position: relative;"
 >
-  <h1 class="text-red-800 font-bold text-9xl">
+  <h1 class="text-red-800 h-2000px font-bold text-9xl">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci iure,
     placeat eos nobis aut necessitatibus blanditiis dolore ad impedit molestias
     velit soluta assumenda aliquid quasi eligendi pariatur voluptas quas ea!
   </h1>
 </section>
 
-<!-- <section
-  id="section3"
-  class="bg-primary-background/10 h-auto w-full overflow-scroll"
->
-  <div class="w-full bg-blue-800 h-[1600px] bg-primary-background/10">
-    Sanjay Goswami
-  </div>
-</section> -->
-
-<!-- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const base = document.getElementById("section2");
-    console.log("Base", base);
-    base!.addEventListener("scroll", () => {
-      console.log("Index Scrolling");
-    });
-  });
-</script> -->
-
 <script>
-  const section2 = document.getElementById("section2");
-  const section3 = document.getElementById("section3");
-  document.addEventListener("DOMContentLoaded", () => {
-    section3?.addEventListener("scroll", () => {
-      console.log("3 Page % scrolled");
-    });
+  const section2 = document.getElementById("section3");
 
-    section2?.addEventListener("scroll", () => {
-      const scrollable =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = window.scrollY;
-      const percentage = (scrolled / scrollable) * 100;
-      console.log("2 Page % scrolled", percentage);
-      // if (percentage > 99) {
-      //   remove()
-      // }else {
-      //   const primaryCircle = document.getElementById("section2");
-      //   primaryCircle!.style.borderRadius = "0%";
-      //   primaryCircle!.style.transition = "all 0.2s";
-      //   primaryCircle!.style.transitionTimingFunction = "ease-in-out";
-      //   primaryCircle!.style.height = "100vh";
-      //   primaryCircle!.style.width = "100vw";
-      // }
-    });
+  section2?.addEventListener("scroll", () => {
+    const scrollable =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const percentage = (scrolled / scrollable) * 100;
+    console.log("2 Page % scrolled", percentage);
+    // if (percentage > 99) {
+    //   remove()
+    // }else {
+    //   const primaryCircle = document.getElementById("section2");
+    //   primaryCircle!.style.borderRadius = "0%";
+    //   primaryCircle!.style.transition = "all 0.2s";
+    //   primaryCircle!.style.transitionTimingFunction = "ease-in-out";
+    //   primaryCircle!.style.height = "100vh";
+    //   primaryCircle!.style.width = "100vw";
+    // }
   });
 
   // Once you scroll past 50%
