@@ -16,13 +16,14 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body style="overflow: hidden;">
+  <body>
     <slot />
   </body>
 </html>
 <style is:global>
   :root {
     overscroll-behavior: none;
+    scroll-behavior: smooth;
     --primary-color: rgb(9, 59, 78);
     --primary-background-color: 15, 65, 70;
     --secondary-color: #e03e1a;
