@@ -6,7 +6,7 @@ import Card from "../components/Card.astro";
   id="section2"
   class="relative bg-primary-background/10 w-full h-[100dvh] overflow-scroll"
 >
-  <div class=" h-[400dvh] w-full">
+  <div class="h-[400dvh] w-full">
     <div id="mainbox" class="bg-primary-background w-full h-full">
       Sanjay Goswami
     </div>
@@ -16,22 +16,20 @@ import Card from "../components/Card.astro";
 <script>
   const section2 = document.getElementById("section2");
 
-  section2?.addEventListener("scroll", (el) => {
-    const scrollable = section2.scrollTop
+  section2?.addEventListener("scroll", (el: any) => {
+    const percentage = Math.floor(
+      (el.target.scrollTop / el.target.scrollHeight) * 100
+    );
 
-    const scrolled = window.scrollY;
-    const percentage = (scrolled / scrollable) * 100;
     console.log("2 Page % scrolled", percentage);
-    // if (percentage > 99) {
-    //   remove()
-    // }else {
-    //   const primaryCircle = document.getElementById("section2");
-    //   primaryCircle!.style.borderRadius = "0%";
-    //   primaryCircle!.style.transition = "all 0.2s";
-    //   primaryCircle!.style.transitionTimingFunction = "ease-in-out";
-    //   primaryCircle!.style.height = "100vh";
-    //   primaryCircle!.style.width = "100vw";
-    // }
+
+    const primaryCircle = document.getElementById("mainbox");
+    primaryCircle!.style.borderRadius = "0%";
+    primaryCircle!.style.transition = "all 0.2s";
+    primaryCircle!.style.transitionTimingFunction = "ease-in-out";
+    primaryCircle!.style.height = "100vh";
+    primaryCircle!.style.width = "100vw";
+
   });
 
   // Once you scroll past 50%
