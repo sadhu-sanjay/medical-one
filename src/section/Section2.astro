@@ -6,25 +6,26 @@ import Card from "../components/Card.astro";
   id="section2"
   class="bg-primary-background/10 w-full h-[400dvh] "
 >
-  <div class="h-[100dvh] w-full">
-    <div id="mainbox" class="bg-primary-background w-full h-full">
+  <div class="h-[100dvh] w-full sticky top-0 left-0">
+    <div id="primary-circle" class="bg-primary-background w-full h-full">
       Sanjay Goswami
     </div>
   </div>
 </section>
 
-<script>
+<script is:inline>
 
   const stickyPercentage = 50; 
   
   const section2 = document.getElementById("section2");
+  const primaryCircle = document.getElementById("primary-circle")
+
+  console.log("Section2", section2)
   if (!section2) return
 
-  console.log("Window", section2)
-
-  window?.addEventListener("scroll", (el: any) => {
+  window.addEventListener("scroll", (el) => {
     
-    console.log("Here & There", el)
+    console.log("Section2")
 
     const percentage = Math.floor(
       (el.target.scrollTop / el.target.scrollHeight) * 100
@@ -38,18 +39,17 @@ import Card from "../components/Card.astro";
     }else {
 
       section2.style.position = "relative;"
-
     }
 
 
     console.log("2 Page % scrolled", percentage);
 
     const primaryCircle = document.getElementById("mainbox");
-    primaryCircle!.style.borderRadius = "0%";
-    primaryCircle!.style.transition = "all 0.2s";
-    primaryCircle!.style.transitionTimingFunction = "ease-in-out";
-    primaryCircle!.style.height = "100vh";
-    primaryCircle!.style.width = "100vw";
+    primaryCircle.style.borderRadius = "0%";
+    primaryCircle.style.transition = "all 0.2s";
+    primaryCircle.style.transitionTimingFunction = "ease-in-out";
+    primaryCircle.style.height = "100vh";
+    primaryCircle.style.width = "100vw";
 
   });
 
@@ -58,11 +58,11 @@ import Card from "../components/Card.astro";
     const primaryCircle = document.getElementById("section2");
 
     // morph it into a circle
-    primaryCircle!.style.borderRadius = "50%";
-    primaryCircle!.style.transition = "all 0.2s";
-    primaryCircle!.style.transitionTimingFunction = "ease-in-out";
-    primaryCircle!.style.height = "75vh";
-    primaryCircle!.style.width = "75vh";
+    primaryCircle.style.borderRadius = "50%";
+    primaryCircle.style.transition = "all 0.2s";
+    primaryCircle.style.transitionTimingFunction = "ease-in-out";
+    primaryCircle.style.height = "75vh";
+    primaryCircle.style.width = "75vh";
   }
 
 </script>
