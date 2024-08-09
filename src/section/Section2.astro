@@ -2,45 +2,92 @@
 import Card from "../components/Card.astro";
 ---
 
+<style>
+  .box {
+    position: "absolute";
+    left: 50%;
+    top: 50%;
+    height: 100px;
+    background-color: red;
+    transition: all 1s ease-in-out;
+  }
+</style>
+
 <section
   id="section2"
-  class="bg-primary-background/10 w-full h-[400dvh] "
+  class="relative bg-primary-background/10 w-full h-[400dvh]"
 >
   <div class="h-[100dvh] w-full sticky top-0 left-0">
-    <div id="primary-circle" class="bg-primary-background w-full h-full">
+    <div
+      id="main-circle"
+      class="m-auto bg-primary-background w-full aspect-square"
+    >
       Sanjay Goswami
+      <div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-800"
+      >
+        Hinge Of Hinges
+      </div>
     </div>
   </div>
+
+  <!-- <Card text="Many Regulatory policies to comply with" class="box" /> -->
 </section>
 
 <script is:inline>
+  const { break1, break2, break3 } = [];
+  const mainCircle = document.getElementById("main-circle");
 
-  const stickyPercentage = 50; 
-  
+  window.addEventListener("scroll", (any) => {
+    const scrollPercentage = Math.round(
+      (window.scrollY /
+        (document.documentElement.scrollHeight - window.outerHeight)) *
+        100
+    );
+
+    console.log("Percentage", scrollPercentage);
+
+    if (scrollPercentage > 61) {
+
+      mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; transition: all 0.5s ease-in-out; `;
+      mainCircle.style.aspectRatio = "1/1";
+
+    } else {
+
+      mainCircle.style.cssText = `border-radius: 0%; width: 100%; transition: all 0.5s ease-in-out`;
+    }
+
+    console.log(
+      "Here & There",
+      scrollPercentage,
+      window.scrollY,
+      document.documentElement.scrollHeight
+    );
+  });
+</script>
+
+<!-- <script is:inline>
+  const stickyPercentage = 50;
+
   const section2 = document.getElementById("section2");
-  const primaryCircle = document.getElementById("primary-circle")
+  const primaryCircle = document.getElementById("primary-circle");
 
-  console.log("Section2", section2)
-  if (!section2) return
+  console.log("Section2", section2);
+  if (!section2) return;
 
   window.addEventListener("scroll", (el) => {
-    
-    console.log("Section2")
+    console.log("Section2");
 
     const percentage = Math.floor(
       (el.target.scrollTop / el.target.scrollHeight) * 100
     );
-    console.log("Section2", percentage)
+    console.log("Section2", percentage);
 
-    if (percentage > stickyPercentage ) {
-
-      section2.style.position = "sticky;"
-
-    }else {
-
-      section2.style.position = "relative;"
+    if (percentage > stickyPercentage) {
+      section2.style.position = "sticky;";
+    } else {
+      section2.style.position = "relative;";
     }
-
 
     console.log("2 Page % scrolled", percentage);
 
@@ -50,7 +97,6 @@ import Card from "../components/Card.astro";
     primaryCircle.style.transitionTimingFunction = "ease-in-out";
     primaryCircle.style.height = "100vh";
     primaryCircle.style.width = "100vw";
-
   });
 
   // Once you scroll past 50%
@@ -64,6 +110,4 @@ import Card from "../components/Card.astro";
     primaryCircle.style.height = "75vh";
     primaryCircle.style.width = "75vh";
   }
-
-</script>
-
+</script> -->

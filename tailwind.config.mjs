@@ -28,10 +28,10 @@ export default {
       colors: {
         "primary": "var(--primary-color)",
         "primary-background": `rgba(var(--primary-background-color), <alpha-value>)`,
+        "surface-color": `rgba(var(--surface-color), <alpha-value>)`,
         "secondary": "var(--secondary-color)",
         "accent": "var(--accent-color)",
         "background": "var(--background-color)",
-        "suface": "var(--surface-color)",
       },
     },
   },
