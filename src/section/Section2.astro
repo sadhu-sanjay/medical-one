@@ -1,5 +1,6 @@
 ---
 import Card from "../components/Card.astro";
+import Card2 from "../components/Card2.astro";
 ---
 
 <style>
@@ -29,13 +30,16 @@ import Card from "../components/Card.astro";
         Hinge Of Hinges
       </div>
     </div>
-  </div>
 
-  <!-- <Card text="Many Regulatory policies to comply with" class="box" /> -->
+    <Card2 />
+  </div>
 </section>
 
 <script is:inline>
-  const { break1, break2, break3 } = [];
+  const break4 = 55,
+    break5 = 75,
+    break6 = 100;
+
   const mainCircle = document.getElementById("main-circle");
 
   window.addEventListener("scroll", (any) => {
@@ -47,13 +51,10 @@ import Card from "../components/Card.astro";
 
     console.log("Percentage", scrollPercentage);
 
-    if (scrollPercentage > 61) {
-
+    if (scrollPercentage > break4) {
       mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; transition: all 0.5s ease-in-out; `;
       mainCircle.style.aspectRatio = "1/1";
-
     } else {
-
       mainCircle.style.cssText = `border-radius: 0%; width: 100%; transition: all 0.5s ease-in-out`;
     }
 
