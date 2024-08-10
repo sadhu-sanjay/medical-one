@@ -1,18 +1,27 @@
 ---
-
-import WarningCircleIcon from "~/assets/icons/warning-circle-icon.astro"
-
+import WarningCircleIcon from "../assets/icons/warning-circle-icon.astro";
+const { class: className } = Astro.props;
 ---
 
-<div
-  class="absolute left-1/2 top-1/2 rounded-lg bg-red-600 overflow-hidden
-  -translate-x-1/2 -translate-y-1/2"
->
+<style>
+  .card-type2 {
+    position: absolute;
+    left: "50%";
+    top: "50%";
+    border-radius: "8px";
+    transition: all 0.3 ease-in-out;
+    overflow: hidden;
+    transform: translate("-50%", "-50%");
+  }
+</style>
+
+<div class="card-type2 top-1/2 left-1/2 rounded-lg overflow-hidden
+  shadow-lg">
   <div class="w-full h-8 bg-primary-background">
-   <WarningCircleIcon />
+    <WarningCircleIcon />
   </div>
-  <div class=" bg-white text-primary-background p-4 pr-28">
-    <span class="font-bold text-8xl "> 97% </span>
-    <p class="font-bold">  of data goes unused*</p>
+  <div class="bg-white/80 text-primary-background p-4 pr-20">
+    <span class="font-black text-8xl"> 97% </span>
+    <p class="font-bold">of data goes unused*</p>
   </div>
 </div>

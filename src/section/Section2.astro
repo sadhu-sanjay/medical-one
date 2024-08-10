@@ -16,22 +16,16 @@ import Card2 from "../components/Card2.astro";
 
 <section
   id="section2"
-  class="relative bg-primary-background/10 w-full h-[400dvh]"
+  class="rounded-lg relative bg-primary-background/10 w-full h-[400dvh]"
 >
   <div class="h-[100dvh] w-full sticky top-0 left-0">
     <div
       id="main-circle"
       class="m-auto bg-primary-background w-full aspect-square"
     >
-      Sanjay Goswami
-      <div
-        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-800"
-      >
-        Hinge Of Hinges
-      </div>
+      <h1 class="mx-auto absolute left-1/2 top-1/4">Disconnected</h1>
     </div>
-
-    <Card2 />
+    <Card2 id="card8" class="" />
   </div>
 </section>
 
@@ -40,6 +34,7 @@ import Card2 from "../components/Card2.astro";
     break5 = 75,
     break6 = 100;
 
+  const card8 = document.getElementById("card8");
   const mainCircle = document.getElementById("main-circle");
 
   window.addEventListener("scroll", (any) => {
@@ -49,13 +44,12 @@ import Card2 from "../components/Card2.astro";
         100
     );
 
-    console.log("Percentage", scrollPercentage);
-
     if (scrollPercentage > break4) {
       mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; transition: all 0.5s ease-in-out; `;
       mainCircle.style.aspectRatio = "1/1";
     } else {
       mainCircle.style.cssText = `border-radius: 0%; width: 100%; transition: all 0.5s ease-in-out`;
+      card8.style.display = "block";
     }
 
     console.log(
