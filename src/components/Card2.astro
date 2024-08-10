@@ -1,26 +1,18 @@
+---
+
+import WarningCircleIcon from "~/assets/icons/warning-circle-icon.astro"
+
+---
+
 <div
   class="absolute left-1/2 top-1/2 rounded-lg bg-red-600 overflow-hidden
   -translate-x-1/2 -translate-y-1/2"
 >
   <div class="w-full h-8 bg-primary-background">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="size-6 ml-auto h-full"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-      >
-      </path>
-    </svg>
+   <WarningCircleIcon />
   </div>
-  <div class=" bg-white text-primary-background p-4 pr-40">
+  <div class=" bg-white text-primary-background p-4 pr-28">
     <span class="font-bold text-8xl "> 97% </span>
-    <p class="font-bold" >of data goes unused*</p>
+    <p class="font-bold">  of data goes unused*</p>
   </div>
 </div>
