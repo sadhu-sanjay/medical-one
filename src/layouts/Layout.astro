@@ -24,7 +24,8 @@ const { title } = Astro.props;
   :root {
     overscroll-behavior: none;
     scroll-behavior: smooth;
-    --primary-color: rgb(9, 59, 78);
+    --primary-color: 9, 59, 78;
+    --secondary-color: 0, 240, 200;
     --primary-background-color: 15, 65, 70;
     --primary-background-dark: 11, 50, 54;
     --secondary-color: #e03e1a;
@@ -34,10 +35,10 @@ const { title } = Astro.props;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --primary-color: #f0f0f0;
+      --primary-color: 9 * 0.8, 59 * 0.8, 78 * 0.8;
       --primary-background-color: 15, 21, 26;
       --primary-background-dark: 15, 21, 26;
-      --secondary-color: #e03e1a;
+      --secondary-color: 0 * 0.8, 240 * 0.8, 200 * 0.8;
       --background-color: #13151a;
       --surface-color: #1e1e1e;
       --text-color: var(--primary-color);

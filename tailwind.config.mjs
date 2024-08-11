@@ -26,7 +26,7 @@ export default {
         slideUp: "slideUp 1.5s ease-in-out",
       },
       colors: {
-        "primary": "var(--primary-color)",
+        "primary": `rgba(var(--primary-color), <alpha-value>)`,
         "primary-background": `rgba(var(--primary-background-color), <alpha-value>)`,
         "primary-background-dark": `rgba(var(--primary-background-dark), <alpha-value>)`,
         "surface-color": `rgba(var(--surface-color), <alpha-value>)`,
