@@ -21,11 +21,11 @@ import Card2 from "../components/Card2.astro";
   <div class="h-[100dvh] w-full sticky top-0 left-0">
     <div
       id="main-circle"
-      class="m-auto bg-primary-background w-full aspect-square"
+      class="m-auto bg-primary-background w-full aspect-square transition-all ease-in-out 3.5s"
     >
       <h1 class="mx-auto absolute left-1/2 top-1/4">Disconnected</h1>
     </div>
-    <Card2 id="card8" class="" />
+    <Card2 id="card8" class="hidden" />
   </div>
 </section>
 
@@ -45,11 +45,16 @@ import Card2 from "../components/Card2.astro";
     );
 
     if (scrollPercentage > break4) {
-      mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; transition: all 0.5s ease-in-out; `;
+      mainCircle.style.cssText = `border-radius: 50%; width: 50dvw;  `;
       mainCircle.style.aspectRatio = "1/1";
+      card8.style.display = "inline";
+      console.log("hCArd", card8.style.display);
+    } else if (scrollPercentage > break5) {
+      card8.style.display = "inline";
+    } else if (scrollPercentage > break6) {
+      card8.style.display = "hidden";
     } else {
-      mainCircle.style.cssText = `border-radius: 0%; width: 100%; transition: all 0.5s ease-in-out`;
-      card8.style.display = "block";
+      mainCircle.style.cssText = `border-radius: 0%; width: 100%`;
     }
 
     console.log(
