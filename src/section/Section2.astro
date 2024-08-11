@@ -23,7 +23,28 @@ import Card2 from "../components/Card2.astro";
       id="main-circle"
       class="m-auto bg-primary-background w-full aspect-square transition-all ease-in-out duration-300"
     >
-      <h1 class="mx-auto absolute left-1/2 top-1/4">Disconnected</h1>
+    </div>
+    <div
+      id="heading2"
+      class="transition-all duration-500 ease-in absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+    >
+      <div
+        class="border border-white/0.7 border-1
+        text-white/0.7
+        tracking-tighter
+        rounded-lg px-6 py-2 font-bold flex items-center"
+      >
+        <p class="font-bold text-4xl">•</p>
+        <h1 class="ml-2">The Compounding Effect</h1>
+      </div>
+      <h1
+        class="text-white/0.7 font-extrabold text-6xl
+        tracking-tighter
+        leading-tight
+        text-center"
+      >
+      Patient safety progress has stalled over the past 30 years
+      </h1>
     </div>
     <Card2 id="card8" />
   </div>
@@ -36,6 +57,7 @@ import Card2 from "../components/Card2.astro";
 
   const card8 = document.getElementById("card8");
   const mainCircle = document.getElementById("main-circle");
+  const heading2 = document.getElementById("heading2")
 
   window.addEventListener("scroll", (any) => {
     const scrollPercentage = Math.round(
@@ -46,18 +68,16 @@ import Card2 from "../components/Card2.astro";
     console.log("section2  %", scrollPercentage);
 
     if (scrollPercentage > break4 && scrollPercentage <= break5) {
-      mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; `
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
-      card8.style.opacity = 1;
-
+      mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; `;
     } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
-      console.log("Here")
-
+      heading2.style.opacity = 0
+      card8.style.opacity = 1;
     } else {
       mainCircle.style.cssText = `border-radius: 0%; width: 100%`;
       card8.style.opacity = 0;
+      heading2.style.opacity = 1;
     }
-
   });
   card8.style.cssText = `opacity: 1`;
 </script>
