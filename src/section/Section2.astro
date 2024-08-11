@@ -20,10 +20,17 @@ import Card2 from "../components/Card2.astro";
 >
   <div class="h-[100dvh] w-full sticky top-0 left-0">
     <div
-      id="primary-circle"
-      class="m-auto bg-primary-background w-full aspect-square transition-all ease-in-out duration-300"
-    >
-    </div>
+      id="first-circle"
+      class="m-auto bg-primary-background hidden w-full aspect-square transition-all ease-in-out duration-300"
+    />
+    <div
+      id="second-circle"
+      class="m-auto bg-secondary w-full aspect-square transition-all ease-in-out duration-300"
+    />
+    <div
+      id="third-circle"
+      class="m-auto bg-secondary/0.5 hidden w-full aspect-square transition-all ease-in-out duration-300"
+    />
     <div
       id="heading2"
       class="transition-all duration-500 ease-in absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
@@ -56,10 +63,11 @@ import Card2 from "../components/Card2.astro";
     break6 = 100;
 
   const card8 = document.getElementById("card8");
-  const mainCircle = document.getElementById("primary-circle");
+  const firstCircle = document.getElementById("first-circle");
   const heading2 = document.getElementById("heading2")
 
   window.addEventListener("scroll", (any) => {
+
     const scrollPercentage = Math.round(
       (window.scrollY /
         (document.documentElement.scrollHeight - window.outerHeight)) *
@@ -69,12 +77,12 @@ import Card2 from "../components/Card2.astro";
 
     if (scrollPercentage > break4 && scrollPercentage <= break5) {
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
-      mainCircle.style.cssText = `border-radius: 50%; width: 50dvw; `;
+      firstCircle.style.cssText = `border-radius: 50%; width: 50dvw; `;
     } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
       heading2.style.opacity = 0
       card8.style.opacity = 1;
     } else {
-      mainCircle.style.cssText = `border-radius: 0%; width: 100%`;
+      firstCircle.style.cssText = `border-radius: 0%; width: 100%`;
       card8.style.opacity = 0;
       heading2.style.opacity = 1;
     }
