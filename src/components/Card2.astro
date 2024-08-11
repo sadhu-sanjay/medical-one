@@ -1,6 +1,6 @@
 ---
 import WarningCircleIcon from "../assets/icons/warning-circle-icon.astro";
-const { class: className, id: id } = Astro.props;
+const { class: className, id: elId } = Astro.props;
 ---
 
 <style>
@@ -9,18 +9,18 @@ const { class: className, id: id } = Astro.props;
     left: 50%;
     top: 50%;
     border-radius: 8px;
-    transition: all 0.3 ease-in-out;
-    overflow: hidden;
+    transition: all 0.2s ease-in-out;
     transform: translate(-50%, -50%);
+    overflow: hidden;
   }
 </style>
 
-<div id=`${id}` class=`card-type2 shadow-lg ${className}`>
-  <div class="w-full h-8 bg-primary-background">
+<div id=`${elId}` class=`card-type2 shadow-lg ${className}`>
+  <div class=" rounded-t-box w-full h-8 bg-primary-background-dark">
     <WarningCircleIcon />
   </div>
-  <div class="bg-white/80 text-primary-background p-4 pr-20">
-    <span class="font-black text-8xl"> 97% </span>
+  <div class="rounded-b-box bg-white/80 text-primary-background p-4 pr-20">
+    <span class="font-black text-7xl"> 97% </span>
     <p class="font-bold">of data goes unused*</p>
   </div>
 </div>
