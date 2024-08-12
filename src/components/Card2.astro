@@ -1,12 +1,14 @@
 ---
 import WarningCircleIcon from "../assets/icons/warning-circle-icon.astro";
 interface Props {
-  className?:string
-  id: string
-  headerColor: string
+  title: string
+  text: string
+  className?: string;
+  id: string;
+  headerColor?: string;
 }
 
-const {className, id, headerColor} = Astro.props
+const { className, id, headerColor, title, text } = Astro.props;
 
 ---
 
@@ -17,15 +19,16 @@ const {className, id, headerColor} = Astro.props
     transition: all 0.2s ease-in-out;
     transform: translate(-50%, -50%);
     overflow: hidden;
+    max-width: 15%;
   }
 </style>
 
-<div id=`${elId}` class=` card-type2 shadow-lg ${className}`>
-  <div class="rounded-t-box w-full h-10 bg-primary-background-dark">
+<div id={id} class=` card-type2 shadow-lg ${className}`>
+  <div class=`rounded-t-box w-full h-10 bg-primary-background-dark ${headerColor}`>
     <WarningCircleIcon />
   </div>
-  <div class="rounded-b-box bg-white/80 text-primary-background p-4 pr-20">
-    <span class="font-black text-7xl"> 97% </span>
-    <p class="font-bold">of data goes unused*</p>
+  <div class="rounded-b-box bg-surface-color text-primary-background p-4 pr-20">
+    <span class="font-black text-6xl"> {title}</span>
+    <p class="font-bold text-sm">{text}</p>
   </div>
 </div>
