@@ -1,13 +1,18 @@
 ---
 import WarningCircleIcon from "../assets/icons/warning-circle-icon.astro";
-const { class: className, id: elId } = Astro.props;
+interface Props {
+  className?:string
+  id: string
+  headerColor: string
+}
+
+const {className, id, headerColor} = Astro.props
+
 ---
 
 <style>
   .card-type2 {
     position: absolute;
-    left: 50%;
-    top: 50%;
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
     transform: translate(-50%, -50%);
