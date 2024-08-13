@@ -1,0 +1,21 @@
+---
+const { id, class: className, background, text, textid, textOpacity } = Astro.props
+---
+
+<style>
+  .circle-bg {
+    position: absolute;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    aspect-ratio: 1 / 1;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+  }
+</style>
+
+<div id={id} class=`circle-bg ${className}`>
+  <h2 id={textid} class=`text-lg font-bold text-center`>
+    {text}
+  </h2>
+</div>
