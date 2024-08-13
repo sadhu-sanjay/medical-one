@@ -18,12 +18,33 @@ import Card2 from "../components/Card2.astro";
 
 <section id="section2" class="rounded-lg relative w-full h-[400dvh]">
   <div class="h-[100dvh] w-full sticky top-0 left-0">
-    <div id="second-layer" class="bg-layers bg-secondary "></div>
-    <div id="first-layer" class="bg-layers bg-primary-background "></div>
-    <!-- <div
-      id="third-circle"
-      class="absolute m-auto bg-secondary/0.5 w-full aspect-square transition-all ease-in-out duration-300"
-    /> -->
+
+    <!-- BG Layers  -->
+    <div id="third-layer" class="bg-layers bg-secondary-light">
+      <h2
+        id="second-layer-heading"
+        class=" text-lg text-primary font-extrabold text-center mt-10"
+      >
+        Increasing Cost
+      </h2>
+    </div>
+    <div id="second-layer" class="bg-layers bg-secondary">
+      <h2
+        id="second-layer-heading"
+        class=" text-lg text-primary font-extrabold text-center mt-10"
+      >
+        Impacts Safety
+      </h2>
+    </div>
+    <div id="first-layer" class="bg-layers bg-primary-background">
+      <h2
+        id="first-layer-heading"
+        class="opacity-0 text-lg font-bold text-center "
+      >
+        Disconnected Operations
+      </h2>
+    </div>
+
     <div
       id="heading2"
       class="transition-all duration-500 ease-in absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
@@ -46,22 +67,37 @@ import Card2 from "../components/Card2.astro";
         Patient safety progress has stalled over the past 30 years
       </h1>
     </div>
-    <Card2 title="95%" text="of the data goes unused*" id="card8" className="left-1/2 top-1/2 " headerColor="bg-primary-background" />
-    <Card2 title=">80%" text=`safty events goes undocumented*` id="card9" className="left-1/4 top-1/2" header-color="bg-primary" headerColor="bg-secondary" />
-    <Card2 title="25%", text="Harm events preventable*" id="card10" className="right-24 top-36 " header-color="bg-primary" headerColor="bg-secondary" />
-    <Card2 title="25%", text="Adverse events preventable*" id="card10" className="right-24 bottom-24 " header-color="bg-primary" headerColor="bg-secondary" />
+    <Card2 id="card8" title="95%" text="of the data goes unused*"  className="left-1/2 top-1/2 " headerColor="bg-primary-background" />
+    <Card2 id="card9"  title=">80%" text=`safty events goes undocumented*`  className="left-1/4 top-1/2"  headerColor="bg-secondary" />
+    <Card2 id="card10" title="25%" , text="Harm events preventable*"  className="right-24 top-36 "  headerColor="bg-secondary" />
+    <Card2 id="card11" title="25%" , text="Adverse events preventable*"  className="right-24 bottom-24 "  headerColor="bg-secondary" />
+    <Card2 id="card12" title="76%" , text="Health care workers reported burnouts*"  className="left-96 top-24 "  headerColor="bg-secondary-light " />
+    <Card2 id="card13" title="266Bn" , text="Administrative complexity*"  className="right-24 top-24 "  headerColor="bg-secondary-light" />
+    <Card2 id="card14" title="$214Bn" , text="Operational waste*"  className="left-80  bottom-12 "  headerColor="bg-secondary-light" />
+    <Card2 id="card15" title="15%" , text="Expendenture driven by  adverse events*"  className="right-24 bottom-4 "  headerColor="bg-secondary-light" />
   </div>
 </section>
 
 <script is:inline>
   const break4 = 55,
-    break5 = 75,
+    break5 = 73,
     break6 = 100;
 
   const card8 = document.getElementById("card8");
+  const card9 = document.getElementById("card9");
+  const card10 = document.getElementById("card10");
+  const card11 = document.getElementById("card11");
+  const card12 = document.getElementById("card12");
+  const card13 = document.getElementById("card13");
+  const card14 = document.getElementById("card14");
+  const card15 = document.getElementById("card15");
   const firstLayer = document.getElementById("first-layer");
   const secondLayer = document.getElementById("second-layer");
+  const thirdLayer = document.getElementById("third-layer");
   const heading2 = document.getElementById("heading2");
+  const firstLayerHeading = document.getElementById("first-layer-heading");
+  const secondLayerHeading = document.getElementById("second-layer-heading");
+  const ThirdLayerHeading = document.getElementById("third-layer-heading");
 
   window.addEventListener("scroll", (any) => {
     const scrollPercentage = Math.round(
@@ -71,18 +107,13 @@ import Card2 from "../components/Card2.astro";
     );
     console.log("section2  %", scrollPercentage);
 
-    function turnIntoCircle(elArray) {
-      elArray.forEach((el) => {
+    function turnIntoCircle(elements, width) {
+      elements.forEach((el) => {
         el.style.borderRadius = "50%";
-        el.style.width = "50dvw";
+        el.style.width = width
         el.style.left = "50%";
         el.style.top = "50%";
         el.style.transform = "translate(-50%, -50%)";
-      });
-    }
-    function turnIntoSmallerCircle(elArray) {
-      elArray.forEach((el) => {
-        el.style.width = "15dvw";
       });
     }
     function resetCircle(elArray) {
@@ -91,70 +122,42 @@ import Card2 from "../components/Card2.astro";
         el.style.width = "100%";
       });
     }
+    function hide(elements) {
+      elements.forEach((el) => {
+        el.style.opacity = 0;
+      });
+    }
+    function show(elements) {
+      elements.forEach((el) => {
+        el.style.opacity = 1;
+      });
+    }
+
+    /**
+     * Scroll Percentage
+     */
 
     if (scrollPercentage > break4 && scrollPercentage <= break5) {
-      turnIntoCircle([firstLayer]);
-      heading2.style.opacity = 0;
-      card8.style.opacity = 1;
+      turnIntoCircle([firstLayer], "50dvw");
+      show([card8, firstLayerHeading]);
+      hide([heading2, card9, card10, card11]);
+      resetCircle([secondLayer])
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
-
-      turnIntoSmallerCircle([firstLayer]);
-      turnIntoCircle([secondLayer]);
-
-      card8.style.opacity = 0;
+      turnIntoCircle([firstLayer], "15dvw");
+      turnIntoCircle([secondLayer], "50dvw");
+      resetCircle([thirdLayer])
+      show([card9, card10, card11, secondLayerHeading]);
+      hide([card8, card12,card13, card14, card15, firstLayerHeading]);
     } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
-
+      turnIntoCircle([firstLayer], "2dvw")
+      turnIntoCircle([secondLayer], "15dvw")
+      turnIntoCircle([thirdLayer], "50dvw")
+      hide([heading2, secondLayerHeading, card8, card9, card10, card11]);
+      show([ThirdLayerHeading, card12, card13, card14, card15])
     } else {
-      resetCircle([firstLayer, secondLayer]);
-
-      card8.style.opacity = 0;
-      heading2.style.opacity = 1;
+      resetCircle([firstLayer, secondLayer, thirdLayer]);
+      hide([card8, card9, card10, card11, card12, card13, card14, card15, firstLayerHeading, secondLayerHeading, ThirdLayerHeading]);
+      show([heading2]);
     }
   });
 </script>
-
-<!-- <script is:inline>
-  const stickyPercentage = 50;
-
-  const section2 = document.getElementById("section2");
-  const primaryCircle = document.getElementById("primary-circle");
-
-  console.log("Section2", section2);
-  if (!section2) return;
-
-  window.addEventListener("scroll", (el) => {
-    console.log("Section2");
-
-    const percentage = Math.floor(
-      (el.target.scrollTop / el.target.scrollHeight) * 100
-    );
-    console.log("Section2", percentage);
-
-    if (percentage > stickyPercentage) {
-      section2.style.position = "sticky;";
-    } else {
-      section2.style.position = "relative;";
-    }
-
-    console.log("2 Page % scrolled", percentage);
-
-    const primaryCircle = document.getElementById("mainbox");
-    primaryCircle.style.borderRadius = "0%";
-    primaryCircle.style.transition = "all 0.2s";
-    primaryCircle.style.transitionTimingFunction = "ease-in-out";
-    primaryCircle.style.height = "100vh";
-    primaryCircle.style.width = "100vw";
-  });
-
-  // Once you scroll past 50%
-  function remove() {
-    const primaryCircle = document.getElementById("section2");
-
-    // morph it into a circle
-    primaryCircle.style.borderRadius = "50%";
-    primaryCircle.style.transition = "all 0.2s";
-    primaryCircle.style.transitionTimingFunction = "ease-in-out";
-    primaryCircle.style.height = "75vh";
-    primaryCircle.style.width = "75vh";
-  }
-</script> -->

@@ -31,6 +31,7 @@ export default {
         "primary-background-dark": `rgba(var(--primary-background-dark), <alpha-value>)`,
         "surface-color": `rgba(var(--surface-color), <alpha-value>)`,
         "secondary": `rgba(var(--secondary-color), <alpha-value>)`,
+        "secondary-light": `rgba(var(--secondary-light), <alpha-value>)`,
         "accent": "var(--accent-color)",
         "background": "var(--background-color)",
       },
