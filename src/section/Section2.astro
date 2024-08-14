@@ -9,11 +9,11 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 <section id="section2" class="rounded-lg relative w-full h-[400dvh]">
   <div class="h-[100dvh] w-full sticky top-0 left-0">
     <BGCIRCLE
-      text="Disconnected Operations"
+      text="Increasing Cost"
       textOpacity={1}
-      textId="circle1Heading"
-      id="bgCircle1"
-      class="bg-primary-background"
+      textId="circle3Heading"
+      id="bgCircle3"
+      class="bg-secondary-light"
     />
     <BGCIRCLE
       text="Impacts Safety"
@@ -21,6 +21,13 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       textId="circle2Heading"
       id="bgCircle2"
       class="bg-secondary"
+    />
+    <BGCIRCLE
+      text="Disconnected Operations"
+      textOpacity={1}
+      textId="circle1Heading"
+      id="bgCircle1"
+      class="bg-primary-background"
     />
     <!-- BG Layers  -->
     <!-- <div id="third-layer" class="bg-layers bg-secondary-light">
@@ -139,8 +146,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
   const bgCircle3 = document.getElementById("bgCircle3");
   const heading2 = document.getElementById("heading2");
   const circle1Heading = document.getElementById("circle1Heading");
-  const secondLayerHeading = document.getElementById("second-layer-heading");
-  const ThirdLayerHeading = document.getElementById("third-layer-heading");
+  const circle2Heading = document.getElementById("circle2Heading");
+  const circle3Heading = document.getElementById("circle3Heading");
 
   window.addEventListener("scroll", (any) => {
     const scrollPercentage = Math.round(
@@ -191,8 +198,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
       turnIntoCircle([bgCircle1], "15dvw");
       turnIntoCircle([bgCircle2], "50dvw");
-      // resetCircle([thirdLayer]);
-      // show([card9, card10, card11, secondLayerHeading]);
+      resetCircle([bgCircle3]);
+      show([card9, card10, card11]);
       // hide([card8, card12, card13, card14, card15, firstLayerHeading]);
     } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
       //   turnIntoCircle([firstLayer], "2dvw");
