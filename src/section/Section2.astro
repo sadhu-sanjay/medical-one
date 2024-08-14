@@ -8,7 +8,20 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
 <section id="section2" class="rounded-lg relative w-full h-[400dvh]">
   <div class="h-[100dvh] w-full sticky top-0 left-0">
-    <BGCIRCLE id="bgCircle1" class="bg-primary-background" />
+    <BGCIRCLE
+      text="Disconnected Operations"
+      textOpacity={1}
+      textId="circle1Heading"
+      id="bgCircle1"
+      class="bg-primary-background"
+    />
+    <BGCIRCLE
+      text="Impacts Safety"
+      textOpacity={1}
+      textId="circle2Heading"
+      id="bgCircle2"
+      class="bg-secondary"
+    />
     <!-- BG Layers  -->
     <!-- <div id="third-layer" class="bg-layers bg-secondary-light">
       <h2
@@ -109,7 +122,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 </section>
 
 <script is:inline>
-  const break4 = 54,
+  const break4 = 59,
     break5 = 73,
     break6 = 100;
 
@@ -122,10 +135,10 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
   const card14 = document.getElementById("card14");
   const card15 = document.getElementById("card15");
   const bgCircle1 = document.getElementById("bgCircle1");
-  const secondLayer = document.getElementById("second-layer");
-  const thirdLayer = document.getElementById("third-layer");
+  const bgCircle2 = document.getElementById("bgCircle2");
+  const bgCircle3 = document.getElementById("bgCircle3");
   const heading2 = document.getElementById("heading2");
-  const firstLayerHeading = document.getElementById("first-layer-heading");
+  const circle1Heading = document.getElementById("circle1Heading");
   const secondLayerHeading = document.getElementById("second-layer-heading");
   const ThirdLayerHeading = document.getElementById("third-layer-heading");
 
@@ -167,41 +180,42 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
      * Scroll Percentage
      */
     if (scrollPercentage < break4) {
-      // resetCircle([firstLayer])
+      resetCircle([bgCircle1]);
+      show([heading2]);
+      hide([card8]);
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
       turnIntoCircle([bgCircle1], "50dvw");
+      show([card8, circle1Heading]);
+      hide([heading2, card9, card10, card11]);
+      resetCircle([bgCircle2]);
+    } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
+      turnIntoCircle([bgCircle1], "15dvw");
+      turnIntoCircle([bgCircle2], "50dvw");
+      // resetCircle([thirdLayer]);
+      // show([card9, card10, card11, secondLayerHeading]);
+      // hide([card8, card12, card13, card14, card15, firstLayerHeading]);
+    } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
+      //   turnIntoCircle([firstLayer], "2dvw");
+      //   turnIntoCircle([secondLayer], "15dvw");
+      //   turnIntoCircle([thirdLayer], "50dvw");
+      //   hide([secondLayerHeading, card8, card9, card10, card11]);
+      //   show([ThirdLayerHeading, card12, card13, card14, card15]);
+      // } else {
+      //   resetCircle([firstLayer, secondLayer, thirdLayer]);
+      //   hide([
+      //     card8,
+      //     card9,
+      //     card10,
+      //     card11,
+      //     card12,
+      //     card13,
+      //     card14,
+      //     card15,
+      //     firstLayerHeading,
+      //     secondLayerHeading,
+      //     ThirdLayerHeading,
+      //   ]);
+      //   show([heading2])
     }
-    //   show([card8, firstLayerHeading]);
-    //   hide([heading2, card9, card10, card11]);
-    //   resetCircle([secondLayer]);
-    // } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
-    // turnIntoCircle([firstLayer], "15dvw");
-    // turnIntoCircle([secondLayer], "50dvw");
-    // resetCircle([thirdLayer]);
-    // show([card9, card10, card11, secondLayerHeading]);
-    // hide([card8, card12, card13, card14, card15, firstLayerHeading]);
-    // } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
-    //   turnIntoCircle([firstLayer], "2dvw");
-    //   turnIntoCircle([secondLayer], "15dvw");
-    //   turnIntoCircle([thirdLayer], "50dvw");
-    //   hide([secondLayerHeading, card8, card9, card10, card11]);
-    //   show([ThirdLayerHeading, card12, card13, card14, card15]);
-    // } else {
-    //   resetCircle([firstLayer, secondLayer, thirdLayer]);
-    //   hide([
-    //     card8,
-    //     card9,
-    //     card10,
-    //     card11,
-    //     card12,
-    //     card13,
-    //     card14,
-    //     card15,
-    //     firstLayerHeading,
-    //     secondLayerHeading,
-    //     ThirdLayerHeading,
-    //   ]);
-    //   show([heading2])
-    // }
   });
 </script>

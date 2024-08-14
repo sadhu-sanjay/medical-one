@@ -1,5 +1,12 @@
 ---
-const { id, class: className, background, text, textid, textOpacity } = Astro.props
+interface Props {
+  id: string,
+  class?: string,
+  text: string,
+  textId: string,
+  textOpacity: number,
+}
+const { id, class: className, text, textId, textOpacity } = Astro.props
 ---
 
 <style>
@@ -15,7 +22,7 @@ const { id, class: className, background, text, textid, textOpacity } = Astro.pr
 </style>
 
 <div id={id} class=`circle-bg ${className}`>
-  <h2 id={textid} class=`text-lg font-bold text-center`>
+  <h2 id={textId} class=`text-lg font-bold text-center mt-20`>
     {text}
   </h2>
 </div>
