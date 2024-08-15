@@ -38,7 +38,7 @@ import Card from "../components/Card.astro";
     <Card text="Many Regulatory policies to comply with" class="box3" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
     <Card text="Box5 is box 5 Many Regulartor Plicies " class="box5" />
-    <Card text="Many Regulatory policies to comply with" class="box6" />
+    <Card text="Diversity of tasks involved in the delivery  of patient care." class="box6" />
     <Card text="Many Regulatory policies to comply with" class="box7" />
   </section>
 </section>
@@ -121,7 +121,8 @@ import Card from "../components/Card.astro";
         box.style.top = scrollValue;
         box.style.scale = scale;
       } else if (box.classList.contains("box6")) {
-        if (percentageScrolled <= break2 || percentageScrolled > break2) {
+
+        if (percentageScrolled <= break1 || percentageScrolled > break2) {
           box.style.opacity = 0;
         } else {
           box.style.opacity = 1;
@@ -192,11 +193,11 @@ import Card from "../components/Card.astro";
   .box6 {
     left: 0;
     top: 0;
-    transform: translate(-120%, 0%) scale(1.4);
+    transform: translate(-140%, 20%) scale(1.4);
   }
   .box7 {
     right: 0%;
     bottom: 0%;
-    transform: translate(100%, 00%) scale(1.4);
+    transform: translate(100%, 0%) scale(1.4);
   }
 </style>

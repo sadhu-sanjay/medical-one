@@ -130,8 +130,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
 <script is:inline>
   const break4 = 59,
-    break5 = 73,
-    break6 = 85;
+    break5 = 75,
+    break6 = 86;
 
   const card8 = document.getElementById("card8");
   const card9 = document.getElementById("card9");
@@ -159,12 +159,12 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
     function turnIntoCircle(elements, width) {
       elements.forEach((el) => {
-        el.style.borderRadius = "50%";
         el.style.width = width;
         el.style.height = width;
         el.style.left = "50%";
         el.style.top = "50%";
         el.style.transform = "translate(-50%, -50%)";
+        el.style.borderRadius = "50%";
       });
     }
 
@@ -193,40 +193,36 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     if (scrollPercentage < break4) {
       resetCircle([bgCircle1]);
       show([heading2]);
-      hide([card8, card9, card10, card11, card12, card13, card14, card15]);
+      hide([
+        headingCircle1,
+        headingCircle2,
+        headingCircle3,
+        card8,
+        card9,
+        card10,
+        card11,
+        card12,
+        card13,
+        card14,
+        card15,
+      ]);
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
       turnIntoCircle([bgCircle1], "50dvw");
       show([card8, headingCircle1]);
-      hide([heading2, card9, card10, card11]);
+      hide([headingCircle2, heading2, card9, card10, card11]);
       resetCircle([bgCircle2]);
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
       turnIntoCircle([bgCircle1], "15dvw");
       turnIntoCircle([bgCircle2], "50dvw");
       resetCircle([bgCircle3]);
-      show([card9, card10, card11]);
-      hide([card8, card12, card13, card14, card15, headingCircle1]);
+      show([card9, card10, card11, headingCircle2]);
+      hide([headingCircle3,card8, card12, card13, card14, card15, headingCircle1]);
     } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
       turnIntoCircle([bgCircle1], "2dvw");
       turnIntoCircle([bgCircle2], "15dvw");
       turnIntoCircle([bgCircle3], "50dvw");
       hide([headingCircle2, card8, card9, card10, card11]);
-      show([ card12, card13, card14, card15]);
-      } else {
-      //   resetCircle([firstLayer, secondLayer, thirdLayer]);
-      //   hide([
-      //     card8,
-      //     card9,
-      //     card10,
-      //     card11,
-      //     card12,
-      //     card13,
-      //     card14,
-      //     card15,
-      //     firstLayerHeading,
-      //     secondLayerHeading,
-      //     ThirdLayerHeading,
-      //   ]);
-      //   show([heading2])
+      show([headingCircle3, card12, card13, card14, card15]);
     }
   });
 </script>
