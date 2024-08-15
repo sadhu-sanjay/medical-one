@@ -11,21 +11,21 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     <BGCIRCLE
       text="Increasing Cost"
       textOpacity={1}
-      textId="circle3Heading"
+      textId="headingCircle3"
       id="bgCircle3"
       class="bg-secondary-light"
     />
     <BGCIRCLE
       text="Impacts Safety"
       textOpacity={1}
-      textId="circle2Heading"
+      textId="headingCircle2"
       id="bgCircle2"
       class="bg-secondary"
     />
     <BGCIRCLE
       text="Disconnected Operations"
       textOpacity={1}
-      textId="circle1Heading"
+      textId="headingCircle1"
       id="bgCircle1"
       class="bg-primary-background"
     />
@@ -131,7 +131,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 <script is:inline>
   const break4 = 59,
     break5 = 73,
-    break6 = 100;
+    break6 = 85;
 
   const card8 = document.getElementById("card8");
   const card9 = document.getElementById("card9");
@@ -145,9 +145,9 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
   const bgCircle2 = document.getElementById("bgCircle2");
   const bgCircle3 = document.getElementById("bgCircle3");
   const heading2 = document.getElementById("heading2");
-  const circle1Heading = document.getElementById("circle1Heading");
-  const circle2Heading = document.getElementById("circle2Heading");
-  const circle3Heading = document.getElementById("circle3Heading");
+  const headingCircle1 = document.getElementById("headingCircle1");
+  const headingCircle2 = document.getElementById("headingCircle2");
+  const headingCircle3 = document.getElementById("headingCircle3");
 
   window.addEventListener("scroll", (any) => {
     const scrollPercentage = Math.round(
@@ -161,17 +161,21 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       elements.forEach((el) => {
         el.style.borderRadius = "50%";
         el.style.width = width;
+        el.style.height = width;
         el.style.left = "50%";
         el.style.top = "50%";
         el.style.transform = "translate(-50%, -50%)";
       });
     }
+
     function resetCircle(elArray) {
       elArray.forEach((el) => {
         el.style.borderRadius = "0%";
         el.style.width = "100%";
+        el.style.height = "100dvh";
       });
     }
+
     function hide(elements) {
       elements.forEach((el) => {
         el.style.opacity = 0;
@@ -189,10 +193,10 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     if (scrollPercentage < break4) {
       resetCircle([bgCircle1]);
       show([heading2]);
-      hide([card8]);
+      hide([card8, card9, card10, card11, card12, card13, card14, card15]);
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
       turnIntoCircle([bgCircle1], "50dvw");
-      show([card8, circle1Heading]);
+      show([card8, headingCircle1]);
       hide([heading2, card9, card10, card11]);
       resetCircle([bgCircle2]);
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
@@ -200,14 +204,14 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       turnIntoCircle([bgCircle2], "50dvw");
       resetCircle([bgCircle3]);
       show([card9, card10, card11]);
-      // hide([card8, card12, card13, card14, card15, firstLayerHeading]);
-    } else if (scrollPercentage > break6 && scrollPercentage >= 100) {
-      //   turnIntoCircle([firstLayer], "2dvw");
-      //   turnIntoCircle([secondLayer], "15dvw");
-      //   turnIntoCircle([thirdLayer], "50dvw");
-      //   hide([secondLayerHeading, card8, card9, card10, card11]);
-      //   show([ThirdLayerHeading, card12, card13, card14, card15]);
-      // } else {
+      hide([card8, card12, card13, card14, card15, headingCircle1]);
+    } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
+      turnIntoCircle([bgCircle1], "2dvw");
+      turnIntoCircle([bgCircle2], "15dvw");
+      turnIntoCircle([bgCircle3], "50dvw");
+      hide([headingCircle2, card8, card9, card10, card11]);
+      show([ card12, card13, card14, card15]);
+      } else {
       //   resetCircle([firstLayer, secondLayer, thirdLayer]);
       //   hide([
       //     card8,
