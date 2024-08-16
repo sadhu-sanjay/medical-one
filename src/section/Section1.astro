@@ -38,15 +38,17 @@ import Card from "../components/Card.astro";
     <Card text="Many Regulatory policies to comply with" class="box3" />
     <Card text="Many Regulatory policies to comply with" class="box4" />
     <Card text="Box5 is box 5 Many Regulartor Plicies " class="box5" />
-    <Card text="Diversity of tasks involved in the delivery  of patient care." class="box6" />
+    <Card
+      text="Diversity of tasks involved in the delivery  of patient care."
+      class="box6"
+    />
     <Card text="Many Regulatory policies to comply with" class="box7" />
   </section>
 </section>
 
 <script is:inline>
-  const break1 = 20,
-    break2 = 40,
-    break3 = 50;
+  const break1 = 12;
+  (break2 = 22), (break3 = 32);
 
   const boxes = document.querySelectorAll(
     ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
@@ -71,6 +73,7 @@ import Card from "../components/Card.astro";
       scrollValue = `0%`;
       opacity = 1;
       scale = 1.5;
+      
     } else if (percentageScrolled > 0 && percentageScrolled <= break1) {
       heroBox.style.opacity = 1;
       scrollValue = "25%";
@@ -121,7 +124,6 @@ import Card from "../components/Card.astro";
         box.style.top = scrollValue;
         box.style.scale = scale;
       } else if (box.classList.contains("box6")) {
-
         if (percentageScrolled <= break1 || percentageScrolled > break2) {
           box.style.opacity = 0;
         } else {
@@ -144,7 +146,6 @@ import Card from "../components/Card.astro";
       }
     });
   });
-
 </script>
 
 <style is:global>
@@ -159,10 +160,10 @@ import Card from "../components/Card.astro";
     position: fixed;
     height: 100px;
     background-color: red;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   #hero-box {
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
   }
 
   .box1 {

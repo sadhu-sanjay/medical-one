@@ -7,13 +7,13 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 <style></style>
 
 <section id="section2" class="rounded-lg relative w-full h-[400dvh]">
-  <div class="h-[100dvh] w-full sticky top-0 left-0">
+  <div class="h-[100dvh] w-full sticky top-0 left-0 bg-secondary-light">
     <BGCIRCLE
       text="Increasing Cost"
       textOpacity={1}
       textId="headingCircle3"
       id="bgCircle3"
-      class="bg-secondary-light"
+      class="bg-secondary/50"
     />
     <BGCIRCLE
       text="Impacts Safety"
@@ -29,23 +29,6 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       id="bgCircle1"
       class="bg-primary-background"
     />
-    <!-- BG Layers  -->
-    <!-- <div id="third-layer" class="bg-layers bg-secondary-light">
-      <h2
-        id="second-layer-heading"
-        class="text-lg text-primary font-extrabold text-center mt-10"
-      >
-        Increasing Cost
-      </h2>
-    </div>
-    <div id="second-layer" class="bg-layers bg-secondary">
-      <h2
-        id="second-layer-heading"
-        class="text-lg text-primary font-extrabold text-center mt-10"
-      >
-        Impacts Safety
-      </h2>
-    </div> -->
 
     <div
       id="heading2"
@@ -129,9 +112,9 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 </section>
 
 <script is:inline>
-  const break4 = 59,
-    break5 = 75,
-    break6 = 86;
+  const break4 = 48,
+    break5 = 56,
+    break6 = 71;
 
   const card8 = document.getElementById("card8");
   const card9 = document.getElementById("card9");
