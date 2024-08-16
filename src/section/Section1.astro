@@ -67,6 +67,7 @@ import Card from "../components/Card.astro";
     let opacity;
     let scale;
 
+
     console.log("Section1 Scrolled", percentageScrolled);
     if (percentageScrolled === 0) {
       heroBox.style.opacity = 1;
@@ -80,7 +81,7 @@ import Card from "../components/Card.astro";
       opacity = 1;
       scale = 1;
     } else if (percentageScrolled > break1 && percentageScrolled <= break2) {
-      heroBox.style.opacity = 0.05;
+      heroBox.style.opacity = 0;
       scrollValue = "40%";
       opacity = 0.05;
       scale = 0.65;
