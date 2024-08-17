@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "mydreams-demo",
+    "site": "medical-one",
     "public": "dist",
     "ignore": [
       "firebase.json",
