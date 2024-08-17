@@ -1,4 +1,4 @@
 # Scroll Based Animation Pure Javascript and CSS
 
 
-[Landing Page.webm](https://github.com/user-attachments/assets/6cd7ed26-6e68-457d-9cf0-7461bcd7a7ae)
+![Landing Gif](https://github.com/user-attachments/assets/c944e6f8-aba3-41e0-a3ff-4f569c911583)
