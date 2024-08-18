@@ -33,7 +33,8 @@ import Card from "../components/Card.astro";
 
     <section
       id="subsection2"
-      class="p-4 gap-4 flex sm:block sm:flex-none flex-col border-2 border-blue-700 relative w-full h-full"
+      class="p-4 gap-4 flex sm:block sm:flex-none flex-col border-2 border-blue-700 
+      relative w-full h-full transition-all duration-1000 ease-in-out "
     >
       <Card
         text="Many Regulatory policies to comply with"
@@ -99,6 +100,11 @@ import Card from "../components/Card.astro";
       opacity = 1;
       scale = 1.5;
     } else if (percentageScrolled > 0 && percentageScrolled <= break1) {
+      subsection2.style.width = "50%"
+      subsection2.style.height = "50dvh"
+      subsection2.style.top = "25%"
+      subsection2.style.left = "25%"
+
       heroBox.style.opacity = 0.2;
       scrollValue = "25%";
       opacity = 1;
