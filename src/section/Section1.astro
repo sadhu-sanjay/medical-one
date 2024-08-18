@@ -77,6 +77,14 @@ import Card from "../components/Card.astro";
   const break2 = 29;
   const break3 = 35;
 
+  function resetSubSection1() {
+    subsection2.style.width = "100%" 
+    subsection2.style.height = "100dvh" 
+    subsection2.style.top = 0
+    subsection2.style.left = 0
+
+  }
+
   const boxes = document.querySelectorAll(
     ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
   );
@@ -96,15 +104,16 @@ import Card from "../components/Card.astro";
 
     console.log("Section1 Scrolled", percentageScrolled);
     if (percentageScrolled === 0) {
+      resetSubSection1()
       heroBox.style.opacity = 1;
       scrollValue = `0%`;
       opacity = 1;
       scale = 1.5;
     } else if (percentageScrolled > 0 && percentageScrolled <= break1) {
-      subsection2.style.width = "50%"
-      subsection2.style.height = "50dvh"
-      // subsection2.style.top = "25%"
-      subsection2.style.left = "25%"
+      subsection2.style.width = "80dvw"
+      subsection2.style.height = "80dvh"
+      subsection2.style.top = "10%"
+      subsection2.style.left = "10%"
 
       heroBox.style.opacity = 0.2;
       scrollValue = "25%";
