@@ -30,21 +30,32 @@ import Card from "../components/Card.astro";
         process failures, not because of their own errors.
       </h1>
     </div> -->
-<section id="subsection2" class="p-4 gap-4 flex sm:block sm:flex-none flex-col border-2 border-blue-700 relative w-full h-full">
 
-    <Card text="Many Regulatory policies to comply with" class="absolute sm:left-8 sm:top-8" />
+    <section
+      id="subsection2"
+      class="p-4 gap-4 flex sm:block sm:flex-none flex-col border-2 border-blue-700 relative w-full h-full"
+    >
+      <Card
+        text="Many Regulatory policies to comply with"
+        class="box1 sm:absolute sm:left-12 sm:top-20"
+      />
 
-    <Card text="New Clinical evidence to understand and implement."
-      class="box2 sm:right-10 sm:top-10 "
-    />
+      <Card
+        text="New Clinical evidence to understand and implement."
+        class="sm:absolute box2 sm:right-10 sm:top-40"
+      />
 
-    <Card text="Staff burnout and workforce shortages." class="box3 sm:left-8 sm:bottom-8 " />
+      <Card
+        text="Staff burnout and workforce shortages."
+        class="sm:absolute box3 sm:left-30 sm:bottom-52 "
+      />
 
-    <Card text="Communication within a healthcare organization." class="box4" />
+      <Card
+        text="Communication within a healthcare organization."
+        class="sm:absolute box4 sm:right-8 sm:bottom-32"
+      />
+    </section>
   </section>
-  </section>
-
-  
 
   <!-- <section id="subsection3">
     <Card text="More equipment and drug instructions for use." class="box5" />
@@ -57,7 +68,6 @@ import Card from "../components/Card.astro";
       class="box7"
     />
   </section> -->
-
 </section>
 
 <script is:inline>
