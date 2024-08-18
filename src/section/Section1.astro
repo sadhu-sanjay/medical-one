@@ -7,7 +7,7 @@ import Card from "../components/Card.astro";
   class="relative bg-primary-background/10 w-full h-[300dvh]"
 >
   <section id="subsection1" class="w-full h-[100dvh] sticky top-0">
-    <div
+    <!-- <div
       id="hero-box"
       class="h-full w-full sm:w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
     >
@@ -29,23 +29,24 @@ import Card from "../components/Card.astro";
         Health and care workers usually make mistakes as a result of a system or
         process failures, not because of their own errors.
       </h1>
-    </div>
-  </section>
+    </div> -->
+<section id="subsection2" class="p-4 gap-4 flex sm:block sm:flex-none flex-col border-2 border-blue-700 relative w-full h-full">
 
-  <section id="subsection2" class="relative w-full h-full">
-
-    <Card text="Many Regulatory policies to comply with" class="box1" />
+    <Card text="Many Regulatory policies to comply with" class="absolute sm:left-8 sm:top-8" />
 
     <Card text="New Clinical evidence to understand and implement."
-      class="box2"
+      class="box2 sm:right-10 sm:top-10 "
     />
 
-    <Card text="Staff burnout and workforce shortages." class="box3" />
+    <Card text="Staff burnout and workforce shortages." class="box3 sm:left-8 sm:bottom-8 " />
 
     <Card text="Communication within a healthcare organization." class="box4" />
   </section>
+  </section>
 
-  <section id="subsection3">
+  
+
+  <!-- <section id="subsection3">
     <Card text="More equipment and drug instructions for use." class="box5" />
     <Card
       text="Diversity of tasks involved in the delivery  of patient care."
@@ -55,7 +56,8 @@ import Card from "../components/Card.astro";
       text="Increased specialization of health-care professionals"
       class="box7"
     />
-  </section>
+  </section> -->
+
 </section>
 
 <script is:inline>
@@ -169,7 +171,7 @@ import Card from "../components/Card.astro";
   .box5,
   .box6,
   .box7 {
-    position: fixed;
+    /* position: fixed; */
     height: 100px;
     background-color: red;
     transition: all 0.5s ease-in-out;
@@ -178,7 +180,7 @@ import Card from "../components/Card.astro";
     transition: opacity 0.4s ease-in-out;
   }
 
-  .box1 {
+  /* .box1 {
     top: 0;
     left: 0;
     transform: translate(-60%, -120%) scale(1.1);
@@ -197,7 +199,7 @@ import Card from "../components/Card.astro";
     right: 0%;
     bottom: 0%;
     transform: translate(20%, 100%) scale(1.1);
-  }
+  } */
   .box5 {
     right: 0;
     top: 0;
