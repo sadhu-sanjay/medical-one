@@ -57,7 +57,6 @@ import Card from "../components/Card.astro";
 </style>
 
 
-
 <section
   id="section1"
   class="relative bg-primary-background/10 w-full h-[400dvh]"
@@ -68,7 +67,7 @@ import Card from "../components/Card.astro";
   >
     <div
       id="hero-box"
-      class=" left-1/4 absolute h-full w-full sm:w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+      class=" left-1/2 -translate-x-1/2 absolute h-full w-full sm:w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
     >
       <div
         class="border border-primary border-1
@@ -94,7 +93,7 @@ import Card from "../components/Card.astro";
     <section
       id="subsection2"
       style="scale: 3.7"
-      class="p-4 gap-4 flex sm:block sm:flex-none flex-col border-2
+      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col border-2
       border-blue-700 origin-center w-full h-full 
       relative transition-all duration-500 ease-in-out"
     >
@@ -138,22 +137,27 @@ import Card from "../components/Card.astro";
   const break1 = 12;
   const break2 = 29;
   const break3 = 35;
+  const isMobile = window.matchMedia("(max-width: 639px)").matches;
 
   function section2State0() {
+    if (isMobile) {
+      return subsection2.style.opacity = 0
+    }
+
     subsection2.style.scale = 3.7
-    // subsection2.style.scale = 1
   }
 
   function section2State1() {
     subsection2.style.scale = 1;
+    subsection2.style.opacity = 1
   }
 
   function section2State2() {
-    subsection2.style.scale = 0.5;
+    subsection2.style.scale = 0.4;
   }
 
   function section2State3() {
-    subsection2.style.scale = 0;
+    subsection2.style.scale = 0
   }
 
   const boxes = document.querySelectorAll(
