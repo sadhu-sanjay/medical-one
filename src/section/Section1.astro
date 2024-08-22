@@ -22,7 +22,7 @@ import Card from "../components/Card.astro";
 
 <section
   id="section1"
-  class="relative bg-primary-background/10 w-full h-[300dvh]"
+  class="relative bg-primary-background/10 w-full h-[400dvh]"
 >
   <section
     id="subsection1"
@@ -52,41 +52,48 @@ import Card from "../components/Card.astro";
       </h1>
     </div>
 
-    <section
-      id="subsection2"
-      style="scale: 3.7"
-      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col border-2
-      border-blue-700 origin-center w-full h-full
-      relative transition-all duration-500 ease-in-out"
-    >
+    <!-- <section id="subsection2" style="scale: 3.7"
+      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col
+      border-2 border-blue-700 origin-center w-full h-full relative
+      transition-all duration-500 ease-in-out" >
       <Card
         text="Many Regulatory policies to comply with"
-        class="sm:absolute sm:left-24 sm:top-52"
+        class="box1 sm:absolute sm:left-12 sm:top-20"
       />
 
       <Card
         text="New Clinical evidence to understand and implement."
-        class="sm:absolute sm:right-32 sm:top-56"
+        class="sm:absolute box2 sm:right-10 sm:top-40"
       />
 
       <Card
         text="Staff burnout and workforce shortages."
-        class="sm:absolute sm:left-48 sm:bottom-96"
+        class="sm:absolute box3 sm:left-30 sm:bottom-52"
       />
 
       <Card
         text="Communication within a healthcare organization."
-        class="sm:absolute sm:right-36 sm:bottom-80"
+        class="sm:absolute box4 sm:right-8 sm:bottom-32"
       />
-      <Card text="More equipment and drug instructions for use." 
-      class="sm:absolute sm:right-44 sm:bottom-88 " />
+    </section> -->
+
+    <section
+      id="subsection3"
+      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col
+      border-2 border-blue-700 origin-center w-full h-full relative
+      transition-all duration-500 ease-in-out"
+    >
+      <Card
+        text="More equipment and drug instructions for use."
+        class="sm:absolute"
+      />
       <Card
         text="Diversity of tasks involved in the delivery  of patient care."
-        class="sm:absolute sm:left-84 sm:top-88 " 
+        class="sm:absolute"
       />
       <Card
         text="Increased specialization of health-care professionals"
-        class="sm:absolute sm:bottom-32 sm:right-98"
+        class="sm:absolute"
       />
     </section>
   </section>
@@ -99,7 +106,10 @@ import Card from "../components/Card.astro";
   const isMobile = window.matchMedia("(max-width: 639px)").matches;
 
   function section2State0() {
-    subsection2.style.opacity = 0;
+    if (isMobile) {
+      return (subsection2.style.opacity = 0);
+    }
+
     subsection2.style.scale = 3.7;
   }
 
@@ -109,12 +119,10 @@ import Card from "../components/Card.astro";
   }
 
   function section2State2() {
-    if (isMobile) return;
     subsection2.style.scale = 0.4;
   }
 
   function section2State3() {
-    if (isMobile) return;
     subsection2.style.scale = 0;
   }
 
@@ -143,7 +151,6 @@ import Card from "../components/Card.astro";
       opacity = 1;
       scale = 1.5;
     } else if (percentageScrolled > 0 && percentageScrolled <= break1) {
-      console.log("Enter State 2");
       section2State1();
       heroBox.style.opacity = 0.2;
       scrollValue = "25%";
@@ -163,61 +170,5 @@ import Card from "../components/Card.astro";
     } else if (percentageScrolled > break3) {
       opacity = 0;
     }
-
-    return console.log("Here & There");
-
-    boxes.forEach((box) => {
-      if (box.classList.contains("box1")) {
-        box.style.top = scrollValue;
-        box.style.left = scrollValue;
-        box.style.scale = scale;
-        box.style.opacity = opacity;
-      } else if (box.classList.contains("box2")) {
-        box.style.right = scrollValue;
-        box.style.top = scrollValue;
-        box.style.scale = scale;
-        box.style.opacity = opacity;
-      } else if (box.classList.contains("box4")) {
-        box.style.right = scrollValue;
-        box.style.bottom = scrollValue;
-        box.style.scale = scale;
-        box.style.opacity = opacity;
-      } else if (box.classList.contains("box3")) {
-        box.style.left = scrollValue;
-        box.style.bottom = scrollValue;
-        box.style.scale = scale;
-        box.style.opacity = opacity;
-      } else if (box.classList.contains("box5")) {
-        if (percentageScrolled <= break1 || percentageScrolled > break2) {
-          box.style.opacity = 0;
-        } else {
-          box.style.opacity = 1;
-        }
-
-        box.style.right = scrollValue;
-        box.style.top = scrollValue;
-        box.style.scale = scale;
-      } else if (box.classList.contains("box6")) {
-        if (percentageScrolled <= break1 || percentageScrolled > break2) {
-          box.style.opacity = 0;
-        } else {
-          box.style.opacity = 1;
-        }
-
-        box.style.scale = scale;
-        box.style.left = scrollValue;
-        box.style.top = scrollValue;
-      } else if (box.classList.contains("box7")) {
-        if (percentageScrolled <= break1 || percentageScrolled > break2) {
-          box.style.opacity = 0;
-        } else {
-          box.style.opacity = 1;
-        }
-
-        box.style.right = scrollValue;
-        box.style.bottom = scrollValue;
-        box.style.scale = scale;
-      }
-    });
   });
 </script>
