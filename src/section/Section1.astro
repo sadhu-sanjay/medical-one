@@ -18,56 +18,19 @@ import Card from "../components/Card.astro";
   #hero-box {
     transition: opacity 0.4s ease-in-out;
   }
-
-  /* .box1 {
-    top: 0;
-    left: 0;
-    transform: translate(-60%, -120%) scale(1.1);
-  }
-  .box2 {
-    top: 0;
-    right: 0;
-    transform: translate(50%, -60%) scale(1.1);
-  }
-  .box3 {
-    bottom: 0;
-    left: 0;
-    transform: translate(-20%, 60%) scale(1.1);
-  }
-  .box4 {
-    right: 0%;
-    bottom: 0%;
-    transform: translate(20%, 100%) scale(1.1);
-  } */
-  .box5 {
-    right: 0;
-    top: 0;
-    transform: translate(140%, -250%) scale(1.4);
-  }
-  .box6 {
-    left: 0;
-    top: 0;
-    transform: translate(-140%, 20%) scale(1.4);
-  }
-  .box7 {
-    right: 0%;
-    bottom: 0%;
-    transform: translate(100%, 0%) scale(1.4);
-  }
 </style>
-
 
 <section
   id="section1"
-  class="relative bg-primary-background/10 w-full h-[400dvh]"
+  class="relative bg-primary-background/10 w-full h-[300dvh]"
 >
   <section
     id="subsection1"
-    class=" w-full h-[100dvh] sticky top-0 overflow-hidden"
+    class="w-full h-[100dvh] sticky top-0 overflow-hidden"
   >
     <div
       id="hero-box"
-      class=" left-1/2 -translate-x-1/2 absolute h-full w-full sm:w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+      class="left-1/2 -translate-x-1/2 absolute h-full w-full sm:w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
     >
       <div
         class="border border-primary border-1
@@ -86,7 +49,6 @@ import Card from "../components/Card.astro";
       >
         Health and care workers usually make mistakes as a result of a system or
         process failures, not because of their own errors.
-
       </h1>
     </div>
 
@@ -94,43 +56,40 @@ import Card from "../components/Card.astro";
       id="subsection2"
       style="scale: 3.7"
       class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col border-2
-      border-blue-700 origin-center w-full h-full 
+      border-blue-700 origin-center w-full h-full
       relative transition-all duration-500 ease-in-out"
     >
       <Card
         text="Many Regulatory policies to comply with"
-        class="box1 sm:absolute sm:left-24 sm:top-28" 
-        />
+        class="sm:absolute sm:left-24 sm:top-52"
+      />
 
       <Card
         text="New Clinical evidence to understand and implement."
-        class="sm:absolute box2 sm:right-32 sm:top-36"
+        class="sm:absolute sm:right-32 sm:top-56"
       />
 
       <Card
         text="Staff burnout and workforce shortages."
-        class="sm:absolute box3 sm:left-48 sm:bottom-52"
+        class="sm:absolute sm:left-48 sm:bottom-96"
       />
 
       <Card
         text="Communication within a healthcare organization."
-        class="sm:absolute box4 sm:right-36 sm:bottom-44"
+        class="sm:absolute sm:right-36 sm:bottom-80"
+      />
+      <Card text="More equipment and drug instructions for use." 
+      class="sm:absolute sm:right-44 sm:bottom-88 " />
+      <Card
+        text="Diversity of tasks involved in the delivery  of patient care."
+        class="sm:absolute sm:left-84 sm:top-88 " 
+      />
+      <Card
+        text="Increased specialization of health-care professionals"
+        class="sm:absolute sm:bottom-32 sm:right-98"
       />
     </section>
   </section>
-  
-  <!-- <section id="subsection3">
-    <Card text="More equipment and drug instructions for use." class="box5" />
-    <Card
-      text="Diversity of tasks involved in the delivery  of patient care."
-      class="box6"
-    />
-    <Card
-      text="Increased specialization of health-care professionals"
-      class="box7"
-    />
-  </section> -->
-
 </section>
 
 <script is:inline>
@@ -140,24 +99,23 @@ import Card from "../components/Card.astro";
   const isMobile = window.matchMedia("(max-width: 639px)").matches;
 
   function section2State0() {
-    if (isMobile) {
-      subsection2.style.opacity = 0
-    }
-
-    subsection2.style.scale = 3.7
+    subsection2.style.opacity = 0;
+    subsection2.style.scale = 3.7;
   }
 
   function section2State1() {
     subsection2.style.scale = 1;
-    subsection2.style.opacity = 1
+    subsection2.style.opacity = 1;
   }
 
   function section2State2() {
+    if (isMobile) return;
     subsection2.style.scale = 0.4;
   }
 
   function section2State3() {
-    subsection2.style.scale = 0
+    if (isMobile) return;
+    subsection2.style.scale = 0;
   }
 
   const boxes = document.querySelectorAll(
@@ -185,6 +143,7 @@ import Card from "../components/Card.astro";
       opacity = 1;
       scale = 1.5;
     } else if (percentageScrolled > 0 && percentageScrolled <= break1) {
+      console.log("Enter State 2");
       section2State1();
       heroBox.style.opacity = 0.2;
       scrollValue = "25%";
