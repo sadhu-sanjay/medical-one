@@ -4,14 +4,8 @@ import Card from "../components/Card.astro";
 
 <style is:global>
   /* Initial positions */
-  .box1,
-  .box2,
-  .box3,
-  .box4,
-  .box5,
-  .box6,
-  .box7 {
-    height: 100px;
+  .box {
+    height: 96px;
     background-color: red;
     transition: all 0.5s ease-in-out;
   }
@@ -61,22 +55,22 @@ import Card from "../components/Card.astro";
     >
       <Card
         text="Many Regulatory policies to comply with"
-        class="box1 sm:absolute sm:left-12 sm:top-20"
+        class="box sm:absolute sm:left-12 sm:top-20"
       />
 
       <Card
         text="New Clinical evidence to understand and implement."
-        class="sm:absolute box2 sm:right-10 sm:top-40"
+        class="sm:absolute box sm:right-10 sm:top-40"
       />
 
       <Card
         text="Staff burnout and workforce shortages."
-        class="sm:absolute box3 sm:left-30 sm:bottom-52"
+        class="sm:absolute box sm:left-30 sm:bottom-52"
       />
 
       <Card
         text="Communication within a healthcare organization."
-        class="sm:absolute box4 sm:right-8 sm:bottom-32"
+        class="sm:absolute box sm:right-8 sm:bottom-32"
       />
     </section>
 
@@ -88,15 +82,15 @@ import Card from "../components/Card.astro";
     >
       <Card
         text="More equipment and drug instructions for use."
-        class="sm:absolute sm:left-1/4 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
+        class="box sm:absolute sm:left-1/4 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
       />
       <Card
         text="Diversity of tasks involved in the delivery  of patient care."
-        class="sm:absolute sm:right-1/4 sm:top-1/4 sm:translate-x-1/2 sm:translate-y-1/2"
+        class="box sm:absolute sm:right-1/4 sm:top-1/4 sm:translate-x-1/2 sm:translate-y-1/2"
       />
       <Card
         text="Increased specialization of health-care professionals"
-        class="sm:absolute sm:right-1/4 sm:bottom-1/4 sm:translate-x-1/2 sm:translate-y-1/2"
+        class="box sm:absolute sm:right-1/4 sm:bottom-1/4 sm:translate-x-1/2 sm:translate-y-1/2"
       />
     </section>
   </section>
@@ -113,11 +107,13 @@ import Card from "../components/Card.astro";
   const subsection3 = document.getElementById("subsection3");
 
   function section2State0() {
+    subsection2.style.scale = 3.7;
+
     if (isMobile) {
       subsection2.style.opacity = 0;
       subsection3.style.opacity = 0;
+      subsection3.style.scale = 5.7;
     }
-    subsection2.style.scale = 3.7;
   }
 
   function section2State1() {
@@ -126,6 +122,11 @@ import Card from "../components/Card.astro";
     subsection2.style.filter = "";
 
     subsection3.style.scale = 20;
+
+    if (isMobile) {
+      subsection3.style.scale = 1;
+      subsection3.style.opacity = 1;
+    }
   }
 
   function section2State2() {
