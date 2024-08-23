@@ -52,10 +52,13 @@ import Card from "../components/Card.astro";
       </h1>
     </div>
 
-    <!-- <section id="subsection2" style="scale: 3.7"
+    <section
+      id="subsection2"
+      style="scale: 3.7"
       class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col
       border-2 border-blue-700 origin-center w-full h-full relative
-      transition-all duration-500 ease-in-out" >
+      transition-all duration-500 ease-in-out"
+    >
       <Card
         text="Many Regulatory policies to comply with"
         class="box1 sm:absolute sm:left-12 sm:top-20"
@@ -75,25 +78,25 @@ import Card from "../components/Card.astro";
         text="Communication within a healthcare organization."
         class="sm:absolute box4 sm:right-8 sm:bottom-32"
       />
-    </section> -->
+    </section>
 
     <section
       id="subsection3"
-      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col
-      border-2 border-blue-700 origin-center w-full h-full relative
+      class="absolute top-0 p-4 gap-4 sm:opacity-100 flex sm:block sm:flex-none flex-col justify-end
+      border-2 border-blue-700 origin-center w-full h-full
       transition-all duration-500 ease-in-out"
     >
       <Card
         text="More equipment and drug instructions for use."
-        class="sm:absolute sm:left-1/4 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 "
+        class="sm:absolute sm:left-1/4 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
       />
       <Card
         text="Diversity of tasks involved in the delivery  of patient care."
-        class="sm:absolute"
+        class="sm:absolute sm:right-1/4 sm:top-1/4 sm:translate-x-1/2 sm:translate-y-1/2"
       />
       <Card
         text="Increased specialization of health-care professionals"
-        class="sm:absolute"
+        class="sm:absolute sm:right-1/4 sm:bottom-1/4 sm:translate-x-1/2 sm:translate-y-1/2"
       />
     </section>
   </section>
@@ -105,33 +108,41 @@ import Card from "../components/Card.astro";
   const break3 = 35;
   const isMobile = window.matchMedia("(max-width: 639px)").matches;
 
+  const heroBox = document.getElementById("hero-box");
+  const subsection2 = document.getElementById("subsection2");
+  const subsection3 = document.getElementById("subsection3");
+
   function section2State0() {
     if (isMobile) {
-      return (subsection2.style.opacity = 0);
+      subsection2.style.opacity = 0;
+      subsection3.style.opacity = 0;
     }
-
     subsection2.style.scale = 3.7;
+    subsection3.style.scale = 3.7;
   }
 
   function section2State1() {
     subsection2.style.scale = 1;
     subsection2.style.opacity = 1;
+    subsection3.style.scale = 1;
+    subsection3.style.opacity = 1;
   }
 
   function section2State2() {
+    if (isMobile) return;
     subsection2.style.scale = 0.4;
+    subsection3.style.scale = 0.4;
   }
 
   function section2State3() {
+    if (isMobile) return;
     subsection2.style.scale = 0;
+    subsection3.style.scale = 0;
   }
 
   const boxes = document.querySelectorAll(
     ".box1, .box2, .box4, .box3, .box5, .box6, .box7"
   );
-
-  const heroBox = document.getElementById("hero-box");
-  const subsection2 = document.getElementById("subsection2");
 
   window.addEventListener("scroll", () => {
     let scrollableHeight =
