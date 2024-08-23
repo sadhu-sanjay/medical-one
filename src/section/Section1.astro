@@ -50,7 +50,7 @@ import Card from "../components/Card.astro";
       id="subsection2"
       style="scale: 3.7"
       class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col
-      border-2 border-blue-700 origin-center w-full h-full relative
+      border-2 origin-center w-full h-full relative
       transition-all duration-500 ease-in-out"
     >
       <Card
@@ -77,7 +77,7 @@ import Card from "../components/Card.astro";
     <section
       id="subsection3"
       class="absolute top-0 p-4 gap-4 sm:opacity-100 flex sm:block sm:flex-none flex-col justify-end
-      border-2 border-blue-700 origin-center w-full h-full
+      border-2 origin-center w-full h-full
       transition-all duration-500 ease-in-out"
     >
       <Card
@@ -106,7 +106,7 @@ import Card from "../components/Card.astro";
   const subsection2 = document.getElementById("subsection2");
   const subsection3 = document.getElementById("subsection3");
 
-  function section2State0() {
+  function state0() {
     subsection2.style.scale = 3.7;
 
     if (isMobile) {
@@ -116,7 +116,7 @@ import Card from "../components/Card.astro";
     }
   }
 
-  function section2State1() {
+  function state1() {
     subsection2.style.scale = 1;
     subsection2.style.opacity = 1;
     subsection2.style.filter = "";
@@ -129,23 +129,27 @@ import Card from "../components/Card.astro";
     }
   }
 
-  function section2State2() {
+  function state2() {
     subsection3.style.scale = 1;
     subsection3.style.opacity = 1;
 
     if (isMobile) return;
 
-    subsection2.style.filter = "blur(1.5rem)";
+    subsection2.style.filter = "blur(1rem)";
     subsection2.style.scale = 0.4;
+    subsection2.style.opacity = 1;
+
+    subsection3.style.filter = "";
   }
 
-  function section2State3() {
+  function state3() {
     if (isMobile) return;
 
     subsection2.style.scale = 0.2;
     subsection2.style.opacity = 0.1;
-    subsection3.style.scale = 0.3;
-    subsection3.style.opacity = 0.1;
+
+    subsection3.style.filter = "blur(1rem)";
+    subsection3.style.scale = 0.4;
   }
 
   const boxes = document.querySelectorAll(
@@ -164,30 +168,18 @@ import Card from "../components/Card.astro";
 
     console.log("Section1 Scrolled", percentageScrolled);
     if (percentageScrolled === 0) {
-      section2State0();
+      state0();
       heroBox.style.opacity = 1;
-      scrollValue = `0%`;
-      opacity = 1;
-      scale = 1.5;
     } else if (percentageScrolled > 0 && percentageScrolled <= break1) {
-      section2State1();
+      state1();
       heroBox.style.opacity = 0.2;
-      scrollValue = "25%";
-      opacity = 1;
-      scale = 1;
     } else if (percentageScrolled > break1 && percentageScrolled <= break2) {
-      section2State2();
+      state2();
       heroBox.style.opacity = 0;
-      scrollValue = "40%";
-      opacity = 0.06;
-      scale = 0.65;
     } else if (percentageScrolled > break2 && percentageScrolled <= break3) {
-      section2State3();
-      scrollValue = "45%";
-      opacity = 1;
-      scale = 0.5;
+      state3();
     } else if (percentageScrolled > break3) {
-      opacity = 0;
+      state4();
     }
   });
 </script>
