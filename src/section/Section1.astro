@@ -118,26 +118,27 @@ import Card from "../components/Card.astro";
       subsection3.style.opacity = 0;
     }
     subsection2.style.scale = 3.7;
-    subsection3.style.scale = 3.7;
+    subsection3.style.scale = 5.7;
   }
 
   function section2State1() {
     subsection2.style.scale = 1;
     subsection2.style.opacity = 1;
-    subsection3.style.scale = 1;
-    subsection3.style.opacity = 1;
+
+    subsection3.style.scale = 5.7;
   }
 
   function section2State2() {
+    subsection3.style.scale = 1;
+    subsection3.style.opacity = 1;
+
     if (isMobile) return;
+
     subsection2.style.scale = 0.4;
-    subsection3.style.scale = 0.4;
   }
 
   function section2State3() {
     if (isMobile) return;
-    subsection2.style.scale = 0;
-    subsection3.style.scale = 0;
   }
 
   const boxes = document.querySelectorAll(
