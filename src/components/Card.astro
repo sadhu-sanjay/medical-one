@@ -1,5 +1,5 @@
 ---
-import WarningCircleIcon from "../assets/icons/warning-circle-icon.astro";
+import WarningTriangleIcon from "../assets/icons/warning-triangle-icon.astro";
 
 const { class: className, text, props } = Astro.props;
 ---
@@ -39,7 +39,7 @@ const { class: className, text, props } = Astro.props;
 
 <div class=`card ${className}` {...props}>
   <div class="icon">
-    <WarningCircleIcon />
+    <WarningTriangleIcon />
   </div>
   <div class="text">
     <p class="font-semibold tracking-tighter">

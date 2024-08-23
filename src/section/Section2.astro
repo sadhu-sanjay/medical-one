@@ -5,8 +5,9 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 ---
 
 <section id="section2" class="rounded-lg relative w-full h-[500dvh]">
-  <div class="h-[100dvh] w-full sticky top-0 left-0 bg-secondary-light">
-
+  <div
+    class="h-[100dvh] overflow-hidden w-full sticky top-0 left-0 bg-secondary-light"
+  >
     <BGCIRCLE
       text="Increasing Cost"
       textOpacity={1}
@@ -60,29 +61,35 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       headerColor="bg-primary-background"
     />
 
-    <Card2
-      id="card9"
-      title=">80%"
-      text=`safty events goes undocumented*`
-      className="left-1/4 top-1/2"
-      headerColor="bg-secondary"
-    />
+    <section
+      style="scale: 1.5"
+      id="card-section1"
+      class="transition-all w-full h-full"
+    >
+      <Card2
+        id="card9"
+        title=">80%"
+        text=`safty events goes undocumented*`
+        className="left-1/4 top-1/2"
+        headerColor="bg-secondary"
+      />
 
-    <Card2
-      id="card10"
-      title="25%"
-      text="Harm events preventable*"
-      className="right-24 top-36 "
-      headerColor="bg-secondary"
-    />
+      <Card2
+        id="card10"
+        title="25%"
+        text="Harm events preventable*"
+        className="right-24 top-36 "
+        headerColor="bg-secondary"
+      />
 
-    <Card2
-      id="card11"
-      title="25%"
-      text="Adverse events preventable*"
-      className="right-24 bottom-24 "
-      headerColor="bg-secondary"
-    />
+      <Card2
+        id="card11"
+        title="25%"
+        text="Adverse events preventable*"
+        className="right-24 bottom-24 "
+        headerColor="bg-secondary"
+      />
+    </section>
 
     <Card2
       id="card12"
@@ -115,7 +122,6 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       className="right-24 bottom-4 "
       headerColor="bg-secondary-light"
     />
-
   </div>
 </section>
 
@@ -139,6 +145,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
   const headingCircle1 = document.getElementById("headingCircle1");
   const headingCircle2 = document.getElementById("headingCircle2");
   const headingCircle3 = document.getElementById("headingCircle3");
+  const cardSection1 = document.getElementById("card-section1");
 
   window.addEventListener("scroll", (any) => {
     const scrollPercentage = Math.round(
@@ -199,6 +206,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       ]);
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
       turnIntoCircle([bgCircle1], "50dvw");
+      cardSection1.style.scale = 1;
       show([card8, headingCircle1]);
       hide([headingCircle2, heading2, card9, card10, card11]);
       resetCircle([bgCircle2]);
@@ -207,7 +215,15 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       turnIntoCircle([bgCircle2], "50dvw");
       resetCircle([bgCircle3]);
       show([card9, card10, card11, headingCircle2]);
-      hide([headingCircle3,card8, card12, card13, card14, card15, headingCircle1]);
+      hide([
+        headingCircle3,
+        card8,
+        card12,
+        card13,
+        card14,
+        card15,
+        headingCircle1,
+      ]);
     } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
       turnIntoCircle([bgCircle1], "2dvw");
       turnIntoCircle([bgCircle2], "15dvw");
