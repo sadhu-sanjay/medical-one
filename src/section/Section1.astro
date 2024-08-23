@@ -118,14 +118,14 @@ import Card from "../components/Card.astro";
       subsection3.style.opacity = 0;
     }
     subsection2.style.scale = 3.7;
-    subsection3.style.scale = 5.7;
   }
 
   function section2State1() {
     subsection2.style.scale = 1;
     subsection2.style.opacity = 1;
+    subsection2.style.filter = "";
 
-    subsection3.style.scale = 5.7;
+    subsection3.style.scale = 20;
   }
 
   function section2State2() {
@@ -134,11 +134,17 @@ import Card from "../components/Card.astro";
 
     if (isMobile) return;
 
+    subsection2.style.filter = "blur(1.5rem)";
     subsection2.style.scale = 0.4;
   }
 
   function section2State3() {
     if (isMobile) return;
+
+    subsection2.style.scale = 0.2;
+    subsection2.style.opacity = 0.1;
+    subsection3.style.scale = 0.3;
+    subsection3.style.opacity = 0.1;
   }
 
   const boxes = document.querySelectorAll(
