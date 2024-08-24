@@ -92,9 +92,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     </section>
 
     <section
-      style="scale: 14;"
       id="card-section2"
-      class="w-full h-full transition-all ease-in-out duration-500"
+      class="absolute top-0 w-full h-full transition-all ease-in-out duration-500"
     >
       <Card2
         id="card12"
@@ -203,10 +202,6 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         headingCircle2,
         headingCircle3,
         card8,
-        card12,
-        card13,
-        card14,
-        card15,
       ]);
       cardSection1.style.scale = 12;
 
@@ -215,29 +210,30 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       show([card8, headingCircle1]);
       hide([headingCircle2, heading2]);
       cardSection1.style.scale = 1;
+      cardSection2.style.scale = 4;
+
       resetCircle([bgCircle2]);
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
       turnIntoCircle([bgCircle1], "15dvw");
       turnIntoCircle([bgCircle2], "50dvw");
       resetCircle([bgCircle3]);
       show([headingCircle2]);
-      cardSection1.style.scale = 12;
+      cardSection1.style.scale = 0;
+      cardSection2.style.scale = 1;
+
       hide([
         headingCircle3,
         card8,
-        card12,
-        card13,
-        card14,
-        card15,
         headingCircle1,
       ]);
+
     } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
-      cardSection1.style.scale = 10;
+
       turnIntoCircle([bgCircle1], "2dvw");
       turnIntoCircle([bgCircle2], "15dvw");
       turnIntoCircle([bgCircle3], "50dvw");
       hide([headingCircle2, card8]);
-      show([headingCircle3, card12, card13, card14, card15]);
+      show([headingCircle3 ]);
     }
   });
 </script>
