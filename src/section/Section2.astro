@@ -5,23 +5,27 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 ---
 
 <section id="section2" class="rounded-lg relative w-full h-[500dvh]">
+  
   <div
     class="h-[100dvh] overflow-hidden w-full sticky top-0 left-0 bg-secondary-light"
   >
-    <BGCIRCLE
+
+    <!-- <BGCIRCLE
       text="Increasing Cost"
       textOpacity={1}
       textId="headingCircle3"
       id="bgCircle3"
       class="bg-secondary/50"
     />
+
     <BGCIRCLE
       text="Impacts Safety"
       textOpacity={1}
       textId="headingCircle2"
       id="bgCircle2"
       class="bg-secondary"
-    />
+    /> -->
+
     <BGCIRCLE
       text="Disconnected Operations"
       textOpacity={1}
@@ -32,7 +36,10 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
     <div
       id="heading2"
-      class="transition-all duration-500 ease-in absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 w-1/2 mx-auto flex flex-col items-center justify-center gap-8"
+      class="
+      transition-all duration-500 ease-in absolute top-1/2 
+      -translate-y-1/2 -translate-x-1/2 left-1/2 w-full sm:w-1/2 mx-auto 
+      flex flex-col items-center justify-center gap-8 p-8 sm:p-12"
     >
       <div
         class="border border-white/0.7 border-1
@@ -44,7 +51,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         <h1 class="ml-2">The Compounding Effect</h1>
       </div>
       <h1
-        class="text-white/0.7 font-extrabold text-6xl
+        class="text-white/0.7 font-extrabold text-4xl sm:text-6xl
         tracking-tighter
         leading-tight
         text-center"
@@ -53,15 +60,15 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       </h1>
     </div>
 
-    <Card2
+    <!-- <Card2
       id="card8"
       title="95%"
       text="of the data goes unused*"
       className="left-1/2 top-1/2 "
       headerColor="bg-primary-background"
-    />
+    /> -->
 
-    <section
+    <!-- <section
       style="scale: 15"
       id="card-section1"
       class="transition-all duration-500 ease-in-out w-full h-full"
@@ -89,9 +96,9 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         className="right-24 bottom-24 "
         headerColor="bg-secondary"
       />
-    </section>
+    </section> -->
 
-    <section
+    <!-- <section
       style="scale: 4"
       id="card-section2"
       class="absolute top-0 w-full h-full transition-all ease-in-out duration-500"
@@ -127,7 +134,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         className="right-24 bottom-4 "
         headerColor="bg-secondary-light"
       />
-    </section>
+    </section> -->
+
   </div>
 </section>
 
@@ -188,6 +196,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         el.style.opacity = 0;
       });
     }
+
     function show(elements) {
       elements.forEach((el) => {
         el.style.opacity = 1;
@@ -198,21 +207,12 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
      * Scroll Percentage
      */
     if (scrollPercentage < break4) {
-
-
       resetCircle([bgCircle1]);
       show([heading2]);
-      hide([
-        headingCircle1,
-        headingCircle2,
-        headingCircle3,
-        card8,
-      ]);
+      hide([headingCircle1, headingCircle2, headingCircle3, card8]);
       cardSection1.style.scale = 12;
       cardSection2.style.scale = 14;
-
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
-
       turnIntoCircle([bgCircle1], "50dvw");
       show([card8, headingCircle1]);
       hide([headingCircle2, heading2]);
@@ -220,9 +220,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       resetCircle([bgCircle2]);
 
       cardSection1.style.scale = 12;
-
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
-
       turnIntoCircle([bgCircle1], "15dvw");
       turnIntoCircle([bgCircle2], "50dvw");
       resetCircle([bgCircle3]);
@@ -231,24 +229,18 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       cardSection1.style.scale = 1;
       cardSection2.style.scale = 4;
 
-      hide([
-        headingCircle3,
-        card8,
-        headingCircle1,
-      ]);
-
+      hide([headingCircle3, card8, headingCircle1]);
     } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
-
       turnIntoCircle([bgCircle1], "2dvw");
       turnIntoCircle([bgCircle2], "15dvw");
       turnIntoCircle([bgCircle3], "50dvw");
 
       hide([headingCircle2, card8]);
-      show([headingCircle3 ]);
+      show([headingCircle3]);
 
       cardSection1.style.scale = 0;
       cardSection2.style.scale = 1;
-
     }
   });
+
 </script>
