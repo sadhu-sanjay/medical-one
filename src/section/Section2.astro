@@ -10,7 +10,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     class="h-[100dvh] overflow-hidden w-full sticky top-0 left-0 bg-secondary-light"
   >
 
-    <!-- <BGCIRCLE
+    <BGCIRCLE
       text="Increasing Cost"
       textOpacity={1}
       textId="headingCircle3"
@@ -24,7 +24,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       textId="headingCircle2"
       id="bgCircle2"
       class="bg-secondary"
-    /> -->
+    />
 
     <BGCIRCLE
       text="Disconnected Operations"
@@ -60,15 +60,15 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       </h1>
     </div>
 
-    <!-- <Card2
+    <Card2
       id="card8"
       title="95%"
       text="of the data goes unused*"
       className="left-1/2 top-1/2 "
       headerColor="bg-primary-background"
-    /> -->
+    />
 
-    <!-- <section
+    <section
       style="scale: 15"
       id="card-section1"
       class="transition-all duration-500 ease-in-out w-full h-full"
@@ -96,12 +96,12 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         className="right-24 bottom-24 "
         headerColor="bg-secondary"
       />
-    </section> -->
+    </section>
 
     <!-- <section
       style="scale: 4"
       id="card-section2"
-      class="absolute top-0 w-full h-full transition-all ease-in-out duration-500"
+      class="absolute opacity-0 top-0 w-full h-full transition-all ease-in-out duration-500"
     >
       <Card2
         id="card12"
@@ -144,7 +144,6 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     break5 = 65,
     break6 = 77;
 
-  // const isMobile = window.matchMedia("(max-width: 649px)").matches
   const card8 = document.getElementById("card8");
   const card9 = document.getElementById("card9");
   const card10 = document.getElementById("card10");
@@ -173,6 +172,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     console.log("section2  %", scrollPercentage);
 
     function turnIntoCircle(elements, width) {
+
       elements.forEach((el) => {
         el.style.width = width;
         el.style.height = width;
@@ -209,25 +209,26 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     if (scrollPercentage < break4) {
       resetCircle([bgCircle1]);
       show([heading2]);
-      hide([headingCircle1, headingCircle2, headingCircle3, card8]);
+      hide([cardSection1, headingCircle1, headingCircle2, headingCircle3, card8]);
       cardSection1.style.scale = 12;
-      cardSection2.style.scale = 14;
+      // cardSection2.style.scale = 14;
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
-      turnIntoCircle([bgCircle1], "50dvw");
-      show([card8, headingCircle1]);
-      hide([headingCircle2, heading2]);
+
+      turnIntoCircle([bgCircle1], "90dvh");
+      show([card8, headingCircle1 ]);
+      hide([headingCircle2, heading2, cardSection1]);
 
       resetCircle([bgCircle2]);
 
       cardSection1.style.scale = 12;
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
       turnIntoCircle([bgCircle1], "15dvw");
-      turnIntoCircle([bgCircle2], "50dvw");
+      turnIntoCircle([bgCircle2], "90dvh");
       resetCircle([bgCircle3]);
-      show([headingCircle2]);
+      show([headingCircle2, cardSection1]);
 
       cardSection1.style.scale = 1;
-      cardSection2.style.scale = 4;
+      // cardSection2.style.scale = 4;
 
       hide([headingCircle3, card8, headingCircle1]);
     } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
@@ -239,7 +240,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       show([headingCircle3]);
 
       cardSection1.style.scale = 0;
-      cardSection2.style.scale = 1;
+      // cardSection2.style.scale = 1;
     }
   });
 
