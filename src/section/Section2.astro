@@ -136,6 +136,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     break5 = 55,
     break6 = 67;
 
+  // const isMobile = window.matchMedia("(max-width: 649px)").matches
   const card8 = document.getElementById("card8");
   const card9 = document.getElementById("card9");
   const card10 = document.getElementById("card10");
@@ -197,6 +198,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
      * Scroll Percentage
      */
     if (scrollPercentage < break4) {
+
+
       resetCircle([bgCircle1]);
       show([heading2]);
       hide([
@@ -206,7 +209,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         card8,
       ]);
       cardSection1.style.scale = 12;
-      cardSection2.style.scale = 4;
+      cardSection2.style.scale = 14;
 
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
 
