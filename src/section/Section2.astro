@@ -78,7 +78,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card10"
         title="25%"
         text="Harm events preventable*"
-        className="right-24 top-36 "
+        className="right-12 top-36 "
         headerColor="bg-secondary"
       />
 
@@ -92,6 +92,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     </section>
 
     <section
+      style="scale: 4"
       id="card-section2"
       class="absolute top-0 w-full h-full transition-all ease-in-out duration-500"
     >
@@ -159,6 +160,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         (document.documentElement.scrollHeight - window.outerHeight)) *
         100
     );
+
     console.log("section2  %", scrollPercentage);
 
     function turnIntoCircle(elements, width) {
@@ -204,22 +206,27 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         card8,
       ]);
       cardSection1.style.scale = 12;
+      cardSection2.style.scale = 4;
 
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
+
       turnIntoCircle([bgCircle1], "50dvw");
       show([card8, headingCircle1]);
       hide([headingCircle2, heading2]);
-      cardSection1.style.scale = 1;
-      cardSection2.style.scale = 4;
 
       resetCircle([bgCircle2]);
+
+      cardSection1.style.scale = 12;
+
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
+
       turnIntoCircle([bgCircle1], "15dvw");
       turnIntoCircle([bgCircle2], "50dvw");
       resetCircle([bgCircle3]);
       show([headingCircle2]);
-      cardSection1.style.scale = 0;
-      cardSection2.style.scale = 1;
+
+      cardSection1.style.scale = 1;
+      cardSection2.style.scale = 4;
 
       hide([
         headingCircle3,
@@ -232,8 +239,13 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       turnIntoCircle([bgCircle1], "2dvw");
       turnIntoCircle([bgCircle2], "15dvw");
       turnIntoCircle([bgCircle3], "50dvw");
+
       hide([headingCircle2, card8]);
       show([headingCircle3 ]);
+
+      cardSection1.style.scale = 0;
+      cardSection2.style.scale = 1;
+
     }
   });
 </script>
