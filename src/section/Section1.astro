@@ -50,7 +50,7 @@ import Card from "../components/Card.astro";
     <section
       id="subsection2"
       style="scale: 3.7"
-      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col
+      class="p-4 gap-4 opacity-0 sm:opacity-100 flex sm:block sm:flex-none flex-col align-middle
       border-2 origin-center w-full sm:h-full relative
       transition-all duration-500 ease-in-out"
     >
@@ -61,7 +61,7 @@ import Card from "../components/Card.astro";
 
       <Card
         text="New Clinical evidence to understand and implement."
-        class="sm:absolute box sm:right-40 sm:top-40"
+        class="sm:absolute box sm:right-40 sm:top-56"
       />
 
       <Card
@@ -71,7 +71,7 @@ import Card from "../components/Card.astro";
 
       <Card
         text="Communication within a healthcare organization."
-        class="sm:absolute box sm:right-48 sm:bottom-32"
+        class="sm:absolute box sm:right-48 sm:bottom-24"
       />
     </section>
 
@@ -116,8 +116,9 @@ import Card from "../components/Card.astro";
     heroBox.style.opacity = 1;
     heroBox.style.filter = "";
 
+    subsection2.style.opacity = 0;
+
     if (isMobile) {
-      subsection2.style.opacity = 0;
       subsection3.style.scale = 20;
     }
   }

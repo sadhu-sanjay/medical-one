@@ -24,6 +24,12 @@ const { className, id, headerColor, title, text } = Astro.props;
       width: 77dvw;
     }
   }
+
+  @media (max-width: 820px) {
+    .card-type2 {
+      width: 47dvw;
+    }
+  }
 </style>
 
 <div id={id} class=`card-type2  shadow-lg ${className}`>
