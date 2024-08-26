@@ -16,19 +16,21 @@ const { className, id, headerColor, title, text } = Astro.props;
     border-radius: 12px;
     transition: all 0.2s ease-in-out;
     overflow: hidden;
-    max-width: 390px;
+    width: 27dvw;
+  }
+
+  @media (max-width: 412px) {
+    .card-type2 {
+      width: 77dvw;
+    }
   }
 </style>
 
-<div id={id} class=` card-type2 shadow-lg ${className}`>
-  <div
-    class=` w-full h-10 ${headerColor}`
-  >
+<div id={id} class=`card-type2  shadow-lg ${className}`>
+  <div class=` w-full h-10 ${headerColor}`>
     <WarningCircleIcon />
   </div>
-  <div
-    class="w-full  bg-surface-color text-primary-background p-4 pr-20"
-  >
+  <div class="w-full bg-surface-color text-primary-background p-4 pr-20">
     <span class="font-black text-6xl"> {title}</span>
     <p class="font-bold text-sm">{text}</p>
   </div>
