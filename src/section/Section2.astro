@@ -64,20 +64,22 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       id="card8"
       title="95%"
       text="of the data goes unused*"
-      className="left-1/2 top-1/2 "
+      className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 "
       headerColor="bg-primary-background"
     />
 
     <section
       style="scale: 15"
       id="card-section1"
-      class="transition-all duration-500 ease-in-out w-full h-full"
+      class="flex flex-col justify-center items-stretch gap-4 p-20
+      transition-all duration-500 ease-in-out w-full h-full"
     >
+
       <Card2
         id="card9"
         title=">80%"
         text=`safty events goes undocumented*`
-        className="left-1/4 top-1/2"
+        className="sm:absolute sm:left-16 top-102"
         headerColor="bg-secondary"
       />
 
@@ -85,7 +87,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card10"
         title="25%"
         text="Harm events preventable*"
-        className="right-12 top-36 "
+        className="sm:absolute sm:right-12 sm:top-36 "
         headerColor="bg-secondary"
       />
 
@@ -93,21 +95,24 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card11"
         title="25%"
         text="Adverse events preventable*"
-        className="right-24 bottom-24 "
+        className="sm:absolute sm:right-24 sm:bottom-24 "
         headerColor="bg-secondary"
       />
+
     </section>
 
-    <!-- <section
+    <section
       style="scale: 4"
       id="card-section2"
-      class="absolute opacity-0 top-0 w-full h-full transition-all ease-in-out duration-500"
+      class="
+      flex sm:flex-none flex-col justify-center gap-4 items-center
+      absolute top-0 w-full h-full transition-all ease-in-out duration-500"
     >
       <Card2
         id="card12"
         title="76%"
         text="Health care workers reported burnouts*"
-        className="left-20 sm:left-96 top-24 "
+        className="sm:absolute sm:left-40 sm:top-24"
         headerColor="bg-secondary-light "
       />
 
@@ -115,7 +120,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card13"
         title="266Bn"
         text="Administrative complexity*"
-        className="right-24 top-24 "
+        className="sm:absolute sm:right-24 sm:top-24 "
         headerColor="bg-secondary-light"
       />
 
@@ -123,7 +128,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card14"
         title="$214Bn"
         text="Operational waste*"
-        className="left-80  bottom-12 "
+        className="sm:absolute sm:left-40 sm:bottom-24 "
         headerColor="bg-secondary-light"
       />
 
@@ -131,10 +136,10 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card15"
         title="15%"
         text="Expendenture driven by  adverse events*"
-        className="right-24 bottom-4 "
+        className="sm:absolute sm:right-24 sm:bottom-20 "
         headerColor="bg-secondary-light"
       />
-    </section> -->
+    </section>
 
   </div>
 </section>
@@ -210,8 +215,10 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       resetCircle([bgCircle1]);
       show([heading2]);
       hide([cardSection1, headingCircle1, headingCircle2, headingCircle3, card8]);
+      
       cardSection1.style.scale = 12;
-      // cardSection2.style.scale = 14;
+      cardSection2.style.opacity = 0
+
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
 
       turnIntoCircle([bgCircle1], "90dvh");
@@ -222,25 +229,29 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
       cardSection1.style.scale = 12;
     } else if (scrollPercentage > break5 && scrollPercentage <= break6) {
-      turnIntoCircle([bgCircle1], "15dvw");
+      turnIntoCircle([bgCircle1], "15dvh");
       turnIntoCircle([bgCircle2], "90dvh");
       resetCircle([bgCircle3]);
       show([headingCircle2, cardSection1]);
 
       cardSection1.style.scale = 1;
-      // cardSection2.style.scale = 4;
+
+      cardSection2.style.opacity = 0
+      cardSection2.style.scale = 4;
 
       hide([headingCircle3, card8, headingCircle1]);
     } else if (scrollPercentage > break6 && scrollPercentage <= 100) {
-      turnIntoCircle([bgCircle1], "2dvw");
-      turnIntoCircle([bgCircle2], "15dvw");
-      turnIntoCircle([bgCircle3], "50dvw");
+      turnIntoCircle([bgCircle1], "2dvh");
+      turnIntoCircle([bgCircle2], "15dvh");
+      turnIntoCircle([bgCircle3], "90dvh");
 
       hide([headingCircle2, card8]);
       show([headingCircle3]);
 
       cardSection1.style.scale = 0;
-      // cardSection2.style.scale = 1;
+
+      cardSection2.style.opacity = 1
+      cardSection2.style.scale = 1;
     }
   });
 
