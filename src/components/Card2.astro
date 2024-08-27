@@ -16,28 +16,29 @@ const { className, id, headerColor, title, text } = Astro.props;
     border-radius: 12px;
     transition: all 0.2s ease-in-out;
     overflow: hidden;
-    width: 27dvw;
+    width: 80dvw;
   }
 
-  @media (max-width: 412px) {
+  @media (min-width: 810px) {
     .card-type2 {
-      width: 77dvw;
+      width: 28dvw;
     }
   }
 
-  @media (max-width: 820px) {
+  @media (min-width: 1280px) {
     .card-type2 {
-      width: 47dvw;
+      width: 16dvw;
     }
   }
+
 </style>
 
-<div id={id} class=`card-type2  shadow-lg ${className}`>
+<div id={id} class=`card-type2 shadow-lg ${className}`>
   <div class=` w-full h-10 ${headerColor}`>
     <WarningCircleIcon />
   </div>
   <div class="w-full bg-surface-color text-primary-background p-4 pr-20">
     <span class="font-black text-4xl"> {title}</span>
-    <p class="font-bold text-sm">{text}</p>
+    <p class="font-bold text-sm lg:text-2xl">{text}</p>
   </div>
 </div>
