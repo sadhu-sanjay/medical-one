@@ -4,11 +4,7 @@ import Card from "../components/Card.astro";
 
 <style is:global>
   /* Initial positions */
-  .box {
-    height: 96px;
-    background-color: red;
-    transition: all 0.5s ease-in-out;
-  }
+  
   #hero-box {
     transition: opacity 0.4s ease-in-out;
   }
@@ -56,21 +52,21 @@ import Card from "../components/Card.astro";
     >
       <Card
         text="Many Regulatory policies to comply with"
-        class="box sm:absolute sm:left-48 sm:top-24"
+        class="box sm:absolute sm:left-48 sm:top-24 xl:left-64 xl:top-48"
       />
       <Card
         text="New Clinical evidence to understand and implement."
-        class="sm:absolute box sm:right-40 sm:top-56"
+        class="sm:absolute box sm:right-40 sm:top-56 xl:right-56"
       />
 
       <Card
         text="Staff burnout and workforce shortages."
-        class="sm:absolute box sm:left-44 sm:bottom-52"
+        class="sm:absolute box sm:left-44 sm:bottom-52 xl:bottom-72 xl:left-72"
       />
 
       <Card
         text="Communication within a healthcare organization."
-        class="sm:absolute box sm:right-48 sm:bottom-24"
+        class="sm:absolute box sm:right-48 sm:bottom-24 xl:bottom-64 xl:right-80"
       />
     </section>
 
