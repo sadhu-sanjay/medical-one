@@ -6,7 +6,6 @@ const { class: className, text, props } = Astro.props;
 
 <style>
   .card {
-    max-width: 396px;
     display: flex;
     gap: 12px;
     justify-content: space-around;
@@ -32,17 +31,19 @@ const { class: className, text, props } = Astro.props;
   }
 
   .text p {
-    font-size: 16px;
     color: rgb(var(--primary-color));
   }
 </style>
 
-<div class=`card ${className}` {...props}>
+<div
+  class="${className} card px-6 py-3 md:w-4/12 md:py-24 xl:w-4/12 xl:max-w-screen-sm"
+  {...props}
+>
   <div class="icon">
     <WarningTriangleIcon />
   </div>
   <div class="text">
-    <p class="font-semibold tracking-tighter">
+    <p class="text-lg font-semibold tracking-tighter sm:text-xl xl:text-4xl">
       {text}
     </p>
   </div>

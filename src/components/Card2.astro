@@ -30,15 +30,14 @@ const { className, id, headerColor, title, text } = Astro.props;
       width: 16dvw;
     }
   }
-
 </style>
 
 <div id={id} class=`card-type2 shadow-lg ${className}`>
   <div class=` w-full h-10 ${headerColor}`>
     <WarningCircleIcon />
   </div>
-  <div class="w-full bg-surface-color text-primary-background p-4 pr-20">
-    <span class="font-black text-4xl"> {title}</span>
-    <p class="font-bold text-sm lg:text-2xl">{text}</p>
+  <div class="w-full bg-surface-color p-4 pr-20 text-primary-background">
+    <span class="text-4xl font-black"> {title}</span>
+    <p class="text-sm font-bold lg:text-2xl">{text}</p>
   </div>
 </div>
