@@ -4,12 +4,10 @@ import Card2 from "../components/Card2.astro";
 import BGCIRCLE from "../components/BG_CIRCLE.astro";
 ---
 
-<section id="section2" class="rounded-lg relative w-full h-[500dvh]">
-  
+<section id="section2" class="relative h-[500dvh] w-full rounded-lg">
   <div
-    class="h-[100dvh] overflow-hidden w-full sticky top-0 left-0 bg-secondary-light"
+    class="sticky left-0 top-0 h-[100dvh] w-full overflow-hidden bg-secondary-light"
   >
-
     <BGCIRCLE
       text="Increasing Cost"
       textOpacity={1}
@@ -36,25 +34,16 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
     <div
       id="heading2"
-      class="
-      transition-all duration-500 ease-in absolute top-1/2 
-      -translate-y-1/2 -translate-x-1/2 left-1/2 w-full sm:w-1/2 mx-auto 
-      flex flex-col items-center justify-center gap-8 p-8 sm:p-12"
+      class="absolute left-1/2 top-1/2 mx-auto flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-8 p-8 transition-all duration-500 ease-in sm:w-1/2 sm:p-12"
     >
       <div
-        class="border border-white/0.7 border-1
-        text-white/0.7
-        tracking-tighter
-        rounded-lg px-6 py-2 font-bold flex items-center"
+        class="border-white/0.7 border-1 text-white/0.7 flex items-center rounded-lg border px-6 py-2 font-bold tracking-tighter"
       >
-        <p class="font-bold text-4xl">•</p>
+        <p class="text-4xl font-bold">•</p>
         <h1 class="ml-2">The Compounding Effect</h1>
       </div>
       <h1
-        class="text-white/0.7 font-extrabold text-3xl sm:text-4xl lg:text-6xl
-        tracking-tighter
-        leading-tight
-        text-center"
+        class="text-white/0.7 text-center text-3xl font-extrabold leading-tight tracking-tighter sm:text-4xl lg:text-6xl"
       >
         Patient safety progress has stalled over the past 30 years
       </h1>
@@ -64,22 +53,20 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
       id="card8"
       title="95%"
       text="of the data goes unused*"
-      className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 "
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       headerColor="bg-primary-background"
     />
 
     <section
       style="scale: 15"
       id="card-section1"
-      class="flex flex-col justify-center items-center gap-4 p-20
-      transition-all duration-500 ease-in-out w-full h-full"
+      class="flex h-full w-full flex-col items-center justify-center gap-4 p-20 transition-all duration-500 ease-in-out"
     >
-
       <Card2
         id="card9"
         title=">80%"
         text=`safty events goes undocumented*`
-        className=" sm:absolute sm:left-16 top-102 lg:left-96"
+        className="xl:top-102 sm:absolute sm:left-16 xl:left-96"
         headerColor="bg-secondary"
       />
 
@@ -87,7 +74,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card10"
         title="25%"
         text="Harm events preventable*"
-        className="sm:absolute sm:right-12 lg:right-96 sm:top-36 "
+        className="sm:absolute sm:right-12 sm:top-36 xl:right-96"
         headerColor="bg-secondary"
       />
 
@@ -95,24 +82,21 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card11"
         title="25%"
         text="Adverse events preventable*"
-        className="sm:absolute sm:right-24 lg:right-[40rem] sm:bottom-24 "
+        className="sm:absolute sm:bottom-24 sm:right-24 xl:right-[40rem]"
         headerColor="bg-secondary"
       />
-
     </section>
 
     <section
       style="scale: 4"
       id="card-section2"
-      class="
-      flex sm:flex-none flex-col justify-center gap-4 items-center
-      absolute top-0 w-full h-full transition-all ease-in-out duration-500"
+      class="absolute top-0 flex h-full w-full flex-col items-center justify-center gap-4 transition-all duration-500 ease-in-out sm:flex-none"
     >
       <Card2
         id="card12"
         title="76%"
         text="Health care workers reported burnouts*"
-        className="sm:absolute sm:left-40 sm:top-44"
+        className="sm:absolute sm:left-40 sm:top-44 xl:left-72"
         headerColor="bg-secondary-light "
       />
 
@@ -120,7 +104,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card13"
         title="266Bn"
         text="Administrative complexity*"
-        className="sm:absolute sm:right-24 sm:top-24 "
+        className="sm:absolute sm:right-24 sm:top-24 xl:right-80"
         headerColor="bg-secondary-light"
       />
 
@@ -128,7 +112,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card14"
         title="$214Bn"
         text="Operational waste*"
-        className="sm:absolute sm:left-40 sm:bottom-24 "
+        className="sm:absolute sm:bottom-24 sm:left-40 xl:left-80"
         headerColor="bg-secondary-light"
       />
 
@@ -136,11 +120,10 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
         id="card15"
         title="15%"
         text="Expendenture driven by  adverse events*"
-        className="sm:absolute sm:right-24 sm:bottom-20 "
+        className="sm:absolute sm:bottom-20 sm:right-24 xl:right-96"
         headerColor="bg-secondary-light"
       />
     </section>
-
   </div>
 </section>
 
@@ -171,13 +154,12 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     const scrollPercentage = Math.round(
       (window.scrollY /
         (document.documentElement.scrollHeight - window.outerHeight)) *
-        100
+        100,
     );
 
     console.log("section2  %", scrollPercentage);
 
     function turnIntoCircle(elements, width) {
-
       elements.forEach((el) => {
         el.style.width = width;
         el.style.height = width;
@@ -214,15 +196,19 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
     if (scrollPercentage < break4) {
       resetCircle([bgCircle1]);
       show([heading2]);
-      hide([cardSection1, headingCircle1, headingCircle2, headingCircle3, card8]);
-      
+      hide([
+        cardSection1,
+        headingCircle1,
+        headingCircle2,
+        headingCircle3,
+        card8,
+      ]);
+
       cardSection1.style.scale = 12;
-      cardSection2.style.opacity = 0
-
+      cardSection2.style.opacity = 0;
     } else if (scrollPercentage > break4 && scrollPercentage <= break5) {
-
       turnIntoCircle([bgCircle1], "90dvh");
-      show([card8, headingCircle1 ]);
+      show([card8, headingCircle1]);
       hide([headingCircle2, heading2, cardSection1]);
 
       resetCircle([bgCircle2]);
@@ -236,7 +222,7 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
       cardSection1.style.scale = 1;
 
-      cardSection2.style.opacity = 0
+      cardSection2.style.opacity = 0;
       cardSection2.style.scale = 4;
 
       hide([headingCircle3, card8, headingCircle1]);
@@ -250,9 +236,8 @@ import BGCIRCLE from "../components/BG_CIRCLE.astro";
 
       cardSection1.style.scale = 0;
 
-      cardSection2.style.opacity = 1
+      cardSection2.style.opacity = 1;
       cardSection2.style.scale = 1;
     }
   });
-
 </script>
